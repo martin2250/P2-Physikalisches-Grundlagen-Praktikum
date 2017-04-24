@@ -5,7 +5,7 @@ all: build show
 
 include ./data/Makefile
 
-build: data main.tex
+build: data main.tex ../common/emails.tex
 	$(BUILD) -jobname=$(FILE) main.tex
 
 show:
@@ -16,6 +16,9 @@ upload: build
 
 share: build
 	curl -H "Max-Days: 1" --upload-file ./$(FILE).pdf https://transfer.sh/$(FILE).pdf
+
+../common/emails.tex:
+	printf '\\newcommand{\\emailadressen}{TODO: umut@dick.butt, martin@dick.butt}' > ../common/emails.tex
 
 clean:
 	-rm *.aux
