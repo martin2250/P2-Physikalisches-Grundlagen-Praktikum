@@ -1,6 +1,8 @@
 BUILD = latexmk -pdf -interaction=nonstopmode -synctex=1
 FILE = P2-$(shell basename $(CURDIR))
 
+.PHONY: all build show upload share clean
+
 all: build show
 
 include ./data/Makefile
