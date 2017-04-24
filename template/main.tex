@@ -1,0 +1,28 @@
+\documentclass{../praktikum-protokollvorlage-latex/include/protokollclass}
+\SelectLanguage{ngerman}
+
+\input{../common/header.tex}
+
+\newcommand{\versuch}{XX}
+\newcommand{\versuchsnr}{XX}			%P!- weglassen
+\newcommand{\fehlerrechnung}{Nein}
+
+\newcommand{\betreuer}{XX}
+\newcommand{\durchgefuehrt}{X.X.17}
+
+\begin{document}
+	\FrontMatter
+	\maketitlepage
+
+	\MainMatter
+
+	\input{./chap/template.tex}
+
+	\Appendix
+	\configureappendix
+	\input{./chap/appendix.tex}
+
+	\TheBibliography
+	\bibliographystyle{babalpha}
+	\bibliography{lit}
+\end{document}
