@@ -7,10 +7,11 @@ pip install --upgrade pip
 sudo pip install setuptools
 sudo pip install matplotlib numpy scipy
 
-sudo apt-get install texlive texlive-fonts-recommended texlive-lang-german texlive-latex-base texlive-latex-extra texlive-latex-recommended lmodern texlive-fonts-recommended
+sudo apt-get install texlive texlive-fonts-recommended texlive-lang-german texlive-latex-base texlive-latex-extra texlive-latex-recommended lmodern
 ```
 
 #### building
+* run make at least once to generate common/emails.tex
 * replace fake emails in common/emails.tex (not pusblished to prevent spam from crawlers)
 ```
 cd XX-{Versuchsname}
