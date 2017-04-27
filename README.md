@@ -7,7 +7,7 @@ pip install --upgrade pip
 sudo pip install setuptools
 sudo pip install matplotlib numpy scipy
 
-sudo apt-get install texlive texlive-fonts-recommended texlive-lang-german texlive-latex-base texlive-latex-extra texlive-latex-recommended lmodern
+sudo apt-get install texlive texlive-fonts-recommended texlive-lang-german texlive-latex-base texlive-latex-extra texlive-latex-recommended lmodern latexmk
 ```
 
 #### building
