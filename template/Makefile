@@ -1,11 +1,12 @@
 BUILD = latexmk -pdf -interaction=nonstopmode -synctex=1
 FILE = P2-$(shell basename $(CURDIR))
 
-.PHONY: all build show upload share clean
+.PHONY: all build show upload share clean data
 
 all: build show
 
-include ./data/Makefile
+data:
+	make -C data
 
 build: data main.tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex
 	$(BUILD) -jobname=$(FILE) main.tex
