@@ -30,17 +30,4 @@ bibliography.ag.tex:
 	cp ../common/bibliography.tex bibliography.ag.tex
 
 clean:
-	-rm *.aux
-	-rm *.log
-	-rm *.out
-	-rm *.lot
-	-rm *.lof
-	-rm *.fls
-	-rm *.bbl
-	-rm *.blg
-	-rm *.toc
-	-rm *.pdf
-	-rm *.ps
-	-rm *.synctex.gz
-	-rm *.dvi
-	-rm *.fdb_latexmk
+	git clean -Xf
