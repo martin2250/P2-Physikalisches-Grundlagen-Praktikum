@@ -12,17 +12,14 @@
 
 \begin{document}
 	\FrontMatter
+	\include{titlepage.ag}
 	\maketitlepage
 
 	\MainMatter
 
-	\input{./chap/template.tex}
+	\include{./chap/template}
 
-	\Appendix
-	\configureappendix
-	\input{./chap/appendix.tex}
+	\include{./chap/appendix}
 
-	\TheBibliography
-	\bibliographystyle{babalpha}
-	\bibliography{lit}
+	\include{bibliography.ag}
 \end{document}

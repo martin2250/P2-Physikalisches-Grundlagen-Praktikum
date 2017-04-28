@@ -1,4 +1,7 @@
 common/emails.tex
+
+*.ag.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

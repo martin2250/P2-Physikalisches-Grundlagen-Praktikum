@@ -7,7 +7,7 @@ all: build show
 
 include ./data/Makefile
 
-build: data main.tex ../common/emails.tex
+build: data main.tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex
 	$(BUILD) -jobname=$(FILE) main.tex
 
 show:
@@ -21,6 +21,12 @@ share: build
 
 ../common/emails.tex:
 	printf '\\newcommand{\\emailadressen}{TODO: umut@dick.butt, martin@dick.butt}' > ../common/emails.tex
+
+#titlepage and bibliography have to be copied, because \include only works in subdirectories of $PWD
+titlepage.ag.tex:
+	cp ../praktikum-protokollvorlage-latex/include/titlepage.tex titlepage.ag.tex
+bibliography.ag.tex:
+	cp ../common/bibliography.tex bibliography.ag.tex
 
 clean:
 	-rm *.aux
