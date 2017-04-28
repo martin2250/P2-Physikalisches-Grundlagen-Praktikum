@@ -1,5 +1,4 @@
 common/emails.tex
-
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -21,6 +20,7 @@ common/emails.tex
 # *.eps
 *.pdf
 *.*~
+!praktikum-protokollvorlage-latex/include/kitlogo.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
