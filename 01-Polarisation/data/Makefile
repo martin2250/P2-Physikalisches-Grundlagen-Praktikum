@@ -11,3 +11,6 @@ plots:
 
 plots/%.pdf: source/%.dat plots plot.py
 	./plot.py $< $@
+
+clean:
+	git clean -Xf
