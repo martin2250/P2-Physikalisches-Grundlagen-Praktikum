@@ -9,5 +9,5 @@ data: $(targets)
 plots:
 	mkdir plots
 
-plots/%.pdf: source/%.dat plots
+plots/%.pdf: source/%.dat plots plot.py
 	./plot.py $< $@

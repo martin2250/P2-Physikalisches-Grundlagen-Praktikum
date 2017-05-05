@@ -24,11 +24,9 @@ matplotlib.rc('ytick', labelsize=9)
 ax = plt.subplot(111, projection='polar')
 ax.plot(theta, U)
 
-
-for i in range(0,37):
-	print(i, theta[i], U[i])
-
 if len(sys.argv)==2:
+	for i in range(0,37):
+		print(i, theta[i], U[i])
 	plt.show()
 else:
 	plt.savefig(sys.argv[2], format='pdf')
