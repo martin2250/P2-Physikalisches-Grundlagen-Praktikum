@@ -14,15 +14,19 @@ if not 1 < len(sys.argv) < 4:
 N = 37
 theta = np.linspace(0.0, 2 * np.pi, N)
 
+matplotlib.rc('xtick', labelsize=11)
+matplotlib.rc('ytick', labelsize=9)
+
+#This isn't fucking working
+#plt.xlabel('Winkel in $\si{\degree}$')
+#plt.ylabel('Spannung in $\si{\volt}$')
+
 ax = plt.subplot(111, projection='polar')
-ax.plot(theta, U, color='#ee8d18')
+ax.plot(theta, U)
+
 
 for i in range(0,37):
 	print(i, theta[i], U[i])
-
-matplotlib.rc('text', usetex = True)
-params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
-plt.rcParams.update(params)
 
 if len(sys.argv)==2:
 	plt.show()
