@@ -5,12 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
-if len(sys.argv)==1:
-	print('Specify a file, dimwit.')
+if not 1 < len(sys.argv) < 4:
+	print('usage: %s source.dat [target.pdf]\n\t\t...dickhead.'%sys.argv[0])
 	sys.exit()
 
-elif len(sys.argv)>=2:
-	(deg, U) = np.loadtxt(sys.argv[1], unpack=True)
+(deg, U) = np.loadtxt(sys.argv[1], unpack=True)
 
 N = 37
 theta = np.linspace(0.0, 2 * np.pi, N)
@@ -27,6 +26,5 @@ plt.rcParams.update(params)
 
 if len(sys.argv)==2:
 	plt.show()
-
-elif len(sys.argv)==3 and sys.argv[2]=='save':
-	plt.savefig('plots/' + sys.argv[1][7:-3] + 'pdf', format='pdf')
+else:
+	plt.savefig(sys.argv[2], format='pdf')
