@@ -146,14 +146,14 @@
             citebordercolor=kitcolor]{hyperref}
 
 
-\expandafter\def\csname ver@subfig.sty\endcsname{}
-                                                % stop package svg from loading 
+%\expandafter\def\csname ver@subfig.sty\endcsname{}
+                                                % stop package svg from loading
                                                 % package subfig
                                                 % http://tex.stackexchange.com/\
                                                 % questions/213273/undefined-  \
                                                 % control-sequence-            \
                                                 % at-begindocument
-\usepackage{svg}                                % include svg graphics
+%\usepackage{svg}                                % include svg graphics
 %\usepackage{float}								% float [no shit sherlock]
 
 
