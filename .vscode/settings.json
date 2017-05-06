@@ -1,6 +1,5 @@
 {
     "search.exclude": {
-        "common/emails.tex": true,
         "**/*.ag.tex": true,
         "## Core latex/pdflatex auxiliary files:": true,
         "**/***/*.aux": true,
@@ -149,7 +148,6 @@
         "**/*~[0-9]**/*": true
     },
     "files.exclude": {
-        "common/emails.tex": true,
         "**/*.ag.tex": true,
         "## Core latex/pdflatex auxiliary files:": true,
         "**/*.aux": true,
