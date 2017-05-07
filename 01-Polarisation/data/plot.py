@@ -11,8 +11,18 @@ if not 1 < len(sys.argv) < 4:
 
 (deg, U) = np.loadtxt(sys.argv[1], unpack=True)
 
-N = 37
-theta = np.linspace(0.0, 2 * np.pi, N)
+rotate = 0
+
+with open(sys.argv[1]) as file:
+	firstline = file.readlines()[0]
+	if firstline.startswith('#rotate='):
+		rotate = int(firstline[8:])
+		print(rotate)
+
+deg = np.roll(deg, rotate)
+U = np.roll(U, rotate)
+
+theta = deg * np.pi / 180
 
 matplotlib.rc('xtick', labelsize=11)
 matplotlib.rc('ytick', labelsize=9)
