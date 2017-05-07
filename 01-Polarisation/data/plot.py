@@ -25,17 +25,19 @@ theta = deg * np.pi / 180
 
 matplotlib.rc('xtick', labelsize=11)
 matplotlib.rc('ytick', labelsize=9)
+matplotlib.rc('text', usetex = True)
+params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}']}
+plt.rcParams.update(params)
 
-#This isn't fucking working
-#plt.xlabel('Winkel in $\si{\degree}$')
-#plt.ylabel('Spannung in $\si{\volt}$')
 
 ax = plt.subplot(111, projection='polar')
+
+ax.set_xlabel('Winkel in $\\si{\\degree}$')
+ax.set_ylabel('Spannung in $\\si{\\volt}$')
+
 ax.plot(theta, U)
 
 if len(sys.argv)==2:
-	for i in range(0,37):
-		print(i, theta[i], U[i])
 	plt.show()
 else:
 	plt.savefig(sys.argv[2], format='pdf')
