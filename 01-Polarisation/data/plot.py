@@ -19,8 +19,7 @@ with open(sys.argv[1]) as file:
 		rotate = int(firstline[8:])
 		print(rotate)
 
-deg = np.roll(deg, rotate)
-U = np.roll(U, rotate)
+deg = deg + rotate
 
 theta = deg * np.pi / 180
 
