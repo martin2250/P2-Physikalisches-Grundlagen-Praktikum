@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
@@ -17,7 +18,6 @@ with open(sys.argv[1]) as file:
 	firstline = file.readlines()[0]
 	if firstline.startswith('#rotate='):
 		rotate = int(firstline[8:])
-		print(rotate)
 
 deg = deg + rotate
 
@@ -25,15 +25,16 @@ theta = deg * np.pi / 180
 
 matplotlib.rc('xtick', labelsize=11)
 matplotlib.rc('ytick', labelsize=9)
-matplotlib.rc('text', usetex = True)
-params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}']}
-plt.rcParams.update(params)
+#matplotlib.rc('text', usetex = True)
+#params = {'text.latex.preamble' : ['\\usepackage{siunitx}']}
+#plt.rcParams.update(params)
 
 
 ax = plt.subplot(111, projection='polar')
 
-ax.set_xlabel('Winkel in $\\si{\\degree}$')
-ax.set_ylabel('Spannung in $\\si{\\volt}$')
+ax.set_xlabel(u'Winkel in Grad')
+ax.set_ylabel('Spannung in V')
+ax.yaxis.set_label_coords(-.1, 0.8)
 
 ax.plot(theta, U)
 
