@@ -1,5 +1,7 @@
 BUILD = latexmk -pdf -interaction=nonstopmode -synctex=1
 FILE = P2-$(shell basename $(CURDIR))
+svgimgs := $(wildcard img/*.svg)
+svgimtargets := $(patsubst %.svg,%.pdf,$(svgimgs))
 
 .PHONY: all build show upload share clean data
 
@@ -8,7 +10,7 @@ all: build show
 data:
 	make -C data
 
-build: data main.tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex
+build: data main.tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets)
 	$(BUILD) -jobname=$(FILE) main.tex
 
 show:
@@ -22,6 +24,9 @@ share: build
 
 ../common/emails.tex:
 	printf '\\newcommand{\\emailadressen}{TODO: umut@dick.butt, martin@dick.butt}' > ../common/emails.tex
+
+img/%.pdf: img/%.svg
+	inkscape $< --export-pdf=$@
 
 #titlepage and bibliography have to be copied, because \include only works in subdirectories of $PWD
 titlepage.ag.tex:
