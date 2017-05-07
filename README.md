@@ -2,7 +2,7 @@
 
 #### installing dependencies
 ```
-sudo apt-get install python-pip python-dev build-essential
+sudo apt-get install python-pip python-dev build-essential inkscape
 pip install --upgrade pip
 sudo pip install setuptools
 sudo pip install matplotlib numpy scipy
