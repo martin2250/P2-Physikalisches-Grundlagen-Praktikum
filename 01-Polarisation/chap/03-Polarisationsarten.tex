@@ -13,13 +13,58 @@ Daher muss ein Interferenzfilter vorgeschaltet werden, welcher monochromatisches
 		\centering
 		\includegraphics[height=.8\linewidth]{./data/plots/linear_ohne_filter.pdf}
 		\caption[ohne Filter]{Linear polarisiertes Licht, ohne Filter}
+		\label{subfig:lin_nofilt}
 	\end{subfigure}
 	$\quad$
 	\begin{subfigure}{.4\textwidth}
 		\centering
 		\includegraphics[height=.8\linewidth]{./data/plots/linear_mit_filter.pdf}
 		\caption[mit Filter]{Linear polarisiertes Licht, mit Filter}
+		\label{subfig:lin_withfilt}
 	\end{subfigure}
 	\caption[Linear polarisiertes Licht]{Messungen des linear polarisierten Lichtes in Abhängigkeit der Stellung des Analysators}
 	\label{fig:meas_lin}
 \end{figure}
+
+\subsection{Ohne Filter}
+In der Theorie sollte ein ideales Polarisationsfilter dazu in der Lage sein, linear polarisiertes Licht ungeachtet seiner Wellenlänge zu filtern.
+Wird in einem Polardiagramm die Spannung des Fotodetektors gegen den Winkel des Analysators aufgetragen, so sollte der entstandene Graph einer Acht ähneln, doch dies ist, wie in \autoref{subfig:lin_nofilt} dargestellt, nicht der Fall.
+Es ist gut zu erkennen, dass trotz orthogonaler Stellung des Analysators zum Polfilter immer noch Licht zum Detektor durchdringt.
+Daraus lässt sich schließen, dass das Polarisationsfilter nicht alle Wellenlängen des Lichtes gleich gut filtern kann.
+Läge ein ideales Polfilter vor, wäre ein ähnliches Messergebnis wie in \autoref{subfig:lin_withfilt} zu erwarten.
+Außerdem ist eine kleine Neigung von etwa \SI{5}{\degree} des Graphen ersichtlich, was auf eine Abweichung der Ausrichtungsskala des Analysators von der tatsächlichen Stellung schließen lässt.
+Trotz der Bemühungen, beide Filter bezüglich ihrer Stellung abzugleichen, kann also eine minimale Fehlstellung nicht vermieden werden.
+Dies ist der Tatsache verschuldet, dass der Abgleich per Hand vorgenommen wird, was mitunter nicht perfekt möglich ist.
+
+\subsection{Mit Filter}
+Wird nun ein Interferenzfilter vor die Anordnung geschaltet, so ergibt sich der Graph in \autoref{subfig:lin_withfilt}, welcher nah an der zu erwartenden Abhängigkeit liegt.
+Der Graph ist nun nahezu geschlossen und beschreibt eine Acht.
+Mögliche Fehlerquellen sind ein nicht gänzlich abgedunkelter Raum oder eine kleine Fehlfunktion des Interferenzfilters, diese Quellen konnten weitgehend beseitigt werden.
+Da der Fotodetektor zuvor durch Verschließen seines Lichteinlasses auf seine Funktion geprüft wurde, konnte auch dieser Fehler vermieden werden. \todo{'kleine Fehlfunktion, Lichteinlass' sound stupid, please fix}
+Aufgrund der guten Ergebnisse werden die nächsten Versuche mit vorgeschaltetem Interferenzfilter durchgeführt.
+
+\section{Elliptische Polarisation}
+\begin{figure}[tb]
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[height=.8\linewidth]{./data/plots/elliptisch_45-50um.pdf}
+		\caption[\SIrange{45}{50}{\micro\meter}]{Elliptisch polarisiertes Licht, \SIrange{45}{50}{\micro\meter}}
+		\label{subfig:ellip_45_50}
+	\end{subfigure}
+	$\quad$
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[height=.8\linewidth]{./data/plots/elliptisch_60-65um.pdf}
+		\caption[\SIrange{60}{65}{\micro\meter}]{Elliptisch polarisiertes Licht, \SIrange{60}{65}{\micro\meter}}
+		\label{subfig:ellip_60_65}
+	\end{subfigure}
+	\caption[Elliptisch polarisiertes Licht]{Messungen des elliptisch polarisierten Lichtes in Abhängigkeit der Stellung des Analysators}
+	\label{fig:meas_ellip}
+\end{figure}
+Zur Erzeugung von elliptisch polarisiertem Licht wird zwischen Polarisator und Analysator ein Glimmerplättchen gebracht.
+Es wird für zwei Glimmerplättchen verschiedener Dicke gemessen und erneut ihre Intensität in Abhängigkeit vom Winkel zwischen Polfilter und Analysator aufgenommen.
+Zunächst werden dabei vor dem Hereinbringen des Glimmers Analysator und Polfilter \SI{90}{\degree} zueinander verdreht und nach dem Stellen des Glimmers in den Strahl so eingestellt, dass das Licht erneut nicht beim Detektor ankommt.
+Dann wird der Polarisator um \SI{45}{\degree} gedreht, um einen Abgleich mit dem Glimmer zu erzielen. \todo{Can't quite phrase this, please revise.}
+An den Graphen in \autoref{fig:meas_ellip} fällt zunächst auf, dass sie um \SI{45}{\degree} gegenüber den Graphen in \autoref{fig:meas_lin} gedreht sind, was aufgrund der elliptischen Polarisation zu erwarten war.
+Außerdem geht die Intensität selbst mit Interferenzfilter nie auf \SI{0}{\volt} zurück, was ebenfalls an dem elliptischen Charakter liegt.
+Die Taillenweite der Graphen sollte von der Plättchendicke abhängen, allerdings kann dieser Zusammenhang mit diesen Dicken nicht bestätigt werden.
