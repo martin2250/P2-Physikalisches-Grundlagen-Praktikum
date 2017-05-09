@@ -15,4 +15,7 @@ set ytics nomirror
 
 set ylabel "Spannung in V"
 
-plot 'zirkular.dat' with lines
+set terminal pdf
+set output ARG2
+
+plot ARG1 with lines
