@@ -13,7 +13,7 @@ plots:
 #	./plot.py $< $@
 
 plots/%.pdf: source/%.dat plots plot.gnu
-	gnuplot plot.gnu "$<" "$@"
+	gnuplot -c plot.gnu "$<" "$@"
 
 clean:
 	git clean -Xf
