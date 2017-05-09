@@ -43,7 +43,7 @@ Mögliche Fehlerquellen sind ein nicht gänzlich abgedunkelter Raum und die Brei
 %Da der Fotodetektor zuvor durch Verschließen seines Lichteinlasses auf seine Funktion geprüft wurde, konnte auch dieser Fehler vermieden werden. \todo{'kleine Fehlfunktion, Lichteinlass' sound stupid, please fix}
 Aufgrund der guten Ergebnisse werden die nächsten Versuche mit vorgeschaltetem Interferenzfilter durchgeführt.
 
-\section{Elliptische Polarisation}
+\section{Elliptische Polarisation}\label{sec:ellip}
 \begin{figure}[tb]
 	\begin{subfigure}{.4\textwidth}
 		\centering
@@ -69,3 +69,19 @@ Dann wird der Polarisator um \SI{45}{\degree} gedreht, um gerade zwischen den be
 An den Graphen in \autoref{fig:meas_ellip} fällt zunächst auf, dass sie um \SI{45}{\degree} gegenüber den Graphen in \autoref{fig:meas_lin} gedreht sind, was aufgrund der elliptischen Polarisation zu erwarten war.
 Außerdem geht die Intensität selbst mit Interferenzfilter nie auf \SI{0}{\volt} zurück, was ebenfalls an dem elliptischen Charakter liegt.
 %Die Taillenweite der Graphen sollte von der Plättchendicke abhängen, allerdings kann dieser Zusammenhang mit diesen Dicken nicht bestätigt werden.
+\todo{Discuss, I think it should be included.}
+
+\section{Zirkulare Polarisation}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{./data/plots/zirkular.pdf}
+	\caption[Zirkular polarisiertes Licht]{Messungen des zirkular polarisierten Lichtes in Abhängigkeit der Stellung des Analysators}
+	\label{fig:zircular}
+\end{figure}
+
+Es wird mithilfe eines $\frac{\lambda}{4}$-Plättchens zirkular polarisiertes Licht erzeugt.
+Dieses wird zwischen Polfilter und Analysator in den Strahlengang gebracht und die gleiche Kalibrierung wie in \autoref{sec:ellip} vorgenommen.
+\autoref{fig:zircular} zeigt die Messergebnisse.
+Die typischen Charakteristika für zirkular polarisiertes Licht sind gut ausgeprägt:
+Nahezu unveränderte Intensität in Abhängigkeit vom Winkel und keine bevorzugte Neigung des Graphen in eine Richtung.
+Die minimale Abweichung von der kreisrunden Form des Graphen lässt sich durch die Breite des Passbandes des Filters erklären.
