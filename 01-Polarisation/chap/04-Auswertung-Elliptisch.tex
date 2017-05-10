@@ -5,4 +5,28 @@ Es soll die Brechzahldiffernz zwischen den extraordinären Strahlen der gegebene
 \autoref{eq:phasediff} gibt den Zusammenhang zwischen der Phasendifferenz, der Dicke der Plättchen und der Brechzahldiffernz an.
 Die Dicke der Plättchen ist bekannt, es bleibt die Phasendifferenz zu ermitteln.
 
-Im Allgemeinen ist diese schwer zu bestimmen, durch die Einschränkung gleicher Amplituden des ordinären und extraordinären wird dies vereifacht.
+Im Allgemeinen ist diese schwer zu bestimmen, durch die Einschränkung gleicher Amplituden des ordinären und extraordinären wird dies vereinfacht, und es gilt der Zusammenhang
+\begin{equation}
+	\Delta \varphi = 2 \cdot \arctan\sqrt{\frac{T}{L}},
+\end{equation}
+mit der Tallienweite $T$ und der Länge $L$ der Figur.
+Dieser Zusammenhang lässt dich der Vorbereitungsmappe entnehmen.
+
+Die Messwerte sind in \autoref{tab:tabtab} aufgelistet.
+Mit \autoref{eq:phasediff} kann schließlich die Brechzahldiffernz bestimmt werden.
+
+%Dn = Dphi/(k*d) = Dphi * lambda/(2pi*d)
+
+\begin{table}
+	\centering
+	\caption{Zur Brechzahlbestimmung}
+	\label{tab:tabtab}
+	\begin{tabular}{ccccc}
+	\toprule
+	&	{$L$}&	{$T$}&	{$\Delta \varphi$}&	{$\Delta \n$}\\
+	\midrule
+	\SIrange{45}{50}{\micro\meter}& 268&	\num{13.4}&	\SI{5.7}{\degree}& \num{0}\\
+	\SIrange{60}{65}{\micro\meter}& 300&	22&	\SI{8.4}{\degree}& \num{0}\\
+	\bottomrule
+	\end{tabular}
+\end{table}
