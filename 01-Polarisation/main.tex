@@ -13,7 +13,12 @@
 \begin{document}
 	\FrontMatter
 	\include{titlepage.ag}
-	\maketitlepage
+	%\maketitlepage
+	\begingroup \let\clearpage\relax
+	\tableofcontents
+	\listoffigures
+	%\listoftables	%only one table, so I'd rather save a page of paper
+	\endgroup
 
 	\MainMatter
 
@@ -24,7 +29,7 @@
 	\include{./chap/05-Bilder}
 	\include{./chap/06-Spannungsdoppelbrechung}
 
-	\include{./chap/appendix}
+	%\include{./chap/appendix}
 
-	\include{bibliography.ag}
+	%\include{bibliography.ag}
 \end{document}

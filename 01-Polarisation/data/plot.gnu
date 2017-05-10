@@ -5,8 +5,8 @@ set grid polar 30
 set rtics textcolor rgb "white"
 set rtics scale 0
 unset raxis
-set size square
-
+#set size square
+set size ratio -1
 
 set border 2
 unset xtics
