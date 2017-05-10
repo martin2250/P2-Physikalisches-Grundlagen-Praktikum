@@ -10,12 +10,11 @@ Im Allgemeinen ist diese schwer zu bestimmen, durch die Einschränkung gleicher 
 	\Delta \varphi = 2 \cdot \arctan\sqrt{\frac{T}{L}},
 \end{equation}
 mit der Tallienweite $T$ und der Länge $L$ der Figur.
-Dieser Zusammenhang lässt dich der Vorbereitungsmappe entnehmen.
+Dieser Zusammenhang lässt sich der Vorbereitungsmappe entnehmen.
 
 Die Messwerte sind in \autoref{tab:tabtab} aufgelistet.
 Mit \autoref{eq:phasediff} kann schließlich die Brechzahldiffernz bestimmt werden.
-
-%Dn = Dphi/(k*d) = Dphi * lambda/(2pi*d)
+Da die Dicke der Glimmerplättchen nur bereichsweise angegeben ist, werden Brechzahlbereiche berechnet.
 
 \begin{table}
 	\centering
@@ -23,10 +22,16 @@ Mit \autoref{eq:phasediff} kann schließlich die Brechzahldiffernz bestimmt werd
 	\label{tab:tabtab}
 	\begin{tabular}{ccccc}
 	\toprule
-	&	{$L$}&	{$T$}&	{$\Delta \varphi$}&	{$\Delta \n$}\\
+	&	{$L$}&	{$T$}&	{$\Delta \varphi$}&	{$\Delta n$}\\
 	\midrule
-	\SIrange{45}{50}{\micro\meter}& 268&	\num{13.4}&	\SI{5.7}{\degree}& \num{0}\\
-	\SIrange{60}{65}{\micro\meter}& 300&	22&	\SI{8.4}{\degree}& \num{0}\\
+	\SIrange{45}{50}{\micro\meter}& 268&	\num{13.4}&	\SI{5.7}{\degree}& \num{11.5e-3} bis \num{12.8e-3}\\
+	\SIrange{60}{65}{\micro\meter}& 300&	22&	\SI{8.4}{\degree}& \num{13.1e-3} bis \num{14.1e-3}\\
 	\bottomrule
 	\end{tabular}
 \end{table}
+
+In \autoref{tab:tabtab} ist ersichtlich, dass die Brechzahldifferenzen nicht nur in der gleichen Größenordnung liegen, sondern recht nah beieinander sind.
+Dieses Ergebnis entspricht den Erwartungen, da bei beiden Messreihen das gleiche Material verwendet wird.
+Ein Vergleich mit den Literaturwerten\footnote{Quelle:\hyperlink{https://de.wikipedia.org/wiki/Doppelbrechung}{de.wikipedia.org/wiki/Doppelbrechung}} für Muskovit (Glimmer) bestätigt zumindest die Größenordnung unserer Ergebnisse:
+$\Delta n_{\text{Lit,}\beta\gamma}=\num{5e-3}$, damit weichen die gemessenen Werte um etwa \num{150}\% vom Literaturwert ab.
+Mögliche Fehlerquellen sind ein nicht gänzlich abgedunkelter Raum und die Breite des Passbandes des Filters.
