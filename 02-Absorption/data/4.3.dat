@@ -1,0 +1,10 @@
+#Materialpenetration Cs-137 (gamma)
+#+d=42.5e-3
+#Material	Dichte[g/cm3]	Events	Zeit
+Plexiglas	1.18	1121	138.5
+Eisen	7.8	835	200
+Messing	8.4	751	200
+Aluminium	2.71	1140	152.4
+Trovidur	1.38	1010	129.9
+Hartholz	0.68	1021	114.7
+Beton	2.14	1062	138.3
