@@ -16,9 +16,6 @@ build: data main.tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $
 show:
 	xdg-open $(FILE).pdf > /dev/null 2>&1 &
 
-upload: build
-	../common/upload.sh $(FILE).pdf
-
 share: build
 	curl -H "Max-Days: 1" --upload-file ./$(FILE).pdf https://transfer.sh/$(FILE).pdf
 
