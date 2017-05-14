@@ -21,10 +21,10 @@ ax.set_xscale('log')
 matplotlib.rc('text', usetex = True)
 plt.xlabel('Distance $d$ in inches')
 plt.ylabel('Activity in Events / s')
+plt.grid(which="both")
 
 d = np.arange(0, N)
-print('TODO adjust offset')
-d = d * 10 + 25
+d = d * 10 + 28
 d = d / 25.4
 
 plt.errorbar(d, means, fmt='o', yerr=stdevs, label='Sr-90 $\\beta$ source')
@@ -42,4 +42,4 @@ if len(sys.argv) == 1:
 	print('slope:', slope)
 	plt.show()
 else:
-	plt.savefig(sys.argv[1], format='pdf')
+	plt.savefig(sys.argv[1])

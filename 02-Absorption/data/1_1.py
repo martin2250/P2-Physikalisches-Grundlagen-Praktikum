@@ -23,4 +23,4 @@ plt.legend()
 if len(sys.argv) == 1:
 	plt.show()
 else:
-	plt.savefig(sys.argv[1], format='pdf')
+	plt.savefig(sys.argv[1])
