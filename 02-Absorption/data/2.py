@@ -34,9 +34,9 @@ plt.plot(d_mm, expon(d_mm, popt[0], popt[1]))
 plt.plot(d_mm, N, 'o')
 plt.text(0.025, 300, ('N(d)=a*exp(-b*d)\na=%.2f, b=%.2f' %(popt[0], popt[1])))
 
-print("fit parameters: a=" + str(popt[0]) + ", b=" + str(popt[1]))
 
 if len(sys.argv) == 1:
+	print("fit parameters: a=" + str(popt[0]) + ", b=" + str(popt[1]))
 	plt.show()
 else:
 	plt.savefig(sys.argv[1], format='pdf')
