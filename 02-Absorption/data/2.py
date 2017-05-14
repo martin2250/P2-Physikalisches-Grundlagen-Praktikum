@@ -26,18 +26,18 @@ N=N*omega	#solid angle
 N=N-l_br	#background radiation
 
 matplotlib.rc('text', usetex = True)
-plt.xlabel('distance in m')
+plt.xlabel('distance in mm')
 plt.ylabel('Activity in Events / s')
 
-popt, pconv = scipy.optimize.curve_fit(expon, d_mm, N)
+#popt, pconv = scipy.optimize.curve_fit(expon, d_mm, N)
 
-plt.plot(d_mm, expon(d_mm, popt[0], popt[1]))
-plt.plot(d_mm, N, 'o')
-plt.text(0.025, 300, ('N(d)=a*exp(-b*d)\na=%.2f, b=%.2f' %(popt[0], popt[1])))
+#plt.plot(d_mm, expon(d_mm, popt[0], popt[1]))
+plt.plot(d, N, 'o')
+#plt.text(0.025, 300, ('N(d)=a*exp(-b*d)\na=%.2f, b=%.2f' %(popt[0], popt[1])))
 
 
 if len(sys.argv) == 1:
-	print("fit parameters: a=" + str(popt[0]) + ", b=" + str(popt[1]))
+	#print("fit parameters: a=" + str(popt[0]) + ", b=" + str(popt[1]))
 	plt.show()
 else:
 	plt.savefig(sys.argv[1], format='pdf')
