@@ -1,6 +1,6 @@
 .PHONY: data clean
 
-data: 1_4.pdf 1_1.pdf
+data: plots/1_4.pdf plots/1_1.pdf
 
 clean:
 	git clean -Xf
@@ -12,4 +12,4 @@ plots/1_4.pdf: $(wildcard source/%.dat) 1_4.py plots
 	./1_4.py $@
 
 plots/1_1.pdf: source/1.1.dat 1_1.py plots
-	./1.1.py $@
+	./1_1.py $@
