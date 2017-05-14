@@ -1,0 +1,36 @@
+% !TEX root = ../main.tex
+\chapter{Absorption of Alpha Particles}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./data/plots/2.pdf}
+	\caption[Alpha radiation over distance]{Alpha radiation over distance}
+	\label{fig:alpha_distance}
+\end{figure}
+
+This experiment addresses the distance behavior of alpha radiation emitted by the radioactive isotope Am-241.
+
+The fundamental processes responsible for alpha decay are a balance of nuclear and electromagnetic force.
+While the Coulomb force is repelling the alpha particle from the rest of the nucleus, it is restrained from the nuclear force.
+Altough in classical mechanics the alpha particle doesn't have enough energy to escape from the potential well, the quantum tunneling effect allows the alpha to escape and after some time it does.
+
+To measure the amount of alpha radiation in dependence of the distance $d$ the alpha-source Am-241 is placed in front of a Geiger-Müller tube and moved away from it in \SI{1}{\milli\meter} intervals.
+A few corrections have to be took into consideration before the measurements:
+\begin{itemize}
+	\item \textbf{Background radiation} The previously measured background radiation has to be substracted from the actual measurement.
+	\item \textbf{Changing solid angle} With changing distance the solid angle of radiation changes. It holds $R_\text{corr}=\frac{4r^2}{d^2}R_\text{meas}$, where $r$ and $d$ denote the radius of the tube and the distance respectively.
+	\item \textbf{Parasitic gamma radiation} Am-241 not only radiates alphas but also gammas. The percentage\footnote{Source: www.nucleide.org/DDEP\_WG/NUCLIDES/AM-241\_tables.pdf} of emitted alphas is $\num{98}\%$, hence $R_\text{corr}=0.98\cdot R_\text{meas}$.
+\end{itemize}
+
+\autoref{fig:alpha_distance} shows the results of the measurements after aforementioned corrections.
+The measured data confirms our expectations as it follows the \textbf{law of absorption}
+
+\begin{equation*}
+	N\propto e^{-b\cdot d}.
+\end{equation*}
+
+Fit parameters are
+\begin{gather*}
+	a=4621.15\qquad b=\SI{270.02}{\milli\meter}^{-1}.
+\end{gather*}
+
+Due to lack of comparable values it is not possible to interpret these parameters. \todo{Did I search long enough?} 

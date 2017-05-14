@@ -21,6 +21,7 @@ l_br=0.3529
 
 #corrections
 N = N/t		#average
+N=0.98*N 	#parasitic gamma radiation
 N=N*omega	#solid angle
 N=N-l_br	#background radiation
 
