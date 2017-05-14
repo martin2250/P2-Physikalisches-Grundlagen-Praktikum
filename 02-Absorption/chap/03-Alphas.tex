@@ -21,21 +21,11 @@ A few corrections have to be took into consideration before the measurements:
 	\item \textbf{Parasitic gamma radiation} Am-241 not only radiates alphas but also gammas. The percentage\footnote{Source: www.nucleide.org/DDEP\_WG/NUCLIDES/AM-241\_tables.pdf} of emitted alphas is $\num{98}\%$, hence $R_\text{corr}=0.98\cdot R_\text{meas}$.
 \end{itemize}
 
+Unlike betas and gammas alphas can be completely blocked off after a certain distance.
 \autoref{fig:alpha_distance} shows the results of the measurements after aforementioned corrections.
-The measured data confirms our expectations as it follows the \textbf{law of absorption}
-
-\begin{equation*}
-	N\propto e^{-b\cdot d}.
-\end{equation*}
-
-Fit parameters are
-\begin{gather*}
-	a=4621.15\qquad b=\SI{270.02}{\milli\meter}^{-1}.
-\end{gather*}
-
-Due to lack of comparable values it is not possible to interpret these parameters. \todo{Did I search long enough?}
-\autoref{fig:alpha_distance} also depicts the distance after which no significant amount of events could be measured: \SI{22.5}{\milli\meter}.
+A small anomaly can be seen at $d_\text{max}=\SI{16.25}{\milli\meter}$ which can be interpreted as the maximal distance the alphas can travel before ionizing completely.
 This also confirms our expectations, as alpha particles interact strongly with matter and thus do not travel for very long distances.
+The measured low-level radiation from $d_\text{max}$ until the end most likely originates from extraordinarily energized alphas or even secondary gammas, which could not be accounted for through a statistical estimation.
 
-The measurements demonstrate that there can be no specific cut-off distance, after which alphas cannot reach any further, since the absorption of alphas is a statistical, inelastic collision process.
-Although there is little chance that an alpha could travel a distance of e.g. \SI{1}{\meter} without ionizing air molecules, it is possible.
+The quality of the experiment could have benefitted by condcucting a reference experiment with a sheet of paper between tube and source.
+Like this, all alphas would have been shieled from the tube and only the secondary gammas could have been measured to subtract from the original experiment's data later on.
