@@ -15,6 +15,7 @@ NR = NR / 30
 matplotlib.rc('text', usetex = True)
 plt.xlabel('operating voltage $U$ in V')
 plt.ylabel('count rate in events / s')
+plt.grid()
 
 plt.plot(U, NL, 'o', label='left setup')
 plt.plot(U, NR, 'o', label='right setup')
