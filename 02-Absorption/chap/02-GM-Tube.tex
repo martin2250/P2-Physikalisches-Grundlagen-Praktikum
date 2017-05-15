@@ -8,6 +8,21 @@ Both show the Geiger plateau clearly, however the weak pulses produced by the ot
 The tube used in the left setup shows a slope of \SI{0.11}{\cps\per\volt} in the plateau region, the right tube shows a slope of \SI{0.13}{\cps\per\volt}.
 For all further experiments, operating voltages of \SI{450}{\volt} for the left setup, and \SI{380}{\volt} for the right setup were chosen.
 
+\section{Radiation Background}
+All artificial sources of radiation are stored behind lead shields in order to determine the natural background radiation level.
+To get a realiable rate from such infrequent events, a long gate time of \SI{5}{\second} and a total run time of \todo{...} were used.
+The measured values are listed in \autoref{tab:background}.
+
+\begin{table}[b!]\centering
+	\caption{Background Radiation Levels}
+	\label{tab:background}
+	\begin{tabular}{ccc}
+		&	mean& standard deviation\\
+		left setup&	\SI{0.353}{\cps}&	\SI{0.578}{\cps}\\
+		right setup&	\SI{0.324}{\cps}&	\SI{0.559}{\cps}\\
+	\end{tabular}
+\end{table}
+
 \begin{figure}[b!]
 	\centering
 	\includegraphics[width=.6\linewidth]{data/plots/1_1.pdf}
