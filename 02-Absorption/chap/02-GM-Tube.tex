@@ -34,24 +34,26 @@ The measured values are listed in \autoref{tab:background}.
 The incidence of radiation particles into the Geiger-Müller tube causes creation of secondary electrons, which are accelerated by the potential difference between the tube wire and wall.
 During their migration towards the anode of the tube, they cause so called electron avalanches caused by the stimulation of filling gas atoms, which in turn emit photons of UV wavelengths.
 These photons interact with other filling gas atoms through the photoelectric effect and thus emit more electrons, which are accelerated towards the anode, too, and the cycle repeats from there.
-The perpetual creation and migration of electrons to the anode causes positively charged ions to stay behind at the tube wire which alter the potential difference in this area in a manner that lead to collapse of avalanches.
+The perpetual creation and migration of electrons to the anode causes positively charged ions to stay behind at the tube wire which alter the potential difference in this area in a manner that leads to collapse of avalanches.
 These ions prevent other incident particles to induce any gas discharges for a certain amount of time because they have to migrate to the kathode (wall of the tube) first in order to make other avalanches possible.
 This time is called \textbf{dead time} $\tau_\text{dead}$.
 
-Dead time can be determined by a two-preparation method for which the formulae
-\begin{equation*}
-	R_\text{corr}=\frac{R}{1-R\cdot\tau_\text{dead}}-R_\text{back}
-\end{equation*}
-and
-\begin{equation*}
-	\tau_\text{dead}=\frac{A\cdot\left(1-\sqrt{1-C}\right)}{B}
-\end{equation*}
-hold, where $R_\text{back}$ denotes background radiation rate and
-\begin{align*}
-	A &= R_1R_2-R_\text{back}R_{12}= \\
-	B &= R_1R_2\cdot\left(R_{12}+R_\text{back}\right)-R_{12}R_\text{back}\cdot\left(R_1+R_2\right)= \\
-	C &= \frac{B\cdot\left(R_1+R_2-R_{12}-R_\text{back}\right)}{A^2}=
-\end{align*}
+Dead time can be determined by a two-preparation method for which the formula \footnote{Source: Excercise descr.}
+\begin{equation}\label{eq:dead_time}
+	\tau_\text{dead} = \frac{T}{N_{12}}\left(1-\sqrt{1-\left(N_1+N_2-N_{12}\right)\cdot\frac{N_{12}}{N_1N_2}}\right)
+\end{equation}
+holds.
+Utilizing \autoref{eq:dead_time} dead time is calculated as
+\begin{gather*}
+ 	\tau_\text{dead,l}=\SI{263.4}{\micro\second}\qquad \tau_\text{dead,r}=\SI{211.6}{\micro\second}
+\end{gather*}
+for each setup (left-right).
+
+These dead times are needed for corrections of subsequent experiments.
+It holds
+\begin{equation}\label{eq:dead_time_corr}
+	R_\text{corr}=\frac{R}{1-R\cdot\tau_\text{dead}}.
+\end{equation}
 
 \section{Inverse Square Law}
 The validity of the inverse square law is tested by placing a radiation source in front of the tube and measuring the acitivity at various positions.
