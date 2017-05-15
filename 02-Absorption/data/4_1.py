@@ -8,6 +8,10 @@ import sys
 
 d, N, t = np.loadtxt('source/4.1.dat', unpack=True)
 
+matplotlib.rc('text', usetex = True)
+params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
+plt.rcParams.update(params)
+
 def expon(x, a, b):
 	return a*np.exp(-b*x)
 
@@ -19,15 +23,15 @@ l_br=0.3529
 N = N/t		#average
 N=N-l_br	#background radiation
 
-matplotlib.rc('text', usetex = True)
-plt.xlabel('distance in mm')
-plt.ylabel('Activity in Events / s')
+
+plt.xlabel('distance in $\si{\milli\meter}$')
+plt.ylabel('Activity in Events/$\si{\second}$')
 
 popt, pconv = scipy.optimize.curve_fit(expon, d, N)
 
 plt.plot(d, expon(d, popt[0], popt[1]))
 plt.plot(d, N, 'o')
-plt.text(18, 4.15, ('N(d)=a*exp(-b*d)\na=%.2f, b=%.2f' %(popt[0], popt[1])))
+plt.text(18, 3.8, ('$N(d)=ae^{-bd}$\n$a=%.2f, b=%.2f\si{\milli\meter}^{-1}$' %(popt[0], popt[1])))
 
 
 if len(sys.argv) == 1:
@@ -35,4 +39,3 @@ if len(sys.argv) == 1:
 	plt.show()
 else:
 	plt.savefig(sys.argv[1], format='pdf')
-	print("fit parameters: a=" + str(popt[0]) + ", b=" + str(popt[1]))
