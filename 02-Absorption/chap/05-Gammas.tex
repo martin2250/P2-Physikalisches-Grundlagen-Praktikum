@@ -5,13 +5,13 @@ This experiment deals with absorption of gammas emitted by radioisotopes Co-60 a
 \section{Absorption in Plumbum}
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{./data/plots/4.1.pdf}
+	\includegraphics[width=0.7\textwidth]{./data/plots/4_1.pdf}
 	\caption[Gamma radiation over Pb thickness]{Gamma radiation over Pb thickness}
 	\label{fig:gamma_pb}
 \end{figure}
 To measure the behavior of absorption in plumbum, a block of it is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
 Once again, background radiation is subtracted from the number of measured events.
-Dead time of the tube does not have to be considered, as the tube is operated within the pleateau region.
+Dead time of the tube does not have to be considered, as the tube is operated within the pleateau region.\todo{We'll see that once I've done 1.4.}
 
 \autoref{fig:gamma_pb} depicts the measured data and confirms the \textbf{law of absorption}
 \begin{equation*}
@@ -25,9 +25,9 @@ Fit parameters are
 
 $b$ can be identified with the coefficient of absorption, which can be plugged into
 \begin{equation*}
-	\alpha=\frac{b}{\rho_\text{Pb}}
+	\alpha=\frac{b}{\rho_\text{Pb}}=\SI{4.41e-3}{\meter\squared\per\kilogram}
 \end{equation*}
-to calculate the \todo{mass-coefficient of absorption?}.
+to calculate the \todo{mass-coefficient of absorption?}, where $\rho=\SI{11.342}{\gram\per\cubic\centi\meter}$.
 Using
 \begin{equation*}
 	d_\text{hvl}=\frac{\log{2}}{\alpha}.
