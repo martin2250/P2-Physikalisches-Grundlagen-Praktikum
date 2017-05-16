@@ -11,3 +11,12 @@
 The absorption of beta radiation in aluminum is analyzed by placing a Sr-90 beta source at a fixed distance in front of the tube and placing aluminum sheets of varying thickness between them.
 
 \autoref{fig:beta_absorption} shows the data, corrected for background level and tube dead time.
+As hinted by the \todo{vorbereitung}, the attenuation is modelled as a sum of two exponential decays
+\begin{equation*}
+	N(d) = A_1 e^{-b_1 \cdot d} + A_2 e^{-b_2 \cdot d},
+\end{equation*}
+resulting in the parameters
+\begin{alignat*}{2}
+	A_1 &= \SI{31.3}{\cps} \qquad b_1 &= \SI{233.6e-3}{thou^{-1}}\\
+	A_2 &= \SI{37.2}{\cps} \qquad b_2 &= \SI{31.15e-3}{thou^{-1}}
+\end{alignat*}

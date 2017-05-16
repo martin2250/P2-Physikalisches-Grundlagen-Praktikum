@@ -9,6 +9,8 @@ import sys
 
 d, e, t = np.loadtxt('source/3.dat', unpack=True)
 
+d = d + 12	#tube window
+
 r = e/t
 r = r - 0.3235	#background rate
 r = r/(1-r*211e-6)	#dead time
@@ -27,12 +29,13 @@ plt.ylabel('Activity in Events / s')
 plt.grid(which="both")
 
 ax = plt.gca()
-#ax.set_yscale('log')
-#ax.set_xscale('log')
+ax.set_yscale('log')
+ax.set_xscale('log')
 
 plt.plot(d/25.4, r, 'o')
 
 if len(sys.argv) == 1:
+	print(popt)
 	plt.show()
 else:
 	plt.savefig(sys.argv[1])
