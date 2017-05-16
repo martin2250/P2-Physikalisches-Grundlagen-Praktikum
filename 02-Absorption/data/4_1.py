@@ -24,15 +24,17 @@ N = N/t		#average
 N=N-l_br	#background radiation
 
 
-plt.xlabel('distance in $\si{\milli\meter}$')
+plt.xlabel('thickness in $\si{\milli\meter}$')
 plt.ylabel('Activity in Events/$\si{\second}$')
 
 popt, pconv = scipy.optimize.curve_fit(expon, d, N)
 
 plt.plot(d, expon(d, popt[0], popt[1]))
-plt.plot(d, N, 'o')
-plt.text(18, 3.8, ('$N(d)=ae^{-bd}$\n$a=%.2f, b=%.2f\si{\milli\meter}^{-1}$' %(popt[0], popt[1])))
+plt.plot(d, N, 'o', label='Co-60 source')
+plt.text(18, 3.4, ('$N(d)=ae^{-bd}$\n$a=%.2f, b=%.2f\si{\milli\meter}^{-1}$' %(popt[0], popt[1])))
 
+plt.legend()
+plt.grid()
 
 if len(sys.argv) == 1:
 	print("fit parameters: a=" + str(popt[0]) + ", b=" + str(popt[1]))
