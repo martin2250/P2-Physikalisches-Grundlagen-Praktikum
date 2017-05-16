@@ -15,6 +15,7 @@ A few interfering effects have to be considered before the measurements:
 	\item \textbf{Background radiation:} The previously measured background radiation has to be substracted from the actual measurement.
 	\item \textbf{Changing solid angle:} The solid angle covered by the tube as seen from the radiation source is inversely proportional to the distance squared, so the measured count rates have to be corrected with a factor of $\frac{d^2}{4r^2}$, where $r$ and $d$ denote the radius of the tube and the distance between tube and source respectively.
 	\item \textbf{Parasitic gamma radiation:} Am-241 also emits some gamma radiation. The percentage of emitted alphas is $\num{98}\%$\footnote{Source: www.nucleide.org/DDEP\_WG/NUCLIDES/AM-241\_tables.pdf}, hence $R_\text{corr}=0.98\cdot R_\text{meas}$.
+	\item \textbf{Dead time:} Although the tube is operated within the pleateau region, dead time is taken into account. Equations \ref{eq:dead_time} and \ref{eq:dead_time_corr} hold.
 \end{itemize}
 
 Unlike gammas, alphas can be completely blocked off after a certain distance due to their charge.
