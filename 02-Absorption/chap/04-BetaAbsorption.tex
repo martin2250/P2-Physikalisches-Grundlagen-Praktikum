@@ -9,14 +9,40 @@
 \end{figure}
 
 The absorption of beta radiation in aluminum is analyzed by placing a Sr-90 beta source at a fixed distance in front of the tube and placing aluminum sheets of varying thickness between them.
+Sr-90 produces a daughter isotope, Y-90, in it's decay. Y-90 is also unstable and decays with a half life time of $\tau_\text{Y-90} = \SI{64}{\hour}$.
+As the provided samples are older than the half life time of Sr-90 ($\tau_\text{Sr-90} = \SI{28.2}{a}$), which is also four orders of magnitude greater than that of Y-90, the amount of Y-90 should have reached a neraly stable value, so the activity rates of Y-90 and Sr-90 should be roughly identical.
+
+The literature values for the kinetic energy of the electrons released in the decay are
+\begin{equation*}
+	E_\text{Sr-90} = \SI{540}{\keV} \qquad \text{and} \qquad E_\text{Y-90} = \SI{2.286}{\MeV}.
+\end{equation*}
 
 \autoref{fig:beta_absorption} shows the data, corrected for background level and tube dead time.
-As hinted by the \todo{vorbereitung}, the attenuation is modelled as a sum of two exponential decays
+As hinted by the instructions, the attenuation is modelled as a sum of two exponential decays
 \begin{equation*}
 	N(d) = A_1 e^{-b_1 \cdot d} + A_2 e^{-b_2 \cdot d},
 \end{equation*}
 resulting in the parameters
 \begin{alignat*}{2}
-	A_1 &= \SI{31.3}{\cps} \qquad b_1 &= \SI{233.6e-3}{thou^{-1}}\\
-	A_2 &= \SI{37.2}{\cps} \qquad b_2 &= \SI{31.15e-3}{thou^{-1}}
+	A_1 &= \SI{32.4}{\cps} \qquad b_1 &= \SI{8789}{\meter^{-1}}\\
+	\text{and } A_2 &= \SI{36.0}{\cps} \qquad b_2 &= \SI{1172}{\meter^{-1}},
 \end{alignat*}
+where $A_i$ is the activity of the element and $b_i$ is the coefficient of absorption for the respective energy.
+The similar base activities $A_1$ and $A_2$ confirm that the amount of Y-90 should be nearly stable.
+
+The first set of parameters can be identified with the radiation emitted by the decay of Sr-90 and the second set of parameters describes the more energetic radiation emitted by it's daugher isotope Y-90.
+
+The mass coefficient of absorption $\mu_i$ is the ratio of $b_i$ and the density of aluminum $\rho_\text{Al} = \SI{2.71}{\gram\per\cubic\centi\meter}$, the fit parameters yield
+\begin{equation*}
+	\mu_\text{Sr-90} = \SI{3.24}{\meter\squared\per\kilo\gram} \qquad \text{and} \qquad \mu_\text{Y-90} = \SI{0.43}{\meter\squared\per\kilo\gram}.
+\end{equation*}
+The empirical formula\footnote{Gleason} for calculating the mass coefficient of absorption $\mu$ (in \si{\centi\meter\squared\per\gram}) for beta radiation with kinetic energy $E$ (in \si{\MeV}) is $\mu = 17 E^{-1.43}$.
+Using the provided literature values, this formula yields
+\begin{equation*}
+	\mu_\text{Sr-90, lit} = \SI{4.1}{\meter\squared\per\kilo\gram} \qquad \text{and} \qquad \mu_\text{Y-90, lit} = \SI{0.52}{\meter\squared\per\kilo\gram},
+\end{equation*}
+which differ from the experimentally determined vaules by \SI{27}{\percent} and \SI{21}{\percent} respectively.
+
+The relatively high deviation is likely due to the difficulty of fitting two very similar functions to the data set.
+
+\todo{maximum travel distance and discussion exp - linear}
