@@ -2,37 +2,72 @@
 \chapter{Absorption of Gamma Rdiation}
 This experiment deals with absorption of gamma radiation emitted by radioisotopes Co-60 and Cs-137.
 
-\section{Absorption in Lead}
+\section{Absorption in Lead (Co-60)}\label{sec:co}
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./data/plots/4_1.pdf}
 	\caption[Gamma radiation over Pb thickness]{Gamma radiation over Pb thickness}
-	\label{fig:gamma_pb}
+	\label{fig:gamma_pb_co}
 \end{figure}
 To characterize it's ability to absorb gamma radiation, a block of lead is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
 Again, the background radiation level is subtracted from the number of measured events.
-Dead time of the tube does not have to be considered, as the tube is operated within the pleateau region.\todo{We'll see that once I've done 1.4.}
+Although dead time of the tube should not matter as it is operated within the plateau region, according corrections are made.
 
-\autoref{fig:gamma_pb} shows the measured data and confirms the exponential attenuation with thickness
+\autoref{fig:gamma_pb_co} shows the measured data and confirms the exponential attenuation with thickness
 \begin{equation*}
 	N = a \cdot e^{-b \cdot d}.
 \end{equation*}
 
 Fit parameters are
 \begin{gather*}
-	a=\num{3.76}cps\qquad b=\SI{0.05}{\milli\meter}^{-1}.
+	a_\text{Co60}=\num{3.76}cps\qquad b_\text{Co60}=\SI{0.05}{\milli\meter}^{-1}.
 \end{gather*}
 
-$b$ can be identified with the coefficient of absorption, which can be used to calculate the \todo{mass-coefficient of absorption?}
+$b_\text{Co60}$ can be identified with the coefficient of absorption, which can be used to calculate the \todo{mass-coefficient of absorption?}
 \begin{equation*}
-	\alpha=\frac{b}{\rho_\text{Pb}}=\SI{4.41e-3}{\meter\squared\per\kilogram},
+	\alpha_\text{Co60}=\frac{b_\text{Co60}}{\rho_\text{Pb}}=\SI{4.41e-3}{\meter\squared\per\kilogram},
 \end{equation*}
 where $\rho_\text{Pb}=\SI{11.342}{\gram\per\cubic\centi\meter}$.
 
-Using the determined fit-parameter $b$ we can also calculate the half-value layer
+Using the determined fit-parameter $b_\text{Co60}$ we can also calculate the half-value layer
 \begin{equation*}
-	d_\text{hvl}=\frac{\log{2}}{b}=\SI{12.8}{\milli\meter}.
+	d_\text{hvl,Co60}=\frac{\log{2}}{b_\text{Co60}}=\SI{12.8}{\milli\meter}.
 \end{equation*}
 
-The literature value\footnote{\url{https://www.nde-ed.org/EducationResources/CommunityCollege/Radiography/Physics/HalfValueLayer.htm}} for gamma radiation from a Co-60 source is $d_\text{hvl,lit}=\SI{0.49}{\inch}$ .
-This makes a relative deviation of \SI{9.4}{\percent}, which is more than acceptable.
+The literature value\footnote{\url{https://www.nde-ed.org/EducationResources/CommunityCollege/Radiography/Physics/HalfValueLayer.htm}} for gamma radiation from a Co-60 source is $d_\text{hvl,Co60}^{*}=\SI{0.49}{\inch}$ .
+This makes a relative deviation of \SI{2.4}{\percent}, which is a satisfactory result.
+
+\section{Absorption in Lead (Cs-137)}\label{sec:cs}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./data/plots/4_2.pdf}
+	\caption[Gamma radiation over Pb thickness]{Gamma radiation over Pb thickness}
+	\label{fig:gamma_pb_cs}
+\end{figure}
+
+The experiment in \autoref{sec:co} is repeated with the same corrections and requirements, this time using the lower energy radioisotope Cs-137.
+\autoref{fig:gamma_pb_cs} shows the measured data and, once again, confirms exponential attenuation.
+
+Fit parameters are
+\begin{gather*}
+	a_\text{Cs137}=\num{10.74}cps\qquad b_\text{Cs137}=\SI{0.102}{\milli\meter}^{-1},
+\end{gather*}
+which gives
+\begin{equation*}
+	\alpha_\text{Cs137}=\frac{b_\text{Cs137}}{\rho_\text{Pb}}=\SI{8.99e-3}{\meter\squared\per\kilogram},
+\end{equation*}
+where $\rho_\text{Pb}=\SI{11.342}{\gram\per\cubic\centi\meter}$.
+
+This results in
+\begin{equation*}
+	d_\text{hvl,Cs137}=\frac{\log{2}}{b_\text{Cs137}}=\SI{6.8}{\milli\meter}.
+\end{equation*}
+
+The literature value\footnote{\url{http://researchcompliance.uc.edu/Libraries/Isotopes/Cs-137.sflb.ashx}} for gamma radiation from a Cs-137 source is $d_\text{hvl,Cs137}^{*}=\SI{0.3}{\inch}$ .
+This makes a relative deviation of \SI{15}{\percent}, which is acceptable.
+
+\section{Discussion of energy dependence}
+The experiments conducted in \autoref{sec:co} and \autoref{sec:cs} show that the half-value layer decreases with decreasing energy of gamma rays.
+This can be explained by dropping cross section with rising particle energy and increasingly more interactions with low energy attenuation inside the material (e.g. pair formation).
+
+\section{Absorption in various materials}

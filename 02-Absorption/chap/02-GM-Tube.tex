@@ -31,11 +31,7 @@ The measured values are listed in \autoref{tab:background}.
 \end{figure}
 
 \section{Dead Time}
-The incidence of radiation particles into the Geiger-Müller tube causes creation of secondary electrons, which are accelerated by the potential difference between the tube wire and wall.
-During their migration towards the anode of the tube, they cause so called electron avalanches caused by the stimulation of filling gas atoms, which in turn emit photons of UV wavelengths.
-These photons interact with other filling gas atoms through the photoelectric effect and thus emit more electrons, which are accelerated towards the anode, too, and the cycle repeats from there.
-The perpetual creation and migration of electrons to the anode causes positively charged ions to stay behind at the tube wire which alter the potential difference in this area in a manner that leads to collapse of avalanches.
-These ions prevent other incident particles to induce any gas discharges for a certain amount of time because they have to migrate to the kathode (wall of the tube) first in order to make other avalanches possible.
+As mentioned in \autoref{sec:geiger_shit}, the depletion of electrons prevent other incident particles to induce any gas discharges for a certain amount of time because induced positive ions have to migrate to the kathode (wall of the tube) first in order to make other avalanches possible.
 This time is called \textbf{dead time} $\tau_\text{dead}$.
 
 Dead time can be determined by a two-preparation method for which the formula \footnote{Source: Excercise descr.}
@@ -43,6 +39,7 @@ Dead time can be determined by a two-preparation method for which the formula \f
 	\tau_\text{dead} = \frac{T}{N_{12}}\left(1-\sqrt{1-\left(N_1+N_2-N_{12}\right)\cdot\frac{N_{12}}{N_1N_2}}\right)
 \end{equation}
 holds.
+
 Utilizing \autoref{eq:dead_time} dead time is calculated as
 \begin{gather*}
  	\tau_\text{dead,l}=\SI{263.4}{\micro\second}\qquad \tau_\text{dead,r}=\SI{211.6}{\micro\second}

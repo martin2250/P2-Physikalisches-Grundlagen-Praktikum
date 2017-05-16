@@ -18,10 +18,12 @@ r=12e-3
 d_mm=d*1e-3
 omega=4*(r**2/d_mm**2)
 l_br=0.3529
+t_dead=263.4e-6
 
 #corrections
 N = N/t		#average
 N=0.98*N 	#parasitic gamma radiation
+N=N/(1-N*t_dead)	#dead time
 N=N*omega	#solid angle
 N=N-l_br	#background radiation
 
