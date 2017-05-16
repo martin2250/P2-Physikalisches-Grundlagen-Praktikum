@@ -27,7 +27,7 @@ d = np.arange(0, N)
 d = d * 10 + 28
 d = d / 25.4
 
-plt.errorbar(d, means, fmt='o', yerr=stdevs, label='Sr-90 $\\beta$ source')
+plt.errorbar(d, means, fmt='o', yerr=stdevs, label='Co-60 gamma source')
 
 slope, intercept, r, p, stderr = linregress(np.log(d), np.log(means))
 Xfit = np.log(np.array([d[0], d[N-1]]))
