@@ -1,21 +1,21 @@
 % !TEX root = ../main.tex
-\chapter{Absorption of Gamma Particles}
-This experiment deals with absorption of gammas emitted by radioisotopes Co-60 and Cs-137.
+\chapter{Absorption of Gamma Rdiation}
+This experiment deals with absorption of gamma radiation emitted by radioisotopes Co-60 and Cs-137.
 
-\section{Absorption in Plumbum}
+\section{Absorption in Lead}
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./data/plots/4_1.pdf}
 	\caption[Gamma radiation over Pb thickness]{Gamma radiation over Pb thickness}
 	\label{fig:gamma_pb}
 \end{figure}
-To measure the behavior of absorption in plumbum, a block of it is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
-Once again, background radiation is subtracted from the number of measured events.
+To characterize it's ability to absorb gamma radiation, a block of lead is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
+Again, the background radiation level is subtracted from the number of measured events.
 Dead time of the tube does not have to be considered, as the tube is operated within the pleateau region.\todo{We'll see that once I've done 1.4.}
 
-\autoref{fig:gamma_pb} depicts the measured data and confirms the \textbf{law of absorption}
+\autoref{fig:gamma_pb} shows the measured data and confirms the exponential attenuation with thickness
 \begin{equation*}
-	N\propto e^{-b*d}.
+	N = a \cdot e^{-b \cdot d}.
 \end{equation*}
 
 Fit parameters are
@@ -23,16 +23,16 @@ Fit parameters are
 	a=\num{3.76}cps\qquad b=\SI{0.05}{\milli\meter}^{-1}.
 \end{gather*}
 
-$b$ can be identified with the coefficient of absorption, which can be plugged into
+$b$ can be identified with the coefficient of absorption, which can be used to calculate the \todo{mass-coefficient of absorption?}
 \begin{equation*}
-	\alpha=\frac{b}{\rho_\text{Pb}}=\SI{4.41e-3}{\meter\squared\per\kilogram}
+	\alpha=\frac{b}{\rho_\text{Pb}}=\SI{4.41e-3}{\meter\squared\per\kilogram},
 \end{equation*}
-to calculate the \todo{mass-coefficient of absorption?}, where $\rho=\SI{11.342}{\gram\per\cubic\centi\meter}$.
+where $\rho_\text{Pb}=\SI{11.342}{\gram\per\cubic\centi\meter}$.
 
 Using the determined fit-parameter $b$ we can also calculate the half-value layer
 \begin{equation*}
 	d_\text{hvl}=\frac{\log{2}}{b}=\SI{12.8}{\milli\meter}.
 \end{equation*}
 
-Knowing\footnote{\href{https://en.wikipedia.org/wiki/Cobalt-60}{https://en.wikipedia.org/wiki/Cobalt-60}} that Co-60 emits two gammas with energies of \SI{1.17}{\mega\electronvolt} and \SI{1.33}{\mega\electronvolt}, we find a literature value\footnote{\href{de.wikipedia.org/wiki/Halbwertsschicht}{https://de.wikipedia.org/wiki/Halbwertsschicht}} of $d_\text{hvl,lit}=\SI{11.7}{\milli\meter}$ for gammas of energy \SI{1.5}{\mega\electronvolt}.
-This makes a relative deviation of \num{9.4}\%, which is more than acceptable.
+The literature value\footnote{\url{https://www.nde-ed.org/EducationResources/CommunityCollege/Radiography/Physics/HalfValueLayer.htm}} for gamma radiation from a Co-60 source is $d_\text{hvl,lit}=\SI{0.49}{\inch}$ .
+This makes a relative deviation of \SI{9.4}{\percent}, which is more than acceptable.
