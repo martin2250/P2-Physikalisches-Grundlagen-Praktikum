@@ -19,8 +19,11 @@ def expon(x, a, b):
 
 #correction constants
 l_br=0.3529
+t_dead=263.4e-6
+
 #corrections
 N = N/t		#average
+N=N/(1-N*t_dead)	#dead time
 N=N-l_br	#background radiation
 
 

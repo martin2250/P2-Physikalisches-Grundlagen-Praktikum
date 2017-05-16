@@ -11,7 +11,7 @@ This experiment deals with absorption of gamma radiation emitted by radioisotope
 \end{figure}
 To characterize it's ability to absorb gamma radiation, a block of lead is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
 Again, the background radiation level is subtracted from the number of measured events.
-Dead time of the tube does not have to be considered, as the tube is operated within the pleateau region.\todo{We'll see that once I've done 1.4.}
+Although dead time of the tube should not matter as it is operated within the plateau region, according corrections are made.
 
 \autoref{fig:gamma_pb_co} shows the measured data and confirms the exponential attenuation with thickness
 \begin{equation*}
@@ -45,7 +45,7 @@ This makes a relative deviation of \SI{2.4}{\percent}, which is a satisfactory r
 	\label{fig:gamma_pb_cs}
 \end{figure}
 
-The experiment in \autoref{sec:co} is repeated, this time using the lower energy radioisotope Cs-137.
+The experiment in \autoref{sec:co} is repeated with the same corrections and requirements, this time using the lower energy radioisotope Cs-137.
 \autoref{fig:gamma_pb_cs} shows the measured data and, once again, confirms exponential attenuation.
 
 Fit parameters are
@@ -70,4 +70,4 @@ This makes a relative deviation of \SI{15}{\percent}, which is acceptable.
 The experiments conducted in \autoref{sec:co} and \autoref{sec:cs} show that the half-value layer decreases with decreasing energy of gamma rays.
 This can be explained by dropping cross section with rising particle energy and increasingly more interactions with low energy attenuation inside the material (e.g. pair formation).
 
-\section{Absorption in various materials} 
+\section{Absorption in various materials}
