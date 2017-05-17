@@ -1,6 +1,6 @@
 .PHONY: data clean
 
-data: plots/1_4.pdf plots/1_1.pdf plots/2.pdf plots/3.pdf plots/4_1.pdf plots/4_2.pdf
+data: plots/1_4.pdf plots/1_1.pdf plots/2.pdf plots/3.pdf plots/4_1.pdf plots/4_2.pdf plots/4_3.pdf
 
 clean:
 	git clean -Xf
@@ -25,3 +25,6 @@ plots/4_2.pdf: source/4.2.dat 4_2.py plots
 
 plots/3.pdf: source/3.dat 3.py plots
 	./3.py $@
+
+plots/4_3.pdf: source/4.3.dat 4_3.py plots
+	./4_3.py $@
