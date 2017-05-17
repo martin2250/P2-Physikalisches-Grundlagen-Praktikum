@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 import sys
 
 rho, N, t = np.loadtxt('source/4.3.dat', unpack=True, usecols=[1,2,3])
-material = np.loadtxt('source/4.3.dat', unpack=True, usecols=[0], dtype='str')
+materials=np.array(['acrylic glass', 'iron', 'brass', 'aluminium', 'trovidur', 'wood', 'concrete'])
 
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
@@ -33,10 +33,12 @@ plt.ylabel('Activity in Events/$\si{\second}$')
 #popt, pconv = scipy.optimize.curve_fit(expon, d, N)
 
 #plt.plot(rho, expon(d, popt[0], popt[1]))
-plt.plot(rho, N, 'o')
+for i in range(0, len(rho)):
+	plt.plot(rho[i], N[i], 'o', label=materials[i])
+
 #plt.text(17.5, 3.4, ('$N(d)=ae^{-bd}$\n$a=%.2f, b=%.3f\si{\milli\meter}^{-1}$' %(popt[0], popt[1])))
 
-#plt.legend()
+plt.legend()
 plt.grid()
 
 if len(sys.argv) == 1:

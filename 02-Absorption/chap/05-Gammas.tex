@@ -6,12 +6,11 @@ This experiment deals with absorption of gamma radiation emitted by radioisotope
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./data/plots/4_1.pdf}
-	\caption[Gamma radiation over Pb thickness]{Gamma radiation over Pb thickness}
+	\caption[Gamma radiation over Pb thickness (Co-60)]{Gamma radiation over Pb thickness}
 	\label{fig:gamma_pb_co}
 \end{figure}
-To characterize it's ability to absorb gamma radiation, a block of lead is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
-Again, the background radiation level is subtracted from the number of measured events.
-Although dead time of the tube should not matter as it is operated within the plateau region, according corrections are made.
+To characterize its ability to absorb gamma radiation, a block of lead is placed between a Co-60 source and the Geiger-Müller tube, graudually increasing the block's thickness.
+Again, the background radiation level is subtracted from the number of measured events and dead time corrections are made.
 
 \autoref{fig:gamma_pb_co} shows the measured data and confirms the exponential attenuation with thickness
 \begin{equation*}
@@ -41,7 +40,7 @@ This makes a relative deviation of \SI{2.4}{\percent}, which is a satisfactory r
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./data/plots/4_2.pdf}
-	\caption[Gamma radiation over Pb thickness]{Gamma radiation over Pb thickness}
+	\caption[Gamma radiation over Pb thickness (Cs-137)]{Gamma radiation over Pb thickness}
 	\label{fig:gamma_pb_cs}
 \end{figure}
 
@@ -66,8 +65,19 @@ This results in
 The literature value\footnote{\url{http://researchcompliance.uc.edu/Libraries/Isotopes/Cs-137.sflb.ashx}} for gamma radiation from a Cs-137 source is $d_\text{hvl,Cs137}^{*}=\SI{0.3}{\inch}$ .
 This makes a relative deviation of \SI{15}{\percent}, which is acceptable.
 
-\section{Discussion of energy dependence}
+\section{Discussion of Energy Dependence}
 The experiments conducted in \autoref{sec:co} and \autoref{sec:cs} show that the half-value layer decreases with decreasing energy of gamma rays.
 This can be explained by dropping cross section with rising particle energy and increasingly more interactions with low energy attenuation inside the material (e.g. pair formation).
 
-\section{Absorption in various materials}
+\section{Absorption in Various Materials}
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./data/plots/4_3.pdf}
+	\caption[Gamma radiation over material density]{Gamma radiation over material density}
+	\label{fig:gamma_dense}
+\end{figure}
+To measure the relation between material density and absorption, various materials (as seen in \autoref{fig:gamma_dense}) of thickness $d=\SI{25}{\milli\meter}$ are placed between the gamma source Cs-137 and a Geiger-Müller tube.
+Tube dead time and background radiation corrections are applied.
+\autoref{fig:gamma_dense} shows a linear relation between both quantities.
+With increasing density $\rho$ the rate of registered events decreases.
+This means that materials of high density are useful to shield from gamma radiation.

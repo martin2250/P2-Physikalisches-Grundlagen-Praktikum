@@ -28,13 +28,16 @@ N=N*omega	#solid angle
 N=N-l_br	#background radiation
 
 matplotlib.rc('text', usetex = True)
-plt.xlabel('distance in in')
+params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
+plt.rcParams.update(params)
+
+plt.xlabel('distance in \si{\milli\meter}')
 plt.ylabel('Activity in Events / s')
 
 #popt, pconv = scipy.optimize.curve_fit(expon, d_mm, N)
 
 #plt.plot(d_mm, expon(d_mm, popt[0], popt[1]))
-plt.plot(d/25.4, N, 'o', label='Am-241 source')
+plt.plot(d, N, 'o', label='Am-241 source')
 plt.grid()
 plt.legend()
 #plt.text(0.025, 300, ('N(d)=a*exp(-b*d)\na=%.2f, b=%.2f' %(popt[0], popt[1])))
