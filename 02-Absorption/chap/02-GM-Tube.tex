@@ -10,7 +10,7 @@ For all further experiments, operating voltages of \SI{450}{\volt} for the left 
 
 \section{Radiation Background}
 All artificial sources of radiation are stored behind lead shields in order to determine the natural background radiation level.
-To get a realiable rate from such infrequent events, a long gate time of \SI{5}{\second} and a total run time of \todo{...} were used.
+To get a realiable rate from such infrequent events, a long gate time of \SI{2}{\second} and a total run time of \SI{340}{\second} were chosen.
 The measured values are listed in \autoref{tab:background}.
 
 \begin{table}[b!]\centering
@@ -31,14 +31,13 @@ The measured values are listed in \autoref{tab:background}.
 \end{figure}
 
 \section{Dead Time}
-As mentioned in \autoref{sec:geiger_shit}, the depletion of electrons prevent other incident particles to induce any gas discharges for a certain amount of time because induced positive ions have to migrate to the kathode (wall of the tube) first in order to make other avalanches possible.
+As mentioned in \autoref{sec:geiger_shit}, the depletion of electrons prevent other incident particles to induce any gas discharges for a certain amount of time because induced positive ions have to migrate to the cathode (wall of the tube) first for subsequent avalanches to occur.
 This time is called \textbf{dead time} $\tau_\text{dead}$.
 
-Dead time can be determined by a two-preparation method for which the formula \footnote{Source: Excercise descr.}
+Dead time can be determined by a two-preparation method using the formula \footnote{Source: Excercise descr.}
 \begin{equation}\label{eq:dead_time}
-	\tau_\text{dead} = \frac{T}{N_{12}}\left(1-\sqrt{1-\left(N_1+N_2-N_{12}\right)\cdot\frac{N_{12}}{N_1N_2}}\right)
+	\tau_\text{dead} = \frac{T}{N_{12}}\left(1-\sqrt{1-\left(N_1+N_2-N_{12}\right)\cdot\frac{N_{12}}{N_1N_2}}\right).
 \end{equation}
-holds.
 
 Utilizing \autoref{eq:dead_time} dead time is calculated as
 \begin{gather*}
@@ -47,7 +46,7 @@ Utilizing \autoref{eq:dead_time} dead time is calculated as
 for each setup (left-right).
 
 These dead times are needed for corrections of subsequent experiments.
-It holds
+The corrected count rate is
 \begin{equation}\label{eq:dead_time_corr}
 	R_\text{corr}=\frac{R}{1-R\cdot\tau_\text{dead}}.
 \end{equation}

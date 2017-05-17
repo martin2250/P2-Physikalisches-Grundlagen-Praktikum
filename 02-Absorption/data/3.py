@@ -35,6 +35,7 @@ ax.set_yscale('log')
 ax.set_xscale('log')
 
 plt.plot(d, r, 'o', label='Sr-90 beta source')
+plt.legend()
 
 if len(sys.argv) == 1:
 	print('activities:', popt[0], popt[2])

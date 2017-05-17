@@ -19,13 +19,13 @@ ax = plt.gca()
 ax.set_yscale('log')
 ax.set_xscale('log')
 matplotlib.rc('text', usetex = True)
-plt.xlabel('Distance $d$ in inches')
+plt.xlabel('Distance $d$ in mm')
 plt.ylabel('Activity in Events / s')
 plt.grid(which="both")
 
 d = np.arange(0, N)
 d = d * 10 + 28
-d = d / 25.4
+#d = d / 25.4
 
 plt.errorbar(d, means, fmt='o', yerr=stdevs, label='Co-60 gamma source')
 
