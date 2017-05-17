@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 import sys
 
 rho, N, t = np.loadtxt('source/4.3.dat', unpack=True, usecols=[1,2,3])
-material = np.loadtxt('source/4.3.dat', unpack=True, usecols=[0], dtype='string')
+material = np.loadtxt('source/4.3.dat', unpack=True, usecols=[0], dtype='str')
 
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
