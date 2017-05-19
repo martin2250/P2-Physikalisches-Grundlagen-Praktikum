@@ -5,3 +5,5 @@
 2.45	11	25	38	50	60	72	86	98
 1.85	8	19	27	39	50	59	69	82
 1.65	8	16	25	33	41	49	57	66
+
+##TODO: some rows appear to jump, because I missed an order
