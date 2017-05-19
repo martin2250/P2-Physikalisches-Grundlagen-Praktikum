@@ -25,8 +25,7 @@ S = L.copy()	#slopes (angle over order)
 for i in range(0, len(L)):
 	S[i], intercept, r, p, stderr = linregress(O, A[i])
 
-print('TODO: check math, possibly forgot factor 2, which would yield pretty much perfect results')
-W = [wavelength / s for s in S]	#slit width
+W = [2 * wavelength / s for s in S]	#slit width
 print(W)
 
 if len(sys.argv) == 3:
