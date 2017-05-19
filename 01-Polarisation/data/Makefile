@@ -9,11 +9,11 @@ data: $(targets)
 plots:
 	mkdir plots
 
-#plots/%.pdf: source/%.dat plots plot.py
-#	./plot.py $< $@
+plots/%.pdf: source/%.dat plots plot.py
+	./plot.py $< $@
 
-plots/%.pdf: source/%.dat plots plot.gnu
-	gnuplot -c plot.gnu "$<" "$@"
+#plots/%.pdf: source/%.dat plots plot.gnu
+#	gnuplot -c plot.gnu "$<" "$@"
 
 clean:
 	git clean -Xf
