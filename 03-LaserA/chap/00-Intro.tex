@@ -21,7 +21,7 @@ These photons are fed back into the system by the resonator and can stimulate ot
 \section{Brewster-angle}\label{sec:brewster}
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./img/brewster.pdf}
+	\includegraphics[width=0.6\textwidth]{./img/brewster.pdf}
 	\caption[Brewster-angle]{The Brewster-angle}
 \end{figure}
 When light hits a surface (e.g. glass) it causes dipoles to oscillate inside the material, which radiate and so create reflection and transmission of light.
@@ -33,5 +33,28 @@ By trivial calculations we can show that
 \begin{equation}\label{eq:brewster}
 	\tan\theta_\text{B}=\frac{n_2}{n_1},
 \end{equation}
-where $\theta_\text{B}$ denotes the Brewster-angle and $n_2, n_1$ denote the refraction indices of the material and air respectively (assuming the experiment is being condcuted in air).
+where $\theta_\text{B}$ denotes the Brewster-angle and $n_2, n_1$ denote the refraction indices of the material and air respectively (assuming the experiment is being condcuted inside of air).
+
+This effect is used inside the He-Ne laser to get a homogenously polarized beam, as only the s-polarized portion of light is reflected by the Brewster-windows, whereas the p-portion can pass them.
+
+\section{Diffraction phenomena}
+The following explanations are of minimal extent, as described processes should be familiar by common evidence.
+
+\subsection{Single slit}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./img/brewster.pdf}
+	\caption[Single slit]{For the deviation of the single-slit formulae}
+	\label{fig:single_slit}
+\end{figure}
+
+Considering \autoref{fig:single_slit} we can see that
+\begin{equation*}
+	\Delta s=d\sin\alpha
+\end{equation*}
+for the path difference of both beams holds.
+The condition for minima is
+\begin{equation*}
+	\Delta s = n\cdot\lambda\ ;\qquad n\in\mathbb{N}
+\end{equation*}
 \section{Fourier Optics}
