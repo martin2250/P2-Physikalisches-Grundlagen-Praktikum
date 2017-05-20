@@ -4,41 +4,43 @@ The following experiments explore lasers and their applications as well as inter
 
 \section{He-Ne Laser}
 The common He-Ne-laser consists of a thin (ca. \SI{1}{\milli\meter} in diameter) glass tube filled with a helium-neon gas mixture.
-The gas usually is under a pressure of around \SI{100}{\pascal}, where the partial pressures of helium/neon are dependent of the desired wave length of the laser.
-At both ends, resonator mirrors are installed with optional Brewster-windows before them.
-These Brewster-windows transmit light only of a specific polarisation direction, other directions are mostly reflected.
-This means that a laser with Brewster-windows principally emits linear polarized light (more detailed explanations can be found in \autoref{sec:brewster}).
+The gas usually is under a pressure of around \SI{100}{\pascal}, the exact mixture of helium and neon depend on the desired wave length of the laser.
+At both ends there are resonator mirrors, one of which is partially transparent (to reduce complexity, some lasers use partially transparent mirrors on both ends).
+Optional Brewster windows only allow light of one polarization to resonate (see \autoref{sec:brewster}).
 
-The functioning can be described as follows:
-If a high voltage is applied in the filaments, free electrons are created through gas discharge, which can collide with the helium atoms, moving them into an excited state.
-The excited helium atoms can stimulate other neon atoms, inducing a population inversion among them.
-The term population inversion refers to a situation in which more electrons are in higher states than others.
-This process is called \textbf{optical pumping} and is absolutely obligatory for the functioning of the laser.
+To excite the gas atoms, a voltage potential of a few kilovolt applied to the electrodes, which are placed on either end of the tube.
+This induces a gas discharge and free electrons can collide with the helium atoms, moving them into an excited state.
+The excited helium atoms can stimulate neon atoms, inducing a population inversion among them.
+This process is called optical pumping.
 
-Changes of state in the neon atoms emit photons by stimulated emission.
-These photons are fed back into the system by the resonator and can stimulate other atoms, effectively amplifying emission of photons.
+Some of the excited neon atoms will spontaneously decay to their ground state, and emit their energy in the form of light.
+The light is fed back into the system by the resonator, creating a standing wave.
+The standing wave induces stimulated emission, where excited neon atoms create photons of identical phase and wavelength as the standing wave.
+This creates highly coherent light with a very narrow spectrum of wavelengths.
 
 \section{Brewster-angle}\label{sec:brewster}
+
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./img/brewster.pdf}
 	\caption[Brewster-angle]{The Brewster-angle}
 \end{figure}
-When light hits a surface (e.g. glass) it causes dipoles to oscillate inside the material, which radiate and so create reflection and transmission of light.
-These dipoles radiate linear polarized light only vertical to their axis of vibration.
-If the angle between the reflected and the transmitted light is equal to \SI{90}{\degree}, the intensity of the reflected p-polarized portion disappears, because the dipoles' axis of oscillation is parallel to the direction of transmitted light.
-The the s-polarized share, however, is reflected according to Fresnel's law.
+
+Light interacts with dielectric materials (eg. glass) by inducing oscillations in the material's dipoles.
+These dipoles can only radiate perpendicular to their axis of vibration.
+
+If the angle between the reflected and the transmitted light is equal to \SI{90}{\degree}, light polarized in the plane of incidence is not reflected, because the dipole's axis of oscillation is parallel to the direction of transmitted light.
 
 By trivial calculations we can show that
 \begin{equation}\label{eq:brewster}
 	\tan\theta_\text{B}=\frac{n_2}{n_1},
 \end{equation}
-where $\theta_\text{B}$ denotes the Brewster-angle and $n_2, n_1$ denote the refraction indices of the material and air respectively (assuming the experiment is being condcuted inside of air).
+where $\theta_\text{B}$ denotes the Brewster-angle and $n_2, n_1$ denote the refraction indices of the material and air respectively (assuming the surface is surrounded by air).
 
-This effect is used inside the He-Ne laser to get a homogenously polarized beam, as only the s-polarized portion of light is reflected by the Brewster-windows, whereas the p-portion can pass them.
+This effect is used inside the He-Ne laser to get a homogenously polarized beam, as s-polarized light is reflected out of the resonance cavity by Brewster windows, whereas light of the other polarization can pass them.
 
 \section{Diffraction phenomena}
-The following explanations are of minimal extent, as described processes should be familiar by common evidence.
+The following explanations are of minimal extent, as underlying processes should be familiar.
 
 \subsection{Single slit}\label{subsec:single_slit}
 
@@ -58,7 +60,7 @@ The following explanations are of minimal extent, as described processes should 
 	\caption[Deviation of single-slit formulae]{Deviation of single-slit formulae}
 \end{figure}
 
-Considering \autoref{fig:path_diff_single} we can see that
+Considering \autoref{fig:path_diff_single} we can see that	%I really hope you'll finish that sentence eventually
 \begin{equation*}
 	\Delta s=b\sin\alpha
 \end{equation*}
