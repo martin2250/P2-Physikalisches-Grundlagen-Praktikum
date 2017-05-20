@@ -6,6 +6,8 @@ import matplotlib
 import sys
 from kafe.function_library import linear_2par
 
+XKCD = True
+
 wavelength = 633e-6 #in mm
 
 if len(sys.argv) < 2:
@@ -57,21 +59,29 @@ for i in range(0, len(L)):
 if len(sys.argv) == 3:
 
 	if sys.argv[2] != 'data':
-
-
-		matplotlib.rc('text', usetex = True)
-		params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
-		plt.rcParams.update(params)
+		if XKCD:
+			plt.xkcd()
+			pointlabel = 'D = %0.2f m'
+		else:
+			print('boring!')
+			matplotlib.rc('text', usetex = True)
+			params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
+			plt.rcParams.update(params)
+			pointlabel = '$D_\\text{screen} = \\SI{%0.2f}{\\meter}$'
 
 		for i in range(0, len(L)):
-			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label='$D_\\text{screen} = \\SI{%0.2f}{\\meter}$'%(L[i]*1e-3))
+			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label=pointlabel%(L[i]*1e-3))
 
 			X = np.array([0, O[-1]])
 			plt.plot(X, L[i]*linear_2par(X, AoverO[i], Aoffset[i]), color='#999999', ls='--', lw=1., label='Linear Fit' if i==0 else None)
 
 		plt.legend() #only for fixing datasets with missing orders
 		plt.xlabel('Order')
-		plt.ylabel('Distance between Features (\\si{\\mm})')
+		if XKCD:
+			plt.ylabel('Distance between Features (mm)')
+		else:
+			plt.ylabel('Distance between Features (\\si{\\mm})')
+
 
 		if sys.argv[2] == 'show':
 			plt.show()
