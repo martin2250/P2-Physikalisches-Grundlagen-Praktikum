@@ -40,7 +40,7 @@ This effect is used inside the He-Ne laser to get a homogenously polarized beam,
 \section{Diffraction phenomena}
 The following explanations are of minimal extent, as described processes should be familiar by common evidence.
 
-\subsection{Single slit}
+\subsection{Single slit}\label{subsec:single_slit}
 
 \begin{figure}[tb]
 	\begin{subfigure}{.51\textwidth}
@@ -93,4 +93,14 @@ for minima and
 \end{equation}
 for maxima of the diffraction pattern.
 
-\section{Fourier Optics}
+\subsection{Bridge}
+To deduce the diffraction pattern of a bridge, we make use of Babinet's theorem which states that two complementary objects have the same diffraction pattern.
+This can be understood considering following thoughts:
+Assuming $O$ is the original diffracting object and $\bar{O}$ is its complement viz. that it is opaque where $O$ is transparent and vice versa.
+The sum of the amplitudes by the diffractions caused by $O$ and $\bar{O}$ must equal the amplitude of an unobstructed beam.
+This means that in places where the light would not have reached without diffraction, the phases of patterns caused by $O$ and $\bar{O}$ must be opposite in phase.
+However, for perception of the diffraction patterns not amplitude matters but intensity, which is proportional to the square of the amplitude.
+
+We notice that a bridge of thickness $b$ is the complement of a single-slit of same gap-width, so the diffraction patterns should be the same and we can use the same equations as deviated in \autoref{subsec:single_slit}.
+
+\subsection{Double-slits and lattices}
