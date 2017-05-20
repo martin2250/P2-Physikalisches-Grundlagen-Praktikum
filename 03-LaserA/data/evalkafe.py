@@ -27,6 +27,11 @@ A = D.copy()	#angles
 for i in range(0, len(L)):
 	A[i] = D[i] / L[i]
 
+#throw out second line for datasets with two equal lines
+#this makes dealing with single line files easier, since the arrays would not only have different sizes, but also different shapes
+if np.array_equal(A[0], A[1]):
+	A = A[:1]
+	L = L[:1]
 
 d_err = 1					#assume 1mm error on d
 a_err = [d_err / l for l in L]
@@ -59,7 +64,7 @@ if len(sys.argv) == 3:
 		plt.rcParams.update(params)
 
 		for i in range(0, len(L)):
-			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label='$D_\\text{screen} = \\SI{%0.0f}{\\mm}$'%L[i])
+			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label='$D_\\text{screen} = \\SI{%0.2f}{\\meter}$'%(L[i]*1e-3))
 
 			X = np.array([0, O[-1]])
 			plt.plot(X, L[i]*linear_2par(X, AoverO[i], Aoffset[i]), color='#999999', ls='--', lw=1., label='Linear Fit' if i==0 else None)
@@ -82,10 +87,10 @@ if len(sys.argv) == 3:
 		print('latex table:')
 		print('(angle/order)	(error on #0)	(feature size [um])	(error on #2)')
 
-		fmt = '\\num{%0.2fe-3}&	\\num{%0.2fe-3}&	\\num{%0.0f}&	\\num{%0.1f}\\\\'
+		fmt = '\\num{%0.2e}&	\\num{%0.2e}&	\\num{%0.0f}&	\\num{%0.2f}\\\\'
 
 		for i in range(0, len(L)):
 			featuresize = 2 * wavelength / AoverO[i]
 			fserror = AoverOerr[i] * featuresize / AoverO[i]
 
-			print(fmt%(AoverO[i] * 1e3, AoverOerr[i] * 1e3, featuresize*1e3, fserror * 1e3))
+			print(fmt%(AoverO[i], AoverOerr[i], featuresize*1e3, fserror * 1e3))
