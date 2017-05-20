@@ -30,7 +30,9 @@ print(W)
 
 if len(sys.argv) == 3:
 	for i in range(0, len(L)):
-		plt.plot(O, D[i])
+		plt.plot(O, D[i], label='%d'%i)
+	plt.legend()
+
 	if sys.argv[2] == 'show':
 		plt.show()
 	else:
