@@ -1,8 +1,6 @@
 #!/usr/bin/python
 import kafe
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib
 import sys
 from kafe.function_library import linear_2par
 
@@ -59,18 +57,21 @@ for i in range(0, len(L)):
 if len(sys.argv) == 3:
 
 	if sys.argv[2] != 'data':
+		import matplotlib.pyplot as plt
+		import matplotlib
+
 		if XKCD:
 			plt.xkcd()
-			pointlabel = 'D = %0.2f m'
+			pointlabel = lambda: ('D' if np.random.randint(0,2) else 'd') + ' = %0.2f ' + ('m' if np.random.randint(0,2) else 'M')
 		else:
 			print('boring!')
 			matplotlib.rc('text', usetex = True)
 			params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
 			plt.rcParams.update(params)
-			pointlabel = '$D_\\text{screen} = \\SI{%0.2f}{\\meter}$'
+			pointlabel = lambda: '$D_\\text{screen} = \\SI{%0.2f}{\\meter}$'
 
 		for i in range(0, len(L)):
-			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label=pointlabel%(L[i]*1e-3))
+			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label=pointlabel()%(L[i]*1e-3))
 
 			X = np.array([0, O[-1]])
 			plt.plot(X, L[i]*linear_2par(X, AoverO[i], Aoffset[i]), color='#999999', ls='--', lw=1., label='Linear Fit' if i==0 else None)
@@ -78,7 +79,7 @@ if len(sys.argv) == 3:
 		plt.legend() #only for fixing datasets with missing orders
 		plt.xlabel('Order')
 		if XKCD:
-			plt.ylabel('Distance between Features (mm)')
+			plt.ylabel('Distance bEtweEn FeaturEs (mM)')
 		else:
 			plt.ylabel('Distance between Features (\\si{\\mm})')
 
@@ -90,10 +91,6 @@ if len(sys.argv) == 3:
 
 
 	else:
-		print('Fit Slopes:', AoverO)
-		print('Slope Errors:', AoverOerr)
-		print('in rad/order')
-
 		print('latex table:')
 		print('(angle/order)	(error on #0)	(feature size [um])	(error on #2)')
 
@@ -104,3 +101,11 @@ if len(sys.argv) == 3:
 			fserror = AoverOerr[i] * featuresize / AoverO[i]
 
 			print(fmt%(AoverO[i], AoverOerr[i], featuresize*1e3, fserror * 1e3))
+
+		print('\ntotal:')
+
+		meanAoO = np.average(AoverO, weights=AoverOerr**-2)
+		merr = np.sqrt(1./np.sum(AoverOerr**-2))
+		meanfeaturesize = 2 * wavelength / meanAoO
+		meanfeatureerror = merr * meanfeaturesize / meanAoO
+		print(fmt%(meanAoO, merr, meanfeaturesize*1e3, meanfeatureerror*1e3))
