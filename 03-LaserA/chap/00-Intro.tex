@@ -41,20 +41,56 @@ This effect is used inside the He-Ne laser to get a homogenously polarized beam,
 The following explanations are of minimal extent, as described processes should be familiar by common evidence.
 
 \subsection{Single slit}
+
 \begin{figure}[tb]
-	\centering
-	\includegraphics[width=0.6\textwidth]{./img/brewster.pdf}
-	\caption[Single slit]{For the deviation of the single-slit formulae}
-	\label{fig:single_slit}
+	\begin{subfigure}{.51\textwidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{./img/brewster.pdf}
+		\caption[Single slit I]{Path difference deviation}
+		\label{fig:path_diff_single}
+	\end{subfigure}
+	\begin{subfigure}{.51\textwidth}
+		\centering
+		\includegraphics[width=0.6\textwidth]{./img/brewster.pdf}
+		\caption[Single slit II]{Angle-distance relation}
+		\label{fig:angle_distance_single}
+	\end{subfigure}
+	\caption[Deviation of single-slit formulae]{Deviation of single-slit formulae}
 \end{figure}
 
-Considering \autoref{fig:single_slit} we can see that
+Considering \autoref{fig:path_diff_single} we can see that
 \begin{equation*}
-	\Delta s=d\sin\alpha
+	\Delta s=b\sin\alpha
 \end{equation*}
-for the path difference of both beams holds.
+for the path difference of both beams.
+
 The condition for minima is
-\begin{equation*}
+\begin{equation}\label{eq:path_diff_min}
 	\Delta s = n\cdot\lambda\ ;\qquad n\in\mathbb{N}
-\end{equation*}
+\end{equation}
+as the transmitted beam is divisible into $2n$ partial beams which cancel out each other in pairs.
+
+The same deliberation can be applied to find the maxima.
+It holds
+\begin{equation}\label{eq:path_diff_max}
+	\Delta s = \left(n+\frac{1}{2}\right)\cdot\lambda\ ;\qquad n\in\mathbb{N}.
+\end{equation}
+Like this we can divide the beam into $2n+1$ partial beams, the $2n$ beams canceling each other out again, while the last one remains.
+This residual beam can be observed as the $n$-th maximum.
+
+Looking at \autoref{fig:angle_distance_single} it holds
+\begin{equation}\label{eq:dist_single}
+	y_n = d\tan\alpha_n\ ;\qquad n\in\mathbb{N}.
+\end{equation}
+
+Assuming the observed angles are small, using equations \ref{eq:path_diff_min}, \ref{eq:path_diff_max} and \ref{eq:dist_single}, we can see that
+\begin{equation}\label{eq:single_slit_minima}
+	b = \frac{n\lambda d}{y_n} ;\qquad n\in\mathbb{N}.
+\end{equation}
+for minima and
+\begin{equation}\label{eq:single_slit_maxima}
+	b = \frac{\left(n+\frac{1}{2}\right)\lambda d}{y_n} ;\qquad n\in\mathbb{N}.
+\end{equation}
+for maxima of the diffraction pattern.
+
 \section{Fourier Optics}
