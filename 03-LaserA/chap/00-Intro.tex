@@ -60,10 +60,10 @@ The following explanations are of minimal extent, as underlying processes should
 	\caption[Deviation of single-slit formulae]{Deviation of single-slit formulae}
 \end{figure}
 
-Considering \autoref{fig:path_diff_single} we can see that	%I really hope you'll finish that sentence eventually
-\begin{equation*}
+Considering \autoref{fig:path_diff_single} we can see that	%I did you ignorant fuck :D (read the '=' sign as 'is equal to' and you'll see)
+\begin{equation}\label{eq:path_diff}
 	\Delta s=b\sin\alpha
-\end{equation*}
+\end{equation}
 for the path difference of both beams.
 
 The condition for minima is
@@ -95,7 +95,7 @@ for minima and
 \end{equation}
 for maxima of the diffraction pattern.
 
-\subsection{Bridge}
+\subsection{Bridge}\label{subsec:bridge}
 To deduce the diffraction pattern of a bridge, we make use of Babinet's theorem which states that two complementary objects have the same diffraction pattern.
 This can be understood considering following thoughts:
 Assuming $O$ is the original diffracting object and $\bar{O}$ is its complement viz. that it is opaque where $O$ is transparent and vice versa.
@@ -105,4 +105,48 @@ However, for perception of the diffraction patterns not amplitude matters but in
 
 We notice that a bridge of thickness $b$ is the complement of a single-slit of same gap-width, so the diffraction patterns should be the same and we can use the same equations as deviated in \autoref{subsec:single_slit}.
 
-\subsection{Double-slits and lattices}
+\subsection{Circular disk and opening}
+Due to Babinet's principle, the observed diffraction patterns of a disk and a circular opening of same width should be the same.
+We expect rotationally symmetrical patterns.
+
+\subsection{Hair}
+A hair poses the same object as elaborated in \autoref{subsec:bridge} so according formulae can be applied to calculate its width.
+
+\subsection{Double-slits}
+The interference pattern of a double-slit can be explained via the Huygens-Fresnel principle.
+It states that each point on a wavefront generates a secondary wavelet and that the disturbance at any subsequent point can be found by summing the contributions of the individual wavelets at that point.
+Assuming both slits are small compared to the wavelength of the laser, they diffract light into new cylindrical wavelets which superimpose at their amplitude and hence their intensity.
+
+As in \autoref{eq:path_diff}, it holds
+\begin{equation*}
+	\Delta s=g\sin\alpha,
+\end{equation*}
+$g$ denoting the distance between the two parallel slits.
+This time, however, there only are two beams as our earlier assumption guarantees, so the conditions for maxima and minima are altered.
+
+The condition for maxima becomes
+\begin{equation}\label{eq:double_path_max}
+	\Delta s = n\cdot\lambda\ ;\qquad n\in\mathbb{N},
+\end{equation}
+whereas
+\begin{equation}\label{eq:double_path_min}
+	\Delta s = \left(n+\frac{1}{2}\right)\cdot\lambda\ ;\qquad n\in\mathbb{N}.
+\end{equation}
+can be found for minima.
+Note that these are the same conditions as in \autoref{subsec:single_slit}, yet flipped. \todo{swapped? however? only? You decide.}
+
+Using \autoref{eq:dist_single}, this leads to
+
+\begin{alignat}{3}
+ 	g &= \frac{n\lambda d}{y_{\text{max,}n}} &\quad n\in\mathbb{N},\label{eq:double_max} \\
+	g &= \frac{\left(n+\frac{1}{2}\right)\lambda d}{y_{\text{min,}n}} &\quad n\in\mathbb{N}, \label{eq:double_min}
+\end{alignat}
+where $y_{\text{max,}n}$ and $y_{\text{min,}n}$ denote the position of the $n$-th maximum and minimum respectively.
+
+\subsection{Lattices}\label{subsec:lattices}
+Noting that lattices are just $n$ subsequent slits placed in intervals of $\frac{1}{g}$, we can deduce that
+\begin{alignat}{3}
+ 	\frac{1}{g} &= \frac{n\lambda d}{y_{\text{max,}n}} &\quad n\in\mathbb{N},\label{eq:lattice_max} \\
+	\frac{1}{g} &= \frac{\left(n+\frac{1}{2}\right)\lambda d}{y_{\text{min,}n}} &\quad n\in\mathbb{N}, \label{eq:lattice_min}
+\end{alignat}
+holds for the maxima and minima as in equations \ref{eq:double_max} and \ref{eq:double_min}.
