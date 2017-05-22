@@ -164,3 +164,28 @@ The beam scattered by this object in the direction of the photo plate has a phas
 This dependence contains the desired information about the geometry of the object (distance of the individual object points).
 The interference pattern created on the plate, however, has no resemblance with the actual body at all.
 To make it visible again, the photo plate is illuminated by a light source of the same wavelength and now can be viewed from different angles, revealing different sides of the imaged object.
+
+\section{Measurements, Calculation of Feature Size and Error}
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./img/diffraction.pdf}
+	\caption{Typical Diffraction Pattern}
+	\label{fig:diffraction}
+\end{figure}
+Despite the very different geometries of the experiments, the feature size $W$ (the width of a single slit or the spacing of a double slit or optical grating) can be calculated using the same method:
+
+The distances $d_{1 \dots m}$ between the two peaks or troughs of the first m diffraction orders are measured by hand and converted to the deflection angles using $\alpha_n = \frac{d_n}{2 D_\text{screen}}$, where $D_\text{screen}$ is the distance between object and screen.\\
+A linear fit $\alpha_n = S \cdot n + d_0$ is applied to the angles.
+The feature size $W$ is calculated by $W = \frac{\lambda}{S}$.
+
+The error in $S$ is calculated using the fitting tool \textit{kafe}\footnote{\url{https://github.com/dsavoiu/kafe}}, assuming a statistical error of \SI{1}{\mm} for the distances $d_n$.
+
+A second error source is the wavelength $\lambda$ of the He-Ne laser.
+The wavelength of a He-Ne laser typically lies within \SI{2}{\ppm} of the standard $\lambda_0 = \SI{632.816}{\nm}$ (in air)\footnote{\url{http://www.k3pgp.org/Notebook/Lasersam/laserhen.htm\#hentoo0}}.
+As $\lambda$ is proportional to $W$, this error translates directly to the error in $W$.
+This statistical error is much smaller than the error introduced by $S$, so it can safely be disregarded.
+
+Since there is only one error source for $W$, the error in $W$ is calculated by $\sigma_W = W \cdot \frac{\sigma_S}{S}$.
+
+Some measurements were repeated with different distances $D_{screen}$, the mean is calculated by weighting the individual values with the inverse square of their respective errors.
+The error in the mean value is $\sigma_\text{mean} = \left(\sum_{n = 1}^m (\sigma_n^{-2})\right)^{-1}$

@@ -14,9 +14,12 @@ def formatUC(x, err, sig=2):
 	errman = err*10**(sig-exp)
 	return fmt%(man, errman, exp)
 
+def mixcase(s):
+	return ''.join([c.upper() if np.random.randint(0,2) else c.lower() for c in s])
+
 XKCD = True
 
-wavelength = 633e-6 #in mm
+wavelength = 632.816e-6 #in mm
 
 if len(sys.argv) < 2:
 	print('specify an input file')
@@ -59,9 +62,9 @@ for i in range(0, len(L)):
 	fit.do_fit(quiet=True)
 	Fits = Fits + [fit]
 
-	AoverO[i] = fit.final_parameter_values[0]
+	AoverO[i] = fit.final_parameter_values[0]/2
 	Aoffset[i] = fit.final_parameter_values[1]
-	AoverOerr[i] = fit.final_parameter_errors[1]
+	AoverOerr[i] = fit.final_parameter_errors[1]/2
 
 
 if len(sys.argv) >= 3:
@@ -72,7 +75,7 @@ if len(sys.argv) >= 3:
 
 		if XKCD:
 			plt.xkcd()
-			pointlabel = lambda: ('D' if np.random.randint(0,2) else 'd') + ' = %0.2f ' + ('m' if np.random.randint(0,2) else 'M')
+			pointlabel = lambda: mixcase('D = %0.2f m')
 		else:
 			print('boring!')
 			matplotlib.rc('text', usetex = True)
@@ -84,7 +87,7 @@ if len(sys.argv) >= 3:
 			plt.errorbar(O, D[i],fmt='.', yerr=d_err, label=pointlabel()%(L[i]*1e-3))
 
 			X = np.array([0, O[-1]])
-			plt.plot(X, L[i]*linear_2par(X, AoverO[i], Aoffset[i]), color='#999999', ls='--', lw=1., label='Linear Fit' if i==0 else None)
+			plt.plot(X, L[i]*linear_2par(X, AoverO[i]*2, Aoffset[i]), color='#999999', ls='--', lw=1., label='Linear Fit' if i==0 else None)
 
 		plt.legend() #only for fixing datasets with missing orders
 		plt.xlabel('Order')
@@ -102,31 +105,21 @@ if len(sys.argv) >= 3:
 
 	else:
 		print('latex table:')
-		print('(d_screen)	(angle/order)	(error on #0)	(feature size [um])	(error on #2)')
-
-		#fmt = '\\num{%0.2e}&	\\num{%0.2e}&	\\num{%0.0f}&	\\num{%0.2f}\\\\'
+		print('(D_screen)	(angle/order)	(feature size [um])')
 
 		for i in range(0, len(L)):
-			featuresize = 2 * wavelength / AoverO[i]
+			featuresize = wavelength / AoverO[i]
 			fserror = AoverOerr[i] * featuresize / AoverO[i]
 
-			if len(sys.argv) > 3 and sys.argv[3] == 'sierr':
-				fmt = '%0.2f&	%s&	%s\\\\'
-				print(fmt%(L[i]*1e-3, formatUC(AoverO[i], AoverOerr[i]), formatUC(featuresize*1e-3, fserror*1e-3)))
-			else:
-				fmt = '%0.2f&	%0.2e&	%0.2e&	%0.0f&	%0.2f\\\\'
-				print(fmt%(L[i]*1e-3, AoverO[i], AoverOerr[i], featuresize*1e3, fserror * 1e3))
+			fmt = '%0.2f&	%s&	%s\\\\'
+			print(fmt%(L[i]*1e-3, formatUC(AoverO[i], AoverOerr[i]), formatUC(featuresize*1e-3, fserror*1e-3)))
 
-		print('\ntotal:')
+		print('\\midrule')
 
 		meanAoO = np.average(AoverO, weights=AoverOerr**-2)
 		merr = np.sqrt(1./np.sum(AoverOerr**-2))
-		meanfeaturesize = 2 * wavelength / meanAoO
+		meanfeaturesize = wavelength / meanAoO
 		meanfeatureerror = merr * meanfeaturesize / meanAoO
 
-		if len(sys.argv) > 3 and sys.argv[3] == 'sierr':
-			fmt = '%0.2f&	%s&	%s\\\\'
-			print(fmt%(0, formatUC(meanAoO, merr), formatUC(meanfeaturesize*1e-3, meanfeatureerror*1e-3)))
-		else:
-			fmt = '%0.2f&	%0.2e&	%0.2e&	%0.0f&	%0.2f\\\\'
-			print(fmt%(0, meanAoO, merr, meanfeaturesize*1e3, meanfeatureerror * 1e3))
+		fmt = '{mean}&	%s&	%s\\\\'
+		print(fmt%(formatUC(meanAoO, merr), formatUC(meanfeaturesize*1e-3, meanfeatureerror*1e-3)))
