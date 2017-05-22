@@ -47,7 +47,7 @@ if np.array_equal(A[0], A[1]):
 	L = L[:1]
 
 d_err = 1					#assume 1mm error on d
-a_err = [d_err / l for l in L]
+L_err = 10
 
 Fits = []
 AoverO = np.zeros(len(L))
@@ -56,7 +56,9 @@ AoverOerr = np.zeros(len(L))
 
 for i in range(0, len(L)):
 	dataset = kafe.Dataset(data=(O, A[i]))
-	dataset.add_error_source('y', 'simple', a_err[i])
+
+	a_err = np.sqrt((A[i] * L_err/L[i])**2 + (d_err / L[i])**2)
+	dataset.add_error_source('y', 'simple', a_err)
 
 	fit = kafe.Fit(dataset, linear_2par)
 	fit.do_fit(quiet=True)

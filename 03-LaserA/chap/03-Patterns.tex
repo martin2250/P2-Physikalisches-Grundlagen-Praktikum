@@ -13,12 +13,12 @@ As the distance between two adjacent extremes is the same for peaks and troughs,
 	\caption{Double Slit Width}
 	\begin{tabular}{SSS}
 		\toprule
-		{$D_\text{screen}$ (\si{\meter})}&	{$S$ (\si{\radian\per\order})}&	{$W$ (\si{\micro\meter})}\\
+		{$D_\text{screen}$ (\si{\meter})}&	{$S$ (\si{\radian\per\order})}&	{$W$ (\si{\meter})}\\
 		\midrule
 		2.45&	3.23(13)e-3&	1.96( 8)e-4\\
-		2.25&	3.18(14)e-3&	1.99( 9)e-4\\
+		2.25&	3.18(15)e-3&	1.99( 9)e-4\\
 		2.05&	3.16(16)e-3&	2.00(10)e-4\\
-		1.85&	3.20(17)e-3&	1.98(11)e-4\\
+		1.85&	3.20(18)e-3&	1.98(11)e-4\\
 		1.65&	3.18(20)e-3&	1.99(12)e-4\\
 		\midrule
 		{mean}&	3.19( 7)e-3&	1.98( 4)e-4\\
@@ -31,15 +31,41 @@ As the distance between two adjacent extremes is the same for peaks and troughs,
 	\caption{Double Slit Spacing}
 	\begin{tabular}{SSS}
 		\toprule
-		{$D_\text{screen}$ (\si{\meter})}&	{$S$ (\si{\radian\per\order})}&	{$W$ (\si{\micro\meter})}\\
+		{$D_\text{screen}$ (\si{\meter})}&	{$S$ (\si{\radian\per\order})}&	{$W$ (\si{\meter})}\\
 		\midrule
-		2.45&	2.49(13)e-3&	2.54(13)e-4\\
-		2.25&	2.51(14)e-3&	2.52(14)e-4\\
-		2.05&	2.49(16)e-3&	2.55(16)e-4\\
-		1.85&	2.82(17)e-3&	2.25(14)e-4\\
+		2.45&	2.49(13)e-3&	2.54(14)e-4\\
+		2.25&	2.51(15)e-3&	2.52(15)e-4\\
+		2.05&	2.48(16)e-3&	2.55(16)e-4\\
+		1.85&	2.81(18)e-3&	2.25(14)e-4\\
 		1.65&	2.49(20)e-3&	2.54(20)e-4\\
 		\midrule
 		{mean}&	2.55( 7)e-3&	2.49( 7)e-4\\
 		\bottomrule
 	\end{tabular}
 \end{table}
+
+\section{Weird Slit Configurations}
+\todo{think of a better title}
+
+\section{Diffraction Grating}
+The spacing of the slots in a diffraction grating is analyzed using the same method described earlier.
+
+\begin{table}[b!]
+	\centering
+	\caption{Diffraction Grating}
+	\begin{tabular}{SSS}
+		\toprule
+		{$D_\text{screen}$ (\si{\meter})}&	{$S$ (\si{\radian\per\order})}&	{$W$ (\si{\meter})}\\
+		\midrule
+		2.45&	6.00(16)e-3&	1.05( 3)e-4\\
+		2.25&	6.08(18)e-3&	1.04( 3)e-4\\
+		2.05&	5.90(19)e-3&	1.07( 4)e-4\\
+		1.85&	6.00(21)e-3&	1.05( 4)e-4\\
+		1.65&	6.08(24)e-3&	1.04( 4)e-4\\
+		\midrule
+		{mean}&	6.01( 9)e-3&	1.05( 2)e-4\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+The factory specification of \num{100} slots per \si{\mm} ($W = \SI{0.1}{\mm}$) lies outside of the calculated error.

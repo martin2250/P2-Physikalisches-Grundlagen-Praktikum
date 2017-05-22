@@ -178,9 +178,10 @@ The distances $d_{1 \dots m}$ between the two peaks or troughs of the first m di
 A linear fit $\alpha_n = S \cdot n + d_0$ is applied to the angles.
 The feature size $W$ is calculated by $W = \frac{\lambda}{S}$.
 
-The error in $S$ is calculated using the fitting tool \textit{kafe}\footnote{\url{https://github.com/dsavoiu/kafe}}, assuming a statistical error of \SI{1}{\mm} for the distances $d_n$.
+The error in $S$ is calculated using the fitting tool \textit{kafe}\footnote{\url{https://github.com/dsavoiu/kafe}}, assuming uncorrelated statistical errors of \SI{1}{\mm} for the distances $d_n$ and \SI{10}{\mm} for $D_\text{screen}$.
 
-A second error source is the wavelength $\lambda$ of the He-Ne laser.
+
+Another error source is the wavelength $\lambda$ of the He-Ne laser.
 The wavelength of a He-Ne laser typically lies within \SI{2}{\ppm} of the standard $\lambda_0 = \SI{632.816}{\nm}$ (in air)\footnote{\url{http://www.k3pgp.org/Notebook/Lasersam/laserhen.htm\#hentoo0}}.
 As $\lambda$ is proportional to $W$, this error translates directly to the error in $W$.
 This statistical error is much smaller than the error introduced by $S$, so it can safely be disregarded.
