@@ -4,6 +4,16 @@ import numpy as np
 import sys
 from kafe.function_library import linear_2par
 
+def frexp10(x):
+	exp = int(np.log10(x)) - 1
+	return x / 10**exp, exp
+
+def formatUC(x, err, sig=2):
+	fmt = '%%0.%df(%%%d.0f)e%%d'%(sig, sig)
+	man, exp = frexp10(x)
+	errman = err*10**(sig-exp)
+	return fmt%(man, errman, exp)
+
 XKCD = True
 
 wavelength = 633e-6 #in mm
@@ -54,7 +64,7 @@ for i in range(0, len(L)):
 	AoverOerr[i] = fit.final_parameter_errors[1]
 
 
-if len(sys.argv) == 3:
+if len(sys.argv) >= 3:
 
 	if sys.argv[2] != 'data':
 		import matplotlib.pyplot as plt
@@ -92,15 +102,20 @@ if len(sys.argv) == 3:
 
 	else:
 		print('latex table:')
-		print('(angle/order)	(error on #0)	(feature size [um])	(error on #2)')
+		print('(d_screen)	(angle/order)	(error on #0)	(feature size [um])	(error on #2)')
 
-		fmt = '\\num{%0.2e}&	\\num{%0.2e}&	\\num{%0.0f}&	\\num{%0.2f}\\\\'
+		#fmt = '\\num{%0.2e}&	\\num{%0.2e}&	\\num{%0.0f}&	\\num{%0.2f}\\\\'
 
 		for i in range(0, len(L)):
 			featuresize = 2 * wavelength / AoverO[i]
 			fserror = AoverOerr[i] * featuresize / AoverO[i]
 
-			print(fmt%(AoverO[i], AoverOerr[i], featuresize*1e3, fserror * 1e3))
+			if len(sys.argv) > 3 and sys.argv[3] == 'sierr':
+				fmt = '%0.2f&	%s&	%s\\\\'
+				print(fmt%(L[i]*1e-3, formatUC(AoverO[i], AoverOerr[i]), formatUC(featuresize*1e-3, fserror*1e-3)))
+			else:
+				fmt = '%0.2f&	%0.2e&	%0.2e&	%0.0f&	%0.2f\\\\'
+				print(fmt%(L[i]*1e-3, AoverO[i], AoverOerr[i], featuresize*1e3, fserror * 1e3))
 
 		print('\ntotal:')
 
@@ -108,4 +123,10 @@ if len(sys.argv) == 3:
 		merr = np.sqrt(1./np.sum(AoverOerr**-2))
 		meanfeaturesize = 2 * wavelength / meanAoO
 		meanfeatureerror = merr * meanfeaturesize / meanAoO
-		print(fmt%(meanAoO, merr, meanfeaturesize*1e3, meanfeatureerror*1e3))
+
+		if len(sys.argv) > 3 and sys.argv[3] == 'sierr':
+			fmt = '%0.2f&	%s&	%s\\\\'
+			print(fmt%(0, formatUC(meanAoO, merr), formatUC(meanfeaturesize*1e-3, meanfeatureerror*1e-3)))
+		else:
+			fmt = '%0.2f&	%0.2e&	%0.2e&	%0.0f&	%0.2f\\\\'
+			print(fmt%(0, meanAoO, merr, meanfeaturesize*1e3, meanfeatureerror * 1e3))
