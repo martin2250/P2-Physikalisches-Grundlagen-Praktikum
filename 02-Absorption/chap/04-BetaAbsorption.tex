@@ -3,7 +3,7 @@
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{./data/plots/3.pdf}
+	\includegraphics[width=0.8\textwidth]{./data/plots/3_lin.pdf}
 	\caption{Beta radiation over Absorber Thickness}
 	\label{fig:beta_absorption}
 \end{figure}
@@ -47,7 +47,7 @@ which differ from the experimentally determined vaules by \SI{27}{\percent} and 
 
 The relatively high deviation is likely due to the difficulty of fitting two very similar functions to the data set.
 
-The maximum range of the particles can only be estimated.
+The maximum range of the particles is determined by applying two linear fits to the data in \autoref{fig:beta_absorption}.
 The range of Sr-90 ends at the slight kink at $R_\text{Sr-90} \approx \SI{250}{\um}$, the range of Y-90 likely ends close beyond \SI{5}{\mm}, so $R_\text{Y-90} \approx \SI{5}{\mm}$ should be a good enough estimate.
 
 The maximum particle energy $W$ (in \si{\MeV}) can be approximated\footnote{Flammersfeld} with $W = 1.92\left(R^2\rho^2 + 0.22 \cdot R\rho\right)^\frac{1}{2}$, with the range of the radiation $R$ (in \si{\cm}) and the density of the absorber $\rho$ (in \si{\gram\per\cm\cubed}).
@@ -55,5 +55,4 @@ Using the estimated ranges, this yields
 \begin{equation*}
 	W_\text{Sr-90} = \SI{0.27}{\MeV} \qquad \text{and} \qquad W_\text{Y-90} = \SI{2.8}{\MeV},
 \end{equation*}
-which present a \SI{48}{\percent} and \SI{22}{\percent} error.
-Considering the wild guesswork used to find the range of the particles, these results are satisfactory.
+which present a \SI{48}{\percent} and \SI{22}{\percent} error, these results are satisfactory.

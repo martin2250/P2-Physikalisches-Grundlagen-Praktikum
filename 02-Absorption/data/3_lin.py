@@ -19,27 +19,28 @@ r = r - 0.3235	#background rate
 d1 = d[:9]
 r1 = r[:9]
 
-d2 = d[9:-1]
-r2 = r[9:-1]
+d2 = d[9:]
+r2 = r[9:]
 
-slope1, intercept1, rr, p, stderr = linregress(d1, r1)
-slope2, intercept2, rr, p, stderr = linregress(d2, r2)
+slope1, intercept1, rr, p, stderr = linregress(d1, np.log(r1))
+slope2, intercept2, rr, p, stderr = linregress(d2, np.log(r2))
 
-X1 = np.linspace(d1[0], d1[len(d1)-1], 30)
-X2 = np.linspace(d2[0], d2[len(d2)-1], 30)
+X1 = np.linspace(d1[0], d2[0], 30)
+X2 = np.linspace(d1[-1], d2[-1], 30)
 
 plt.plot(d, r, 'o', label='Sr-90 beta source')
 
-plt.plot(X1, intercept1 + X1 * slope1, 'r')
-plt.plot(X2, intercept2 + X2 * slope2, 'r')
+plt.plot(X1, np.exp(intercept1 + X1 * slope1), 'r')
+plt.plot(X2, np.exp(intercept2 + X2 * slope2), 'r')
 
 matplotlib.rc('text', usetex = True)
 plt.xlabel('Thickness $d$ in microns')
 plt.ylabel('Activity in Events / s')
 plt.grid(which="both")
+plt.legend()
 
 ax = plt.gca()
-#ax.set_yscale('log')
+ax.set_yscale('log')
 #ax.set_xscale('log')
 
 
