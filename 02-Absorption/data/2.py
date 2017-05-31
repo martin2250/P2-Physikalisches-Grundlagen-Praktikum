@@ -8,6 +8,8 @@ import sys
 
 d, N, t = np.loadtxt('source/2.dat', unpack=True)
 
+d=d+7.0
+
 def expon(x, a, b):
 	return a*np.exp(-b*x)
 
