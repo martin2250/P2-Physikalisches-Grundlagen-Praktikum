@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from __future__ import print_function, division
 import numpy as np
-import scipy.optimize
+from scipy.stats import linregress
 import matplotlib
 from matplotlib import pyplot as plt
 import sys
@@ -12,9 +12,6 @@ materials=np.array(['acrylic glass', 'iron', 'brass', 'aluminium', 'trovidur', '
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
 plt.rcParams.update(params)
-
-def expon(x, a, b):
-	return a*np.exp(-b*x)
 
 #left setup: mean 0.352941176471 cps, std: 0.578148817661 cps
 
@@ -30,9 +27,10 @@ N=N-l_br	#background radiation
 plt.xlabel('rho in $\si{\gram\per\cubic\centi\meter}$')
 plt.ylabel('Activity in Events/$\si{\second}$')
 
-#popt, pconv = scipy.optimize.curve_fit(expon, d, N)
+slope, intercept, r, p, stderr = linregress(rho, N)
 
-#plt.plot(rho, expon(d, popt[0], popt[1]))
+plt.plot(rho, intercept+rho*slope, label='Linear Fit $N(\\rho)=a\\cdot\\rho+b$\n$a=%.2f\\si{\centi\meter}^{-1}, b=%2.f$' %(slope, intercept))
+
 for i in range(0, len(rho)):
 	plt.plot(rho[i], N[i], 'o', label=materials[i])
 
