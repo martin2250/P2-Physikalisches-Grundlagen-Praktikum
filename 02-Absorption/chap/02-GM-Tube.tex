@@ -31,6 +31,29 @@ The measured values are listed in \autoref{tab:background}.
 \end{figure}
 
 \section{Dead Time}
+\begin{figure}[tbp]
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\caption{Event counts for dead time}
+		\label{tab:dead_time}
+		\begin{tabular}{SSS}
+			\toprule
+			{$N$ (cps)}	&	{left}&	{right}\\
+			\midrule
+				{$N_1$}	&	\num{23518}	&	\num{19204}	\\
+				{$N_2$}	&	\num{17466}	&	\num{13990}	\\
+				{$N_{12}$}	&	\num{42872}	&	\num{34170}	\\
+			\bottomrule
+		\end{tabular}
+	\end{subfigure}
+	\begin{subfigure}{.8\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{data/plots/1_4.pdf}
+		\caption{Distance Behavior of Point Sources}
+		\label{fig:invsq}
+	\end{subfigure}
+\end{figure}
+
 As mentioned in \autoref{sec:geiger_shit}, the depletion of electrons prevent other incident particles to induce any gas discharges for a certain amount of time because induced positive ions have to migrate to the cathode (wall of the tube) first for subsequent avalanches to occur.
 This time is called \textbf{dead time} $\tau_\text{dead}$.
 
@@ -39,7 +62,7 @@ Dead time can be determined by a two-preparation method using the formula \footn
 	\tau_\text{dead} = \frac{T}{N_{12}}\left(1-\sqrt{1-\left(N_1+N_2-N_{12}\right)\cdot\frac{N_{12}}{N_1N_2}}\right).
 \end{equation}
 
-Utilizing \autoref{eq:dead_time} dead time is calculated as
+Utilizing \autoref{eq:dead_time} and the data in \autoref{tab:dead_time} dead time is calculated as
 \begin{gather*}
  	\tau_\text{dead,l}=\SI{263.4}{\micro\second}\qquad \tau_\text{dead,r}=\SI{211.6}{\micro\second}
 \end{gather*}
@@ -59,10 +82,3 @@ To minimize the attenuation due to absorption, which does not follow the inverse
 A linear fit is applied, and the calculted slope is \num{-2.1}.
 
 The inverse square law holds.
-
-\begin{figure}[tb]
-	\centering
-	\includegraphics[width=.6\linewidth]{data/plots/1_4.pdf}
-	\caption{Distance Behavior of Point Sources}
-	\label{fig:invsq}
-\end{figure}
