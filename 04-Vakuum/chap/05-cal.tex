@@ -1,6 +1,27 @@
 % !TEX root = ../main.tex
-\chapter{Calibration}
+\chapter{Static Calibration Method}
 
+This experiment explores a common method to calibrate pressure gauges or the volume of vacuum receivers against each other.
+
+The receiver is evacuated to a pressure below \SI{e-4}{\milli\bar} using both the mechanical and turbomolecular pump.
+The pumps are disconnected by closing valve V2.
+Now the receiver is vented iteratively by isolating the reference volume from the system using V3, venting the reference volume to atmospheric pressure using B2 and reopening V3 to equalize the pressure.
+The pressure after each iteration is read off at gauge T3.
+
+Ignoring the small amount of air left in the reference volume that is 'lost' when venting it to atmospheric pressure, the pressure $p_n$ after the $n$-th iteration is given by
 \begin{equation}
-	p_n = n \cdot \frac{p_\text{A} V_\text{rec}}{V_\text{rec} + V_\text{ref}}
+	p_n = n \; p_\text{A} \cdot \frac{V_\text{ref}}{V_\text{rec} + V_\text{ref}} + p_0,
 \end{equation}
+using the atmospheric pressure $p_\text{A}$, the volumes of the receiver and reference volume $V_\text{rec}$ and $V_\text{ref}$ and the initial pressure $p_0$.
+
+The slope $m$ of the linear relationship is the product of the expansion coefficient $\epsilon = \frac{V_\text{ref}}{V_\text{rec} + V_\text{ref}}$ and $p_\text{A}$ and is determined as $m = \SI{4.03}{\milli\bar}$ using linear regression.
+Using standard pressure $p_\text{A} = \SI{1013}{\milli\bar}$, this yields an expansion coefficient of $\epsilon = \num{252}$.
+The theoretical expansion coefficient is $\epsilon = \num{295}$, with the values $V_\text{ref} = \SI{0.034}{\liter}$ and $V_\text{rec} = \SI{10}{\liter}$
+
+
+\begin{figure}[b!]
+	\centering
+	\includegraphics[width=.6\textwidth]{data/plots/5.pdf}
+	\caption{Static Calibration}
+	\label{fig:static-cal}
+\end{figure}

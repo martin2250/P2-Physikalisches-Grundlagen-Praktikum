@@ -12,13 +12,21 @@ X = np.array([N[0], N[-1]])
 
 slope, intercept, r, p, stderr = scipy.stats.linregress(N, P)
 
+dP = P[1:] - P[:-1]
+barX = np.arange(len(dP)) + 0.5
+
 plt.xkcd()
 
-plt.plot(X, X * slope + intercept)
-plt.plot(N, P, 'or')
+ax1 = plt.gca()
+ax2 = ax1.twinx()
+
+ax2.plot(X, X * slope + intercept)
+ax2.plot(N, P, 'or')
+ax1.bar(barX, dP, alpha=0.2, color='g')
 
 plt.xlabel('Times Vented')
-plt.ylabel('Pressure')
+ax2.set_ylabel('PresSure P (mBar)')
+ax1.set_ylabel('PreSsure DiFferEnce dP (mBar)')
 
 if len(sys.argv) == 1:
 	print('slope:', slope, 'mBar/vent')
