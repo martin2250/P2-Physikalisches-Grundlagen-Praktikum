@@ -1,5 +1,5 @@
 BUILD = latexmk -pdf -interaction=nonstopmode -synctex=1
-FILE = P2-$(shell basename $(CURDIR))
+FILE = $(shell basename $(CURDIR))
 svgimgs := $(wildcard img/*.svg)
 svgimtargets := $(patsubst %.svg,%.pdf,$(svgimgs))
 
@@ -10,8 +10,8 @@ all: build show
 data:
 	make -C data
 
-build: data main.tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets)
-	$(BUILD) -jobname=$(FILE) main.tex
+build: data $(FILE).tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets)
+	$(BUILD) $(FILE).tex
 
 show:
 	xdg-open $(FILE).pdf > /dev/null 2>&1 &
