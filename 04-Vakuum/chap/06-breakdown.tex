@@ -1,0 +1,21 @@
+\chapter{Breakdown Voltage}
+
+The breakdown voltage of air is measured at different pressures.
+Two metal ball electrodes are placed in the receiver and connected to a high voltage power supply.
+The breakdown voltage is measured by slowly raising the voltage of the power supply and recording the last reading before the breakdown as $U_\text{br}$.
+If there is a continuous discharge, the minimal required voltage to sustain the discharge is recorded as $U_\text{hold}$.
+
+The recorded data is shown in \autoref{fig:breakdown}.
+There are several missing data points: at high pressures, the power supply is not able to sustain a continuous discharge and at pressures around \SI{1}{\milli\bar}, the breakdown and hold voltage are nearly identical.
+At pressures below \SI{10}{\milli\bar} the breakdown occurs at the feed through instead of the electrodes for reasons unknown.
+
+Despite those issues, the curve follows the expectations.
+At very low and high pressures, the breakdown voltage is highest, at pressures around \SI{1}{\milli\bar} the curve has a minimum.
+As the discharge does not happen at the electrodes, it isn't possible to compare the mean free path to the gap width.
+
+\begin{figure}[b!]
+	\centering
+	\includegraphics[width=.6\textwidth]{data/plots/6.pdf}
+	\caption{Breakdown Voltage}
+	\label{fig:breakdown}
+\end{figure}
