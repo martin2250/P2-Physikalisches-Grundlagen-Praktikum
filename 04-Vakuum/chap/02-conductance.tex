@@ -11,4 +11,9 @@ It holds
 	\frac{1}{S_\text{eff}}=\frac{1}{S}+\frac{1}{L},
 \end{equation}
 where $L$ denotes the conductance of the pipe (system).
-Transforming \autoref{eq:suction_eff} 
+Rearranging \autoref{eq:suction_eff}, the conductance $L$ can be calculated by
+\begin{equation}\label{eq:conductance}
+	L=\frac{S\cdot S_\text{eff}}{S-S_\text{eff}}.
+\end{equation}
+Validity of \autoref{eq:suction_eff} can be affirmed by considering the limit $L\rightarrow\infty$, which results in $S_\text{eff}=S$.
+This makes sense, as an unlowered suction capacity can be expected with no pipe resistance ($L\rightarrow\infty$).
