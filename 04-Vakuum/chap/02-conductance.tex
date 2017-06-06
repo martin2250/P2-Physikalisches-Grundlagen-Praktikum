@@ -48,6 +48,19 @@ This makes a total volume of $V_\text{tot}=\SI{9.97}{\liter}$.
 	\caption[Pressure Curves for T1 and T2]{Pressure Curves at T1 and T2}
 	\label{fig:pressure_shit}
 \end{figure}
+\begin{table}[tbp]
+	\centering
+	\label{tab:values_con}
+	\caption[Fit parameters and suction capacities]{Fit parameter $a$ and resulting suction capacities $S$, $V=\SI{9.97}{\liter}$}
+	\begin{tabular}{S|SS}
+		\toprule
+		{}&	{T1}&	{T2}\\
+		\midrule
+		{$a$ $(\si{\second}^{-1})$}	&	\num{-0.0164}	&	\num{-0.0131}	\\
+		{$S$ $(\si{\liter\per\second})$}	&	0.163	&	0.131	\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 \autoref{fig:pressure_shit} shows the measured pressure curves at T1 and T2.
 \autoref{tab:values_con} shows the fit parameters and the calculated suction capacity (using \autoref{eq:suction_lin}).
 Applying \autoref{eq:conductance}, the conductance is determined as
@@ -64,16 +77,3 @@ while the formula was evaluated at $t=\SI{100}{\second}$.
 This makes a relative deviation of \num{140}\%.
 The big difference can be explained by the extraordinarily twisted metal tube.
 Such circumstances cannot be accounted for using this kind of theoretical model.
-\begin{table}[b!]
-	\centering
-	\label{tab:values_con}
-	\caption[Fit parameters and suction capacities]{Fit parameter $a$ and resulting suction capacities $S$, $V=\SI{9.97}{\liter}$}
-	\begin{tabular}{S|SS}
-		\toprule
-		{}&	{T1}&	{T2}\\
-		\midrule
-		{$a$ $(\si{\second}^{-1})$}	&	\num{-0.0164}	&	\num{-0.0131}	\\
-		{$S$ $(\si{\liter\per\second})$}	&	0.163	&	0.131	\\
-		\bottomrule
-	\end{tabular}
-\end{table}
