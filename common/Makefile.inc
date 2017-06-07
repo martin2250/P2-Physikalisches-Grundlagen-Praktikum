@@ -20,6 +20,7 @@ show:
 
 share: build
 	curl -H "Max-Days: 1" --upload-file ./$(FILE).pdf https://transfer.sh/$(FILE).pdf
+	@echo
 
 ../common/emails.tex:
 	printf '\\newcommand{\\emailadressen}{TODO: umut@dick.butt, martin@dick.butt}' > ../common/emails.tex
