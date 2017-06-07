@@ -1,0 +1,23 @@
+\chapter{Pressure-dependent Suction Capacity Of a Turbomolecular Pump}
+\begin{figure}[hbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./data/plots/4.pdf}
+	\caption[Pressure Over Time]{Pressure Curve at IM}
+	\label{fig:pressure_shit3}
+\end{figure}
+
+\section{Experimental Setup}
+The experiment is conducted with the corrugated pipe (L) with an inner diameter of $d_\text{co}=\SI{21}{\milli\meter}$ and length of $l_\text{co}=\SI{440}{\milli\meter}$.
+After evacuating the volume to a pressure of around \SI{8e-2}{\milli\bar} with the mechanical pump, the turbomolecular pump is switched on.
+Pressure is measured over time with the ion gauge.
+
+\section{Evaluation}
+\autoref{fig:pressure_shit3} shows the measured pressure curve.
+As was the case in \autoref{chap:3} the measured curve is not linear everywhere.
+To fit the linear model, an interval of roughly $t\in[\SI{0}{\second},\SI{30}{\second}]$ is considered.
+A slope of $a=\SI{-0.1023}{\per\second}$ is calculated, which makes a suction capacity of \SI{1.023}{\liter\per\second}.
+The manufacturer specifies a suction capacity of $\geq\SI{30}{\liter\per\second}$.
+This value does not resemble the measured value at all.
+A possible explanation is that manufacturers often specify suction capacities at atmospheric pressure.
+Consequently, the suction capacity decreases drastically at lower pressures.
+Another possible error source could be improper usage of the pump by previous experimenters and a resulting damage at the sensitive pump.
