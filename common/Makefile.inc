@@ -3,9 +3,11 @@ FILE = $(shell basename $(CURDIR))
 svgimgs := $(wildcard img/*.svg)
 svgimtargets := $(patsubst %.svg,%.pdf,$(svgimgs))
 
-.PHONY: all show upload share clean data
+.PHONY: all show upload share clean data build
 
 all: $(FILE).pdf show
+
+build: $(FILE).pdf
 
 data:
 	make -C data
