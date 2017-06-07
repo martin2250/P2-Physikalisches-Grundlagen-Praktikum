@@ -22,8 +22,8 @@ plt.grid(which='both')
 plt.plot(P, Ui, 'bo', label='$U_\\text{br}$')
 plt.plot(P, Uh, 'ro', label='$U_\\text{hold}$')
 
-plt.xlabel('Pressure')
-plt.ylabel('Voltage')
+plt.xlabel('Pressure (\\si{\\milli\\bar})')
+plt.ylabel('Voltage (\\si{\\volt})')
 
 plt.legend()
 
