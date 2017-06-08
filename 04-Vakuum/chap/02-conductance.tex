@@ -1,6 +1,6 @@
-\chapter{Conductance of a Metal Tube}
+\chapter{Conductance of a Metal Tube}\label{chap:con}
 \section{Experimental Setup}
-The corrugated pipe (L) with a diameter of $d_\text{co}=\SI{21}{\milli\meter}$ and length of $l_\text{co}=\SI{440}{\milli\meter}$ is replaced with a thinner metal tube of diameter $d_\text{m}=\SI{2}{\milli\meter}$ and length $l_\text{m}=\SI{443}{\milli\meter}$.
+The corrugated pipe (L) with an inner diameter of $d_\text{co}=\SI{21}{\milli\meter}$ and length of $l_\text{co}=\SI{440}{\milli\meter}$ is replaced with a thinner metal tube of ID $d_\text{m}=\SI{2}{\milli\meter}$ and length $l_\text{m}=\SI{443}{\milli\meter}$.
 The rotary vane pump (DP) is turned on and pressure curves of T1 and T2 are recorded.
 
 \section{Theoretical Background}
@@ -11,4 +11,64 @@ It holds
 	\frac{1}{S_\text{eff}}=\frac{1}{S}+\frac{1}{L},
 \end{equation}
 where $L$ denotes the conductance of the pipe (system).
-Transforming \autoref{eq:suction_eff} 
+Rearranging \autoref{eq:suction_eff}, the conductance $L$ can be calculated by
+\begin{equation}\label{eq:conductance}
+	L=\frac{S\cdot S_\text{eff}}{S-S_\text{eff}}.
+\end{equation}
+Validity of \autoref{eq:suction_eff} can be affirmed by considering the limit $L\rightarrow\infty$, which results in $S_\text{eff}=S$.
+This is consistent with the expectation that an unlowered suction capacity can be expected with no pipe resistance ($L\rightarrow\infty$).
+
+Suction capacity is defined by the temporal change of volume. Using the ideal gas law and respecting that the volume under the bell jar is constant while only the pressure changes, it holds
+\begin{align*}
+	S &=\quad \frac{\d V}{\d t} \\
+	&= -\underbrace{\frac{nRT}{p}}_{=V}\cdot\frac{\dot{p}}{p} \\
+	&=-\frac{V}{p}\cdot\dot{p}.
+\end{align*}
+Separation of variables yields
+\begin{equation}
+	\log{p} = -\underbrace{\frac{S}{V}}_{\text{slope } a}\cdot\ t + \underbrace{\frac{S}{V}\cdot t_0 + \log{p_0}}_{\text{y-intercept } b}.
+\end{equation}
+$a$ and $b$ can be determined by linear regression of the pressure curves.
+
+Using the relation
+\begin{equation}\label{eq:suction_lin}
+	S=-a\cdot V
+\end{equation}
+$a$ can be utilized to calculate the suction capacity.
+
+\section{Evaluation}
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./data/plots/2.pdf}
+	\caption[Pressure Curves for T1 and T2]{Pressure Curves at T1 and T2}
+	\label{fig:pressure_shit}
+\end{figure}
+\begin{table}[tbp]
+	\centering
+	\caption[Fit parameters and suction capacities]{Fit parameter $a$ and resulting suction capacities $S$, $V=\SI{9.97}{\liter}$}
+	\label{tab:values_con}
+	\begin{tabular}{S|SS}
+		\toprule
+		{}&	{T1}&	{T2}\\
+		\midrule
+		{$a$ $(\si{\second}^{-1})$}	&	\num{-0.0164}	&	\num{-0.0131}	\\
+		{$S$ $(\si{\liter\per\second})$}	&	0.164	&	0.131	\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\autoref{fig:pressure_shit} shows the measured pressure curves at T1 and T2.
+\autoref{tab:values_con} shows the fit parameters and the calculated suction capacity (using \autoref{eq:suction_lin}).
+Applying \autoref{eq:conductance}, the conductance is determined as
+\begin{align*}
+	L &= \frac{S(T1)\cdot S(T2)}{S(T1)-S(T2)} \\
+		&= \SI{0.667}{\liter\per\second}.
+\end{align*}
+For comparison, \texttt{Knudsen}'s equation (preparation file) can be used to generate a theoretical value:
+\begin{align*}
+	L_\text{lit} &= 135\cdot\frac{d^4}{l}\cdot\frac{p_1+p_2}{2}+\num{12.1}\cdot\frac{d^3}{l}\cdot\frac{1+192\cdot d\cdot\frac{p_1+p_2}{2}}{1+237\cdot d\cdot\frac{p_1+p_2}{2}} \left[\si{\liter\per\second}\right]	\\
+	&=\SI{0.277}{\liter\per\second},
+\end{align*}
+while the formula was evaluated at $t=\SI{100}{\second}$.
+This makes a relative deviation of \num{140}\%.
+The big difference can be explained by the extraordinarily twisted metal tube.
+Such circumstances cannot be accounted for using this kind of theoretical model.

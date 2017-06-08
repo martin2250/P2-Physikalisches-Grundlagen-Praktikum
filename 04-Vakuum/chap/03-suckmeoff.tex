@@ -1,0 +1,19 @@
+\chapter{Pressure-dependent Suction Capacity Of a Rotary Vane Pump}\label{chap:3}
+\begin{figure}[hbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./data/plots/3.pdf}
+	\caption[Pressure Over Time]{Pressure Curve at T1}
+	\label{fig:pressure_shit2}
+\end{figure}
+
+\section{Experimental Setup}
+The experiment is conducted with the corrugated pipe (L) with an inner diameter of $d_\text{co}=\SI{21}{\milli\meter}$ and length of $l_\text{co}=\SI{440}{\milli\meter}$.
+A pressure curve at T1 is recorded to determine the suction capacity as described in \autoref{chap:con}.
+
+\section{Evaluation}
+\autoref{fig:pressure_shit2} shows the measured pressure curve.
+It is easy to see that the graph does not decrease linearily everywhere. A linear region is visible within the interval $t\in[\SI{15}{\second},\SI{80}{\second}]$.
+A fit parameter of $a=\SI{-0.0742}{\per\second}$ is obtained by fitting the curve inside of this region by linear regression.
+Using \autoref{eq:suction_lin}, a suction capacity of $S=\SI{0.742}{\liter\per\second}$ is calculated.
+The rotary vane pump's manufacturer specifies a suction capacity of $S_\text{man}=\SI{0.694}{\liter\per\second}$.
+This makes a relative deviation of $\num{6.9}\%$, which is acceptable.

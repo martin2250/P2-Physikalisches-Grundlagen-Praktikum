@@ -3,14 +3,16 @@ FILE = $(shell basename $(CURDIR))
 svgimgs := $(wildcard img/*.svg)
 svgimtargets := $(patsubst %.svg,%.pdf,$(svgimgs))
 
-.PHONY: all build show upload share clean data
+.PHONY: all show upload share clean data build
 
-all: build show
+all: $(FILE).pdf show
+
+build: $(FILE).pdf
 
 data:
 	make -C data
 
-build: data $(FILE).tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets)
+$(FILE).pdf: data $(FILE).tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets)
 	$(BUILD) $(FILE).tex
 
 show:
@@ -18,6 +20,7 @@ show:
 
 share: build
 	curl -H "Max-Days: 1" --upload-file ./$(FILE).pdf https://transfer.sh/$(FILE).pdf
+	@echo
 
 ../common/emails.tex:
 	printf '\\newcommand{\\emailadressen}{TODO: umut@dick.butt, martin@dick.butt}' > ../common/emails.tex
