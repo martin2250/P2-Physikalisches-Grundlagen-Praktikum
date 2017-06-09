@@ -15,6 +15,7 @@
 		\caption{Inverting Adder}
 		\label{schem:add}
 	\end{subfigure}
+	\caption{}
 \end{figure}
 
 In the inverting configuration shown in \autoref{schem:inv}, the input signal is fed into the feedback loop, the non-inverting input is held at a fixed voltage.
@@ -40,4 +41,66 @@ The resulting output waveform is shown in \autoref{ss:adder}.
 	\includegraphics[width=.4\linewidth]{./img/ss-adder}
 	\caption{Output Waveform Adder}
 	\label{ss:adder}
+\end{figure}
+
+\section{Inverting Integrator}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/schem-int.pdf}
+		\caption{Inverting Integrator}
+		\label{schem:int}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/schem-diff.pdf}
+		\caption{Inverting Differentiator}
+		\label{schem:diff}
+	\end{subfigure}
+	\caption{}
+\end{figure}
+
+Replacing the feedback resistor \comp{R_2} with a capacitor \comp{C_f}, the current through the feedback loop becomes $I_\text{fb} = C_2 \cdot \frac{\diff \ua}{\diff t}$, giving the output voltage \[\ua = - \int \frac{\ue}{C_2 R_1} \diff t + {\ua}_{,0}.\]
+
+The additional 'bleeder' resistor \comp{R_S} slowly discharges \comp{C_f}, eliminating a charge build-up due to a slightly offset input signal and imperfections of components.
+
+\autoref{ss:int} shows the input and output waveforms for square and triangle inputs.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-int-1.jpg}
+		\caption{Square Wave Input Signal}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-int-2.jpg}
+		\caption{Triangle Wave Input Signal}
+	\end{subfigure}
+	\caption{Integrator Input (CH1) and Output (CH2)}
+	\label{ss:int}
+\end{figure}
+
+\section{Inverting Differentiator}
+
+Swapping \comp{R_1} and \comp{C_f} and using the same equations, \ua becomes \[\ua = - R_1 C_1 \frac{\diff \ue}{\diff t}.\]
+\autoref{ss:diff} shows the input and output waveforms for square and triangle inputs.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-diff-1.jpg}
+		\caption{Square Wave Input Signal}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-diff-2.jpg}
+		\caption{Triangle Wave Input Signal}
+	\end{subfigure}
+	\caption{Differentiator Input (CH1) and Output (CH2)}
+	\label{ss:diff}
 \end{figure}
