@@ -24,10 +24,20 @@ As the inverting input is not directly connected to a voltage source, it's node 
 Unlike the non-inverting amplifier, the input of the inverting amplifier has a low input impedance, set by \comp{R_1}.
 
 The gain of the circuit is calculated from the current through \comp{R_1} to the virtual ground node: $I_\comp{R_1} = \frac{\ue}{R_1}$, which is equal to the current through \comp{R_2}: $I_\comp{R_2} = \frac{\ua}{R_2}$.
-Using a consistent reference direction, the gain  $A$ is \[A = \frac{\ua}{\ue} = -\frac{R_2}{R_1}\].
+Using a consistent reference direction, the gain  $A$ is \[A = \frac{\ua}{\ue} = -\frac{R_2}{R_1}.\]
 
 \section{Inverting Adder}
 
 Ignoring \comp{R_1} in \autoref{schem:inv}, the output voltage \ua is $\ua = -R_2 \cdot I_\text{in}$, with the total current $I_\text{in}$ flowing into the virtual ground node of the inverting input.
 As the voltage at this node is independent of $I_\text{in}$, more inputs can be connected, each via a resistor that controls the gain of the respective input.
-The individual input currents add up to $I_\text{in}$ and the output voltage is \[\ua = -R_2 \cdot \left(\frac{{\ue}_1}{R_{11}} + \frac{{\ue}_2}{R_{12}} + \dots\right)\] with the component labels shown in \autoref{schem:add}.
+The individual input currents add up to $I_\text{in}$ and the output voltage is \[\ua = -R_2 \cdot \left(\frac{{\ue}_1}{R_{11}} + \frac{{\ue}_2}{R_{12}} + \dots\right),\] with the component labels shown in \autoref{schem:add}.
+
+To test the adder, a sinusoid and a square wave of lower amplitude and higher frequency are fed to the inputs.
+The resulting output waveform is shown in \autoref{ss:adder}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.4\linewidth]{./img/ss-adder}
+	\caption{Output Waveform Adder}
+	\label{ss:adder}
+\end{figure}
