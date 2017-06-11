@@ -12,8 +12,11 @@ build: $(FILE).pdf
 data:
 	make -C data
 
-$(FILE).pdf: data $(FILE).tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets)
+$(FILE).pdf: data $(FILE).tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets) preamble.fmt
 	$(BUILD) $(FILE).tex
+
+preamble.fmt: preamble.tex
+	pdflatex -ini -jobname="preamble" "&pdflatex preamble.tex\dump"
 
 show:
 	xdg-open $(FILE).pdf > /dev/null 2>&1 &
