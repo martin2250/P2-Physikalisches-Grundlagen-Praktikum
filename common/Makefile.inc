@@ -1,4 +1,4 @@
-BUILD = latexmk -pdf -interaction=nonstopmode -synctex=1
+BUILD = latexmk -pdf -interaction=batchmode -synctex=1
 FILE = $(shell basename "$(CURDIR)")
 svgimgs := $(wildcard img/*.svg)
 svgimtargets := $(patsubst %.svg,%.pdf,$(svgimgs))
