@@ -1,18 +1,18 @@
 \chapter{Common emitter amplifier}
 This experiment explores the usage of a transistor as an amplifier.
 
-\section{Single stage}
+\section{Theory}
 \begin{figure}[tbp]
 	\centering
 	%\includegraphics[width=.5\textwidth]{./img/com_emitter_amp.pdf}
 	\caption[Single Stage Common Emitter Amplifier]{Single stage common emitter amplifier}
 	\label{fig:com_emitter_amp}
 \end{figure}
-The circuit shown in \autoref{fig:com_emitter_amp} acts as a voltage amplifier.
+The circuit shown in \autoref{fig:com_emitter_amp} acts as an inverting voltage amplifier.
 The input and output capacitors remove any constant component of the input.
 \comp{R_1} and \comp{R_2} are used to bias the transistor, so that it remains in active mode during operation.
 This method of biasing vastly reduces the effects of varying $\beta$ as a cause of temperature drift by holding the base bias at a constant voltage.
-\comp{R_E} is used to compensate for temperature effects by implementing a negative feedback, albeit sacrificing a small amount of amplification, depending on the conductance $S=-\frac{I_\text{C,bias}}{U_\text{T}}$, where $U_\text{T}$ denotes the temperature voltage ($\approx\SI{26}{\milli\volt}$).
+\comp{R_E} is used to compensate for temperature effects by implementing a negative feedback, albeit sacrificing a small amount of amplification, depending on the conductance $S=\frac{I_\text{C,bias}}{U_\text{T}}$, where $U_\text{T}$ denotes the temperature voltage ($\approx\SI{26}{\milli\volt}$).
 The temperature dependency of the bias point results out of the fact that the base-emitter voltage \comp{V_BE} decreases by $\SI{2}{\milli\volt\per\kelvin}$ at constant collector current \comp{I_C}.
 If the input voltage is kept constant, this temperature increase acts as a raise of the input voltage.
 Consequently, temperature drift can be calculated as
@@ -28,6 +28,42 @@ As temperature drift happens slowly, DC amplification can be decreased, whereas 
 This can be realized by putting a capacitor \comp{C_E} in parallel to the emitter resistor \comp{R_E} which will decrease the negative feedback with growing frequency.
 
 The quiescent base voltage is determined by the voltage divider formed by \comp{R_1} and \comp{R_2}:
-\begin{equation*}
+\begin{equation}\label{eq:bias_volt}
 	V_\text{bias}=V_\text{cc}\cdot\frac{\comp{R_2}}{\comp{R_1}+\comp{R_2}}.
-\end{equation*}
+\end{equation}
+
+\section{Evaluation}
+\begin{figure}[tbp]
+	\centering
+	%\includegraphics[width=.5\textwidth]{./img/com_emitter_in_out.pdf}
+	\caption{Input versus output voltage}
+	\label{fig:com_emitter_in_out}
+\end{figure}
+\begin{table}[b!]
+	\centering
+	\caption{Input, output voltages $V_\text{pp,in/out}$ and resulting voltage amplification $A$ at $f=\SI{1}{\kilo\hertz}$}
+	\label{tab:com_emit_in_out}
+	\begin{tabular}{S|SSS}
+		\toprule
+		{}&	{$V_\text{pp,in}$ in $\si{\milli\volt}$}&	{$V_\text{pp,out}$ in $\si{\volt}$}&	{$A$}\\
+		\midrule
+		{with \comp{C_e}}	&	\num{19}	&	\num{2.7}	&	\num{142}\\
+		{}	&	\num{68}	&	\num{10.3}	&	\num{151}\\
+		\midrule
+		{without \comp{C_e}}	&	\num{70.8}	&	\num{0.322}	&	\num{4.55}\\
+		{}	&	\num{278}	&	\num{1.3}	&	\num{4.676}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+The circuit \autoref{fig:com_emitter_amp} is built (including the emitter capacitor, which is taken out later on) and a triangular input signal is applied.
+\autoref{fig:com_emitter_in_out} shows the examplary measured voltage curves for an input and output voltage.
+Minimal non-linearities in the amplified output signal can be observed.
+\autoref{tab:com_emit_in_out} lists measured peak-to-peak voltages and resulting voltage amplifications.
+Using \autoref{eq:bias_volt} the bias voltage can be calculated as $V_\text{bias}=\SI{2.27}{\volt}$.
+Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{V_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
+Using $I_\text{c}$, we can calculate the conductance to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
+The condcutance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \todo{actually derive}.
+\begin{align*}
+	A &= -\frac{SR_\text{C}}{1+R_E} \\
+	&=\num{4.63}.
+\end{align*}
