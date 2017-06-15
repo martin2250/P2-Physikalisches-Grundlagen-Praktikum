@@ -10,7 +10,7 @@ A=4.676
 f_lin=np.linspace(0.1, 100e3, 10000)
 
 matplotlib.rc('text', usetex = True)
-params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty$
+params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
 plt.rcParams.update(params)
 
 #plt.xkcd()
