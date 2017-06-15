@@ -18,7 +18,7 @@ If the input voltage is kept constant, this temperature increase acts as a raise
 Consequently, temperature drift can be calculated as
 
 \begin{equation}
-	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{a}}{\d T}\approx A\cdot\SI{2}{\milli\volt\per\kelvin},
+	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot\SI{2}{\milli\volt\per\kelvin},
 \end{equation}
 
 where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.
@@ -96,4 +96,4 @@ The cutoff frequency of the high-pass formed by \comp{R_E} and \comp{C_E} can be
 \end{align*}
 This means that for frequencies vastly over $f_\text{cutoff}$ negative feedback does not apply anymore.
 
-To examine this statement, \todo{we did some shit.}.
+To examine this statement, a sinusoidal signal is applied
