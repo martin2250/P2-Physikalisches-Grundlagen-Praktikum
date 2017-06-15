@@ -1,7 +1,7 @@
 \chapter{Common emitter amplifier}
 This experiment explores the usage of a transistor as an amplifier.
 
-\section{Theory}
+\section{Theory}\label{sec:theory}
 \begin{figure}[tbp]
 	\centering
 	%\includegraphics[width=.5\textwidth]{./img/com_emitter_amp.pdf}
@@ -95,5 +95,47 @@ The cutoff frequency of the high-pass formed by \comp{R_E} and \comp{C_E} can be
 	&=\SI{6.37}{\hertz}.
 \end{align*}
 This means that for frequencies vastly over $f_\text{cutoff}$ negative feedback does not apply anymore.
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.7\textwidth]{./data/plots/1_4.pdf}
+	\caption{Amplification $A$ over Frequency $f$}
+	\label{fig:com_emitter_freq}
+\end{figure}
+\begin{table}[b!]
+	\centering
+	\caption{Input, output voltages $V_\text{pp,in/out}$ at different frequencies $f$}
+	\label{tab:com_emit_freq}
+	\begin{tabular}{S|SS|SS}
+		\toprule
+		{Frequency in $\si{\kilo\hertz}$}&	{$V_\text{pp,in}$ in $\si{\milli\volt}$}&	{$V_\text{pp,out}$ in $\si{\volt}$}&	{$V_\text{pp,in,cap}$ in $\si{\milli\volt}$}&	{$V_\text{pp,out,cap}$ in $\si{\volt}$}\\
+		\midrule
+		0.01    &  368  &   0.316  & 40   &   0.4	\\
+		0.025   &   416   &  0.688 &  50   &   1	\\
+		0.05   &   416   &  1.2   &  51   &  1.66	\\
+		0.1  &   416   &  1.7   &  51   &   2.6	\\
+		0.5  &   416   &  2     &  50   &   7	\\
+		1  &   416   &  2     &  47   &   8	\\
+		5  &   416   &  2     &  47   &   8.5	\\
+		10 &   408  & 1.96  &  48   &   8.6	\\
+		50 &   432  &   2.10  &  47   &   8.3	\\
+		100  & 432   &  2.12  &  47   &   8	\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-To examine this statement, a sinusoidal signal is applied
+To examine this statement, a sinusoidal signal of varying frequency is applied, input and output voltages are measured to determine the voltage amplification $A$.
+\autoref{fig:com_emitter_freq} shows the determined amplifcation (using \autoref{tab:com_emit_freq}) over frequency $f$.
+As expected, without \comp{C_E} the amplification remains almost constant.
+
+With \comp{C_E}, however, the amplification rises vastly until it reaches its maximum at $\approx\num{176}$, which deviates from the theoretical value of \num{283.88}.
+This result may be explained by the ESR (\textbf{E}quivalent \textbf{S}eries \textbf{R}esistance) of \comp{C_E} which poses an additional resistance at rising frequencies instead of the capacitor being a short circuit.
+Furthermore, the conductance of the transistor in a common emitter circuit without negative feedback differs from the conductance in the examined circuit in that the base current changes with \comp{R_E} not being present.
+
+The highpass frequency response function
+\begin{equation*}
+	A=\frac{A_0}{\sqrt{1 + (2\pi f\tau)^{-2}}}
+\end{equation*}
+is fitted to the data with \comp{C_E}, as explained in \autoref{sec:theory}.
+A fit parameter of $\tau=\SI{481.3e-6}{\second}^{-1}$ is determined, which deviates from the theoretical value of $RC=\SI{25e-3}{\second}^{-1}$ by \num{98.1}\%.
+At least the deviation is below 100\%.
+ 
