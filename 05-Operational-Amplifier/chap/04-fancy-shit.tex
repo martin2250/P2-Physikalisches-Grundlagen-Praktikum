@@ -3,15 +3,15 @@
 
 \begin{figure}
 	\centering
-	\begin{subfigure}{0.4\textwidth}
+	\begin{subfigure}{0.44\textwidth}
 		\centering
-		\includegraphics[width=.9\linewidth]{./img/schem-rectifier.pdf}
+		\includegraphics[width=\linewidth]{./img/schem-rectifier.pdf}
 		\caption{Ideal Rectifier}
 		\label{schem:rectifier}
 	\end{subfigure}
-	\begin{subfigure}{0.4\textwidth}
+	\begin{subfigure}{0.55\textwidth}
 		\centering
-		\includegraphics[width=.9\linewidth]{./img/schem-wavegen.pdf}
+		\includegraphics[width=\linewidth]{./img/schem-wavegen.pdf}
 		\caption{Square and Triangle Wave Generator}
 		\label{schem:wavegen}
 	\end{subfigure}
@@ -27,11 +27,36 @@ Looking just at the output of the opamp, the two diodes in the feedback path are
 As the voltage drop due to the diodes in the feedback path is compensated by the feedback loop, the output of the opamp follows the input, with the amplitude increased by one diode drop.
 This means that at zero crossings, in theory the output voltage is discontinuous, introducing high frequency components that may lead to undesired effects.
 
-To now recover the rectified (or more specifically separated) positive and negative half waves, the circuit is tapped in the middle of each feedback line, where the output signal amplitude matches the input signal amplitude (this can be verified by looking at the two identical resistors connected to the inverting input, carrying the same current, they have an equal voltage across them with the inverting input being a virtual ground).
+To now recover the rectified (or more specifically separated) positive and negative half waves, the circuit is tapped in the middle of each feedback line, where the output signal amplitude matches the input signal amplitude (this can be verified by looking at the two identical resistors connected to the inverting input: carrying the same current, they have an equal voltage across them with the inverting input being a virtual ground).
 
 \section{Square and Triangle Wave Generator}
 
 Operational amplifiers can also be operated with positive feedback.
-As any signal is fed back to the input in phase, the output voltage is limited only by the rail voltage of the opamp, and will not remain stable between the rails.
+As any perpetuation is amplified and fed back to the input in phase, the output voltage will not remain stable between the rails and is limited only by the rail voltage of the opamp.
+
+By adding the output signal to the input signal, a bistable flip flop with different threshold voltages $U_{\text{thr, H} \rightarrow \text{L}} < U_{\text{thr, L} \rightarrow \text{H}}$, set by \comp{R_1} and \comp{R_2}, is created.
+This circuit is called a non-inverting Schmitt trigger, and makes up the right portion of the circuit shown in \autoref{schem:wavegen}.
+
+The left part of the circuit is an inverting integrator, it's output connected to the input of the Schmitt trigger.
+As it receives either the positive or negative rail voltage, it acts as a ramp generator and ramps between the two threshold points of the Schmitt-trigger.
+The resulting triangle wave is one output signal.
+The other output signal is the square wave output of the Schmitt trigger, with a phase of \SI{90}{\degree} relative to the triangle signal.
+The output signals are shown in \autoref{ss:wavegen}.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-wavegen-triag}
+		\caption{Triangle Wave Output Signal}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-wavegen-squ}
+		\caption{Square Wave Output Signal}
+	\end{subfigure}
+	\caption{Square and Triangle Wave Generator Waveforms}
+	\label{ss:wavegen}
+\end{figure}
 
 \section{Programmable Differential Equation}
