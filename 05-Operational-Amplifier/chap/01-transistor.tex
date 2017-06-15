@@ -32,6 +32,27 @@ The quiescent base voltage is determined by the voltage divider formed by \comp{
 	V_\text{bias}=V_\text{cc}\cdot\frac{\comp{R_2}}{\comp{R_1}+\comp{R_2}}.
 \end{equation}
 
+\begin{figure}[tbp]
+	\centering
+	%\includegraphics[width=.5\textwidth]{./img/small_signal_neg_feed.pdf}
+	\caption{Small signal schematic of a common emitter circuit with negative feedback}
+	\label{fig:small_signal_neg_feed}
+\end{figure}
+
+To deduce a proper formula for the AC-voltage amplification of a common emitter circuit with negative feedback, let us consider the small signal equivalent schematic seen in \autoref{fig:small_signal_neg_feed}.
+The transistor can be replaced by a constant current source with differential resistances \comp{r_{BE}} and \comp{r_{CE}}.
+Using \texttt{Kirchhoff}'s law for nodes, it holds
+\begin{alignat}{2}
+	\frac{u_\text{e}-u_\text{E}}{r_\text{BE}}+Su_\text{BE}+\frac{u_\text{a}-u_\text{E}}{r_\text{CE}} &= \frac{u_\text{E}}{R_\text{E}} \label{eq:small_1}\\
+	Su_\text{BE}+\frac{u_\text{a}-u_\text{E}}{r_\text{CE}} + \frac{u_\text{a}}{R_\text{C}}&= i_\text{a}. \label{eq:small_2}
+\end{alignat}
+Rearraging equations \ref{eq:small_1}, \ref{eq:small_2} and using $u_\text{BE}=u_\text{e}-u_\text{E}$, this yields
+\begin{align}
+	A&=\frac{u_\text{a}}{u_\text{e}}\at[\big]{i_\text{a}=1} \nonumber \\
+	&=-\frac{SR_\text{C}\left(1-\frac{R_\text{E}}{\beta r_\text{CE}}\right)}{1+R_\text{E}\left(S\cdot\left(1+\beta^{-1}+\frac{R_\text{C}}{\beta r_\text{CE}}\right)+r_\text{CE}^{-1}\right)+\frac{R_\text{C}}{r_\text{CE}}} \nonumber \\
+	&\approx -\frac{SR_\text{C}}{1+SR_\text{E}}, \label{eq:amp_neg_fb}
+\end{align}
+where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$, $S$ denotes conductance of the transistor and $\beta$ its current amplification $\frac{I_\text{c}}{I_\text{B}}$.
 \section{Evaluation}
 \begin{figure}[tbp]
 	\centering
@@ -62,7 +83,7 @@ Minimal non-linearities in the amplified output signal can be observed.
 Using \autoref{eq:bias_volt} the bias voltage can be calculated as $V_\text{bias}=\SI{2.27}{\volt}$.
 Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{V_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
 Using $I_\text{c}$, we can calculate the conductance to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
-The condcutance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \todo{actually derive}.
+The condcutance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \autoref{eq:amp_neg_fb}.
 \begin{align*}
 	A &= -\frac{SR_\text{C}}{1+R_E} \\
 	&=\num{-4.63}.
