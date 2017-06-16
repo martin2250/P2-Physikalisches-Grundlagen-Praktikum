@@ -8,8 +8,8 @@ import matplotlib
 import scipy.stats
 
 (f, Vin, Vout, Vinc, Voutc) = np.loadtxt('source/1_4.dat', unpack=True)
-A=4.676
-f_lin=np.exp(np.linspace(np.log(0.1), np.log(100e3), 50))
+
+f_lin=np.exp(np.linspace(np.log(2.8), np.log(100e3), 50))
 
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
@@ -18,6 +18,7 @@ plt.rcParams.update(params)
 #plt.xkcd()
 ax=plt.gca()
 ax.set_xscale('log')
+ax.set_yscale('log')	#aaalways use log-log for frequency responses
 
 def amp(A, B):
     return (B*1e3)/A

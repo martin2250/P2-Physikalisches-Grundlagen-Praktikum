@@ -9,10 +9,10 @@ This experiment explores the usage of a transistor as an amplifier.
 	\label{fig:com_emitter_amp}
 \end{figure}
 The circuit shown in \autoref{fig:com_emitter_amp} acts as an inverting voltage amplifier.
-The input and output capacitors remove any constant component of the input.
+The input and output capacitors remove any DC component of the input.
 \comp{R_1} and \comp{R_2} are used to bias the transistor, so that it remains in active mode during operation.
-This method of biasing vastly reduces the effects of varying $\beta$ as a cause of temperature drift by holding the base bias at a constant voltage.
-\comp{R_E} is used to compensate for temperature effects by implementing a negative feedback, albeit sacrificing an amount of amplification, depending on the conductance $S=\frac{I_\text{C,bias}}{U_\text{T}}$, where $U_\text{T}$ denotes the temperature voltage ($\approx\SI{26}{\milli\volt}$).
+\todo{This method of biasing vastly reduces the effects of varying $\beta$ as a cause of temperature drift by holding the base bias at a constant voltage. (what did you actually want to say?)}
+\comp{R_E} is used to compensate for temperature effects by implementing a negative feedback \todo{implementing a negative feedback sounds shitty}, albeit sacrificing an amount of amplification, \todo{this sentence is long enough as it is already, what does the rest have to do with RE?} depending on the conductance $S=\frac{I_\text{C,bias}}{U_\text{T}}$, where $U_\text{T}$ denotes the temperature voltage ($\approx\SI{26}{\milli\volt}$).
 The temperature dependency of the bias point results out of the fact that the base-emitter voltage \comp{V_BE} decreases by $\SI{2}{\milli\volt\per\kelvin}$ at constant collector current \comp{I_C}.
 If the input voltage is kept constant, this temperature increase acts as a raise of the input voltage.
 Consequently, temperature drift can be calculated as
@@ -21,9 +21,9 @@ Consequently, temperature drift can be calculated as
 	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot\SI{2}{\milli\volt\per\kelvin},
 \end{equation}
 
-where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.
+where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.\todo{only when DC coupled}
 This means that temperature drift is proportional to the voltage amplification $A$ in a common emitter amplifier.
-Therefore, temperature drift can be lowered by decreasing the amplification.
+Therefore, temperature drift can be lowered by decreasing the amplification. \todo{then why not just use a smaller RC?, not just lower amplification!}
 As temperature drift happens slowly, DC amplification can be decreased, whereas AC amplification can remain unchanged.
 This can be realized by putting a capacitor \comp{C_E} in parallel to the emitter resistor \comp{R_E} which will decrease the negative feedback with growing frequency.
 
@@ -77,11 +77,11 @@ where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$, $S$ denotes conducta
 	\end{tabular}
 \end{table}
 The circuit \autoref{fig:com_emitter_amp} is built (including the emitter capacitor, which is taken out later on) and a triangular input signal is applied.
-\autoref{fig:com_emitter_in_out} shows the examplary measured voltage curves for an input and output voltage.
+\autoref{fig:com_emitter_in_out} shows the measured voltage curves for input and output voltage.
 Minimal non-linearities in the amplified output signal can be observed.
 \autoref{tab:com_emit_in_out} lists measured peak-to-peak voltages and resulting voltage amplifications.
-Using \autoref{eq:bias_volt} the bias voltage can be calculated as $V_\text{bias}=\SI{2.27}{\volt}$.
-Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{V_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
+Using \autoref{eq:bias_volt} the bias voltage can be calculated as $U_\text{bias}=\SI{2.27}{\volt}$.
+Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{U_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
 Using $I_\text{c}$, we can calculate the conductance to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
 The condcutance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \autoref{eq:amp_neg_fb}.
 \begin{align*}
@@ -103,11 +103,15 @@ This means that for frequencies vastly over $f_\text{cutoff}$ negative feedback 
 \end{figure}
 \begin{table}[b!]
 	\centering
-	\caption{Input, output voltages $V_\text{pp,in/out}$ at different frequencies $f$}
+	\caption{Input, output voltages $U_\text{in/out}$ at different frequencies $f$}
 	\label{tab:com_emit_freq}
 	\begin{tabular}{S|SS|SS}
 		\toprule
-		{Frequency in $\si{\kilo\hertz}$}&	{$V_\text{pp,in}$ in $\si{\milli\volt}$}&	{$V_\text{pp,out}$ in $\si{\volt}$}&	{$V_\text{pp,in,cap}$ in $\si{\milli\volt}$}&	{$V_\text{pp,out,cap}$ in $\si{\volt}$}\\
+		{Frequency in $\si{\kilo\hertz}$}&
+		{$U_\text{in}$ in $\si{\milli\volt}_\text{pp}$}&
+		{$U_\text{out}$ in $\si{\volt}_\text{pp}$}&
+		{$U_\text{in,cap}$ in $\si{\milli\volt}_\text{pp}$}&
+		{$U_\text{out,cap}$ in $\si{\volt}_\text{pp}$}\\
 		\midrule
 		0.01    &  368  &   0.316  & 40   &   0.4	\\
 		0.025   &   416   &  0.688 &  50   &   1	\\
@@ -123,12 +127,12 @@ This means that for frequencies vastly over $f_\text{cutoff}$ negative feedback 
 	\end{tabular}
 \end{table}
 
-To examine this statement, a sinusoidal signal of varying frequency is applied, input and output voltages are measured to determine the voltage amplification $A$.
-\autoref{fig:com_emitter_freq} shows the determined amplifcation (using \autoref{tab:com_emit_freq}) over frequency $f$.
+To examine this statement, a sinusoidal signal of varying frequency is applied and input and output voltages are measured to determine the voltage amplification $A$.
+\autoref{fig:com_emitter_freq} shows the amplifcation calculated from \autoref{tab:com_emit_freq} over frequency $f$.
 As expected, without \comp{C_E} the amplification remains almost constant.
 
-With \comp{C_E}, however, the amplification rises vastly until it reaches its maximum at $\approx\num{176}$, which deviates from the theoretical value of \num{283.88}.
-This result may be explained by the ESR (\textbf{E}quivalent \textbf{S}eries \textbf{R}esistance) of \comp{C_E} which poses an additional resistance at rising frequencies instead of the capacitor being a short circuit.
+With \comp{C_E}, however, the amplification gradually increases until it reaches its maximum at $\approx\num{176}$, which deviates from the theoretical value of \num{283.88}.
+This result may be explained by the ESR (\textbf{E}quivalent \textbf{S}eries \textbf{R}esistance) of \comp{C_E} which poses an residual resistance at high frequencies instead of the capacitor being a short circuit.
 Furthermore, the conductance of the transistor in a common emitter circuit without negative feedback differs from the conductance in the examined circuit in that the base current changes with \comp{R_E} not being present.
 
 The highpass frequency response function
@@ -136,6 +140,6 @@ The highpass frequency response function
 	A=\frac{A_0}{\sqrt{1 + (2\pi f\tau)^{-2}}}
 \end{equation*}
 is fitted to the data with \comp{C_E}, as explained in \autoref{sec:theory}.
-A fit parameter of $\tau=\SI{481.3e-6}{\second}^{-1}$ is determined, which deviates from the theoretical value of $RC=\SI{25e-3}{\second}^{-1}$ by \num{98.1}\%.
-At least the deviation is below 100\%.
- 
+A fit parameter of $\tau=\SI{481.3e-6}{\second}^{-1}$ is determined, which deviates from the theoretical value of $RC=\SI{25e-3}{\second}^{-1}$ by \SI{98.1}{\percent}.
+%see p14 http://whites.sdsmt.edu/classes/ee320/notes/320Lecture23.pdf
+%though I don't think we have all component values we need
