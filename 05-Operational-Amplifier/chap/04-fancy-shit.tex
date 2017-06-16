@@ -18,6 +18,24 @@
 	\caption{}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-rect-pos}
+		\caption{Positive Half Wave}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-rect-neg}
+		\caption{Negative Half Wave}
+	\end{subfigure}
+	\caption{Input (yellow) and Output (blue) of Ideal Rectifier}
+	\label{ss:rect}
+\end{figure}
+
+\todo{image of output, slew rate}
+
 A basic half-wave rectifier consists of a diode a resistor to provide a load to the diode.
 All diodes carry an inherent voltage drop, so the signal level is lowered by \SI{0.2}{\volt} (Schottky diode) to \SI{0.7}{\volt} (silicon diode).
 To combat this amplitude loss, an ideal rectifier is used.
@@ -60,3 +78,34 @@ The output signals are shown in \autoref{ss:wavegen}.
 \end{figure}
 
 \section{Programmable Differential Equation}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{img/schem-dgl.pdf}
+		\caption{Schematic}
+		\label{schem:dgl}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/ss-dgl.jpg}
+		\caption{Output Waveform}
+		\label{ss:dgl}
+	\end{subfigure}
+	\caption{Programmable Differential Equation}
+\end{figure}
+
+Integrators can be used to 'numerically' solve ordinary differential equations.
+As an example, the ordinary second order linear differential equation \[\ddot{x} = - 2 \gamma \dot{x} - \omega^2 x\] is implemented with opamps as shown in \autoref{schem:dgl}.
+
+Two inverting integrators form the core of the circuit, the leftmost opamp inverts $x$ to obtain the $-\omega^2 x$ oscillation term.
+The dampening term $-2\gamma\dot{x}$ is implemented by feeding a voltage between $-x$ and $x$, selected by the potentiometer, back into $\dot{x}$.
+
+The possibility for oscillations can also be verified by analyzing the loop stability of the circuit.
+The integrators each introduce a phase shift of \SI{90}{\degree} and together with the leftmost inverting amplifier they add up to positive feedback with a phase of \SI{360}{\degree}, which, among with a total loop gain grater than unity, is the condition for oscillations to occur.\todo{please fact check, hodenkobold}
+
+To start an oscillation, a voltage has to be applied at an arbitrary high-impedance point of the circuit.
+\autoref{ss:dgl} show the output waveform of the circuit after being excited by applying the rail voltage to the inverting input of the leftmost amplifier.
+The oscillation does decay over time, but it does not completely stop.
+This is likely an effect of imperfections of the used components.
