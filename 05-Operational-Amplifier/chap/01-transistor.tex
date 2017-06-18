@@ -11,20 +11,18 @@ This experiment explores the usage of a transistor as an amplifier.
 The circuit shown in \autoref{fig:com_emitter_amp} acts as an inverting voltage amplifier.
 The input and output capacitors remove any DC component of the input.
 \comp{R_1} and \comp{R_2} are used to bias the transistor, so that it remains in active mode during operation.
-This method of biasing vastly reduces the effects of varying $\beta$ as a cause of temperature drift by holding the base bias at a constant voltage. \todo{That this method of biasing provides best temperature stability.}
-\comp{R_E} is used to compensate for temperature effects by implementing a negative feedback \todo{I know, suggestions?}, albeit sacrificing an amount of amplification, \todo{what do you mean? i described the effects of introducing RE} depending on the conductance $S=\frac{I_\text{C,bias}}{U_\text{T}}$, where $U_\text{T}$ denotes the temperature voltage ($\approx\SI{26}{\milli\volt}$).
-The temperature dependency of the bias point results out of the fact that the base-emitter voltage \comp{V_BE} decreases by $\SI{2}{\milli\volt\per\kelvin}$ at constant collector current \comp{I_C}.
-If the input voltage is kept constant, this temperature increase acts as a raise of the input voltage.
+This method of biasing vastly reduces the effects of varying $\beta$ as a cause of temperature drift by holding the base bias at a constant voltage.
+Adversely, the constant voltage at the base introduces a stronger dependency on the base-emitter voltage drop, which changes by \SI{-2}{\milli\volt\per\kelvin}.
+\comp{R_E} is used to compensate for this by introducing negative feedback, albeit lowering the gain.
 Consequently, temperature drift can be calculated as
 
 \begin{equation}
-	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot\SI{2}{\milli\volt\per\kelvin},
+	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot\SI{-2}{\milli\volt\per\kelvin},
 \end{equation}
 
-where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.\todo{''if the input voltage is kept constant...'' see above}
+where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.
 This means that temperature drift is proportional to the voltage amplification $A$ in a common emitter amplifier.
-Therefore, temperature drift can be lowered by decreasing the amplification. \todo{yeah, you're right. how should i explain why C is there in the first place? will halt iwie reinbringen, dass der CE wechselstrommäßig kurzschließt und damit keinen einfluss auf die arbeitspunkteinstellung hat}
-As temperature drift happens slowly, DC amplification can be decreased, whereas AC amplification can remain unchanged.
+As temperature drift happens slowly, only DC amplification has to be decreased, whereas AC amplification can remain unchanged.
 This can be realized by putting a capacitor \comp{C_E} in parallel to the emitter resistor \comp{R_E} which will decrease the negative feedback with growing frequency.
 
 The quiescent base voltage is determined by the voltage divider formed by \comp{R_1} and \comp{R_2}:
