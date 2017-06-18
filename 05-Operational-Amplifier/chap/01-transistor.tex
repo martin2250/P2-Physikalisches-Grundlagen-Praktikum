@@ -27,7 +27,7 @@ This can be realized by putting a capacitor \comp{C_E} in parallel to the emitte
 
 The quiescent base voltage is determined by the voltage divider formed by \comp{R_1} and \comp{R_2}:
 \begin{equation}\label{eq:bias_volt}
-	V_\text{bias}=V_\text{cc}\cdot\frac{\comp{R_2}}{\comp{R_1}+\comp{R_2}}.
+	U_\text{bias}=U_\text{cc}\cdot\frac{\comp{R_2}}{\comp{R_1}+\comp{R_2}}.
 \end{equation}
 
 \begin{figure}[tbp]
@@ -44,14 +44,14 @@ Using \texttt{Kirchhoff}'s law for nodes, it holds
 	\frac{u_\text{e}-u_\text{E}}{r_\text{BE}}+Su_\text{BE}+\frac{u_\text{a}-u_\text{E}}{r_\text{CE}} &= \frac{u_\text{E}}{R_\text{E}} \label{eq:small_1}\\
 	Su_\text{BE}+\frac{u_\text{a}-u_\text{E}}{r_\text{CE}} + \frac{u_\text{a}}{R_\text{C}}&= i_\text{a}, \label{eq:small_2}
 \end{alignat}
-where $S=\frac{I_\text{C}}{U_\text{T}}$ denotes the transistor's conductance.
+where $S=\frac{I_\text{C}}{U_\text{T}}$ denotes the transistor's transconductance.
 Rearraging equations \ref{eq:small_1}, \ref{eq:small_2} and using $u_\text{BE}=u_\text{e}-u_\text{E}$, this yields
 \begin{align}
 	A&=\frac{u_\text{a}}{u_\text{e}}\at[\bigg]{i_\text{a}=1} \nonumber \\
 	&=-\frac{SR_\text{C}\left(1-\frac{R_\text{E}}{\beta r_\text{CE}}\right)}{1+R_\text{E}\left(S\cdot\left(1+\beta^{-1}+\frac{R_\text{C}}{\beta r_\text{CE}}\right)+r_\text{CE}^{-1}\right)+\frac{R_\text{C}}{r_\text{CE}}} \nonumber \\
 	&\approx -\frac{SR_\text{C}}{1+SR_\text{E}}, \label{eq:amp_neg_fb}
 \end{align}
-where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$, $S$ denotes conductance of the transistor and $\beta$ its current amplification $\frac{I_\text{c}}{I_\text{B}}$.
+where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$ and $\beta$ denotes its current amplification $\frac{I_\text{c}}{I_\text{B}}$.
 \section{Evaluation}
 \begin{figure}[tbp]
 	\centering
@@ -61,11 +61,11 @@ where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$, $S$ denotes conducta
 \end{figure}
 \begin{table}[b!]
 	\centering
-	\caption{Input, output voltages $V_\text{pp,in/out}$ and resulting voltage amplification $A$ at $f=\SI{1}{\kilo\hertz}$}
+	\caption{Input, output voltages $U_\text{pp,in/out}$ and resulting voltage amplification $A$ at $f=\SI{1}{\kilo\hertz}$}
 	\label{tab:com_emit_in_out}
 	\begin{tabular}{S|SSS}
 		\toprule
-		{}&	{$V_\text{pp,in}$ in $\si{\milli\volt}$}&	{$V_\text{pp,out}$ in $\si{\volt}$}&	{$A$}\\
+		{}&	{$U_\text{pp,in}$ in $\si{\milli\volt}$}&	{$U_\text{pp,out}$ in $\si{\volt}$}&	{$A$}\\
 		\midrule
 		{with \comp{C_e}}	&	\num{19}	&	\num{2.7}	&	\num{-142}\\
 		{}	&	\num{68}	&	\num{10.3}	&	\num{-151}\\
@@ -82,7 +82,7 @@ Minimal non-linearities in the amplified output signal can be observed.
 Using \autoref{eq:bias_volt} the bias voltage can be calculated as $U_\text{bias}=\SI{2.27}{\volt}$.
 Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{U_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
 Using $I_\text{c}$, we can calculate the conductance to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
-The condcutance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \autoref{eq:amp_neg_fb}.
+The transconductance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \autoref{eq:amp_neg_fb}.
 \begin{align*}
 	A &= -\frac{SR_\text{C}}{1+R_E} \\
 	&=\num{-4.63}.
