@@ -14,14 +14,15 @@ The input and output capacitors remove any DC component of the input.
 This method of biasing vastly reduces the effects of varying $\beta$ as a cause of temperature drift by holding the base bias at a constant voltage.
 Adversely, the constant voltage at the base introduces a stronger dependency on the base-emitter voltage drop, which changes by \SI{-2}{\milli\volt\per\kelvin}.
 \comp{R_E} is used to compensate for this by introducing negative feedback, albeit lowering the gain.
-Consequently, temperature drift can be calculated as
+
+Temperature drift can be calculated as
 
 \begin{equation}
 	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot\SI{-2}{\milli\volt\per\kelvin},
 \end{equation}
 
 where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.
-This means that temperature drift is proportional to the voltage amplification $A$ in a common emitter amplifier.
+This means that temperature drift is proportional to the gain $A$ in a common emitter amplifier.
 As temperature drift happens slowly, only DC amplification has to be decreased, whereas AC amplification can remain unchanged.
 This can be realized by putting a capacitor \comp{C_E} in parallel to the emitter resistor \comp{R_E} which will decrease the negative feedback with growing frequency.
 
@@ -139,5 +140,5 @@ The highpass frequency response function
 \end{equation*}
 is fitted to the data with \comp{C_E}, as explained in \autoref{sec:theory}.
 A fit parameter of $\tau=\SI{481.3e-6}{\second}^{-1}$ is determined, which deviates from the theoretical value of $RC=\SI{25e-3}{\second}^{-1}$ by \SI{98.1}{\percent}.
-%see p14 http://whites.sdsmt.edu/classes/ee320/notes/320Lecture23.pdf
-%though I don't think we have all component values we need
+The exact frequency response is influenced by many factors, such as time constants formed by the AC-coupling capacitors.
+See \hyperlink{http://whites.sdsmt.edu/classes/ee320/notes/320Lecture23.pdf} (p.13).
