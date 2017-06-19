@@ -1,6 +1,6 @@
 \chapter{Non-Inverting Amplifier}
 \section{Proof Of Concept}
-\begin{figure}[tp]
+\begin{figure}[tbp]
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\centering
@@ -24,7 +24,7 @@ As both inputs of the OpAmp virtually are at the same potential, the amplificati
 \end{align*}
 To examine the validity of this relation, the circuit is built and the output voltage is measured as a function of the input voltage.
 The resulting curves are shown in \autoref{subfig:non_inv_curve}.
-\begin{table}[b!]
+\begin{table}[tbp]
 	\centering
 	\caption{Input, output voltages $U_\text{pp,in/out}$ and resulting voltage amplification $A$ at $f=\SI{1}{\kilo\hertz}$}
 	\label{tab:non_inv_vals}
@@ -40,7 +40,7 @@ The resulting curves are shown in \autoref{subfig:non_inv_curve}.
 In both measurements, the gain is $\approx 11$, which confirms the expectations.
 
 \section{Input And Output Impedances}
-\begin{figure}[tp]
+\begin{figure}[tbp]
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\centering
@@ -56,3 +56,27 @@ In both measurements, the gain is $\approx 11$, which confirms the expectations.
 	\end{subfigure}
 	\caption{Circuits For Demonstration Of I/O-Impedances}
 \end{figure}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\section{Frequency Response}
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=1.3\textwidth]{./data/plots/2_3.pdf}
+		\caption{Amplification $A$ over Frequency $f$}
+		\label{fig:noninvert_amp}
+	\end{subfigure}
+	\qquad\qquad
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./data/plots/2_3.pdf}
+		\caption{Demonstrating Distortion At High Frequencies}
+		\label{fig:noninvert_distortion}
+	\end{subfigure}
+\end{figure}
+
+\autoref{fig:noninvert_amp} shows the frequency response curve of the non-inverting amplifier.
+As expected, gain decreases with growing frequency, where the cutoff frequency roughly is $f_\text{cutoff}\approx\SI{61}{\kilo\hertz}$ ($\SI{-3}{\decibel}$).
+\autoref{fig:noninvert_distortion} demonstrates that the output is distorted at high frequencies.
+This behavior can be explained by an inertia of the OpAmp, which cannot \todo{regulate gate voltages, i know this is not exactly what happens but it's just physicists, feel free to reword} fast enough internally when frequencies are \todo{OVER 9000!}, so the output is delayed relative to the input and a square wave input signal effectively can be put out as a triangle signal, albeit the amplifier not being operated as an integrator.
