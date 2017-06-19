@@ -76,13 +76,13 @@ where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$ and $\beta$ denotes i
 	\end{tabular}
 \end{table}
 The circuit \autoref{fig:com_emitter_amp} is built (including the emitter capacitor, which is taken out later on) and a triangular input signal is applied.
-\autoref{fig:com_emitter_in_out} shows the measured voltage curves for input and output voltage.
+\autoref{fig:com_emitter_in_out} shows the voltage waveforms at the input and output.
 Minimal non-linearities in the amplified output signal can be observed.
 \autoref{tab:com_emit_in_out} lists measured peak-to-peak voltages and resulting voltage amplifications.
 Using \autoref{eq:bias_volt} the bias voltage can be calculated as $U_\text{bias}=\SI{2.27}{\volt}$.
 Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{U_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
 Using $I_\text{c}$, we can calculate the conductance to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
-The transconductance can then be utilized to finally calculate the theoretical voltage amplification \textbf{without capacitor $\comp{C_E}$} by using the formula derived in \autoref{eq:amp_neg_fb}.
+The transconductance can then be utilized to finally calculate the theoretical voltage amplification without capacitor $\comp{C_E}$ by using the formula derived in \autoref{eq:amp_neg_fb}.
 \begin{align*}
 	A &= -\frac{SR_\text{C}}{1+R_E} \\
 	&=\num{-4.63}.
