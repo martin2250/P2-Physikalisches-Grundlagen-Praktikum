@@ -55,8 +55,24 @@ In both measurements, the gain is $\approx 11$, which confirms the expectations.
 		\label{schem:shitty_circuit_2}
 	\end{subfigure}
 	\caption{Circuits For Demonstration Of I/O-Impedances}
+	\label{fig:shitty}
 \end{figure}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+An ideal OpAmp has an infinitely high input and a low output impedance.
+\autoref{fig:shitty} shall demonstrate if those ideals are met.
+
+The circuit shown in \autoref{schem:shitty_circuit_1} is used to measure the OpAmp's input impedance.
+The formula provided in the preparation file does not take into account that the oscilloscope used for measuring $U_\text{M}$ has the same input impedance as \comp{R_M}.
+Therefore, \comp{R_M} has to be replaced by $\comp{R_Z}\| \comp{R_M}=\tfrac{R_M}{2}$, where $\comp{R_Z}=\SI{1}{\mega\ohm}$ denotes the oscilloscope's impedance.
+A voltage of $U_\text{M}=\SI{1.12}{\volt}$ is measured.
+Using this value, the input impedance can be calculated as
+\begin{align*}
+	X&=\frac{R_\text{M}}{2}\left(\frac{U_\text{e}}{U_\text{M}}-1\right) \\
+	&=\SI{544}{\kilo\ohm}.
+\end{align*}
+
+To measure the output impedance, the circuit shown in \autoref{schem:shitty_circuit_2} is built.
+The potentiometer is tuned so that the output signal is halved, its tuned value then approximately equals the output impedance of the OpAmp.
+A value of $R_\text{out}=\SI{90}{\ohm}$ is determined, which confirms our expectations of a low output impedance.
 
 \section{Frequency Response}
 \begin{figure}[tbp]
