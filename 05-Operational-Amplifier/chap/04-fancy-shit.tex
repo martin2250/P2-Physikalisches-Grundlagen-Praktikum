@@ -101,7 +101,7 @@ Two inverting integrators form the core of the circuit, the leftmost opamp inver
 The dampening term $-2\gamma\dot{x}$ is implemented by feeding a voltage between $-x$ and $x$, selected by the potentiometer, back into $\dot{x}$.
 
 The possibility for oscillations can also be verified by analyzing the loop stability of the circuit.
-The integrators each introduce a phase shift of \SI{90}{\degree} and together with the leftmost inverting amplifier they add up to positive feedback with a phase of \SI{360}{\degree}, which, among with a total loop gain grater than unity, is the condition for oscillations to occur.\todo{please fact check, hodenkobold}
+The integrators each introduce a phase shift of \SI{90}{\degree} and, together with the leftmost inverting amplifier, they add up to positive feedback with a phase of \SI{360}{\degree}, which, among with a total loop gain grater than unity, is the condition for oscillations to occur.%or don't, dickhead
 
 To start an oscillation, a voltage has to be applied at an arbitrary high-impedance point of the circuit.
 \autoref{ss:dgl} show the output waveform of the circuit after being excited by applying the rail voltage to the inverting input of the leftmost amplifier.
