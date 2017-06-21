@@ -4,7 +4,7 @@ This experiment explores the usage of a transistor as an amplifier.
 \section{Theory}\label{sec:theory}
 \begin{figure}[tbp]
 	\centering
-	%\includegraphics[width=.5\textwidth]{./img/com_emitter_amp.pdf}
+	\includegraphics[width=.5\textwidth]{./img/com_emitter_amp.pdf}
 	\caption[Single Stage Common Emitter Amplifier]{Single stage common emitter amplifier}
 	\label{fig:com_emitter_amp}
 \end{figure}
@@ -32,7 +32,7 @@ The quiescent base voltage is determined by the voltage divider formed by \comp{
 
 \begin{figure}[tbp]
 	\centering
-	%\includegraphics[width=.5\textwidth]{./img/small_signal_neg_feed.pdf}
+	\includegraphics[width=.6\textwidth]{./img/small-signal-neg-feed.pdf}
 	\caption{Small signal schematic of a common emitter circuit with negative feedback}
 	\label{fig:small_signal_neg_feed}
 \end{figure}
@@ -55,7 +55,7 @@ where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$ and $\beta$ denotes i
 \section{Evaluation}
 \begin{figure}[tbp]
 	\centering
-	%\includegraphics[width=.5\textwidth]{./img/com_emitter_in_out.pdf}
+	\includegraphics[width=.5\textwidth]{./img/com-emitter-in-out.jpg}
 	\caption{Input versus output voltage}
 	\label{fig:com_emitter_in_out}
 \end{figure}
@@ -81,7 +81,7 @@ Minimal non-linearities in the amplified output signal can be observed.
 \autoref{tab:com_emit_in_out} lists measured peak-to-peak voltages and resulting voltage amplifications.
 Using \autoref{eq:bias_volt} the bias voltage can be calculated as $U_\text{bias}=\SI{2.27}{\volt}$.
 Assuming that the base current is negligable, the collector current is $I_\text{c}\approx\frac{U_\text{bias}-\SI{0.7}{\volt}}{\comp{R_E}}=\SI{15.7}{\milli\ampere}$.
-Using $I_\text{c}$, we can calculate the conductance to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
+Using $I_\text{c}$, the transconductance can be calculated to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
 The transconductance can then be utilized to finally calculate the theoretical voltage amplification without capacitor $\comp{C_E}$ by using the formula derived in \autoref{eq:amp_neg_fb}.
 \begin{align*}
 	A &= -\frac{SR_\text{C}}{1+R_E} \\
