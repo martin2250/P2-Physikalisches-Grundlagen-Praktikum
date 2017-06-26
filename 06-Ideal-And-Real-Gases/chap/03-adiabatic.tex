@@ -1,0 +1,33 @@
+\chapter{Adiabatic Exponent Of Air}
+This experiment is used to determine the adiabatic exponent of air, based on \texttt{Rüchardt}'s method.
+
+\section{Theory}
+A relatively heavy glass cylinder is placed on top of a gas volume \todo{held captive by a terroristic glass bottle}.
+This cylinder is excited to vibrations.
+As the frequency of these vibrations tend to be too high to be measured by eye, a combination of a coil, a magnet and a frequency counter is used as an electronic solution.
+
+The periodic expansion/compression of this gas is approximately adiabatic. It holds
+\begin{align}
+	&pV^{\kappa} &&= \text{const.}& \nonumber \\
+	\Leftrightarrow\ &\d p &&= -\kappa\cdot p\frac{\d V}{V}&&|\cdot A \nonumber \\
+	\Leftrightarrow\ &\d F &&= -\kappa A^2\cdot\frac{p}{V}\cdot\d x &&\text{(using $A\cdot \d p=\d F$ and $A\cdot\d x=\d V$).} \label{eq:adiabatic_df}
+\end{align}\todo{fix shitty left alignment of align}
+
+\autoref{eq:adiabatic_df} is a linear law with a eigenfrequency of
+\begin{align*}
+	f&=\frac{1}{2\pi}\sqrt{\frac{k}{m}},
+\end{align*}
+where $k=\kappa A^2\cdot\sfrac{p}{V}$.
+This results in
+\begin{align}\label{eq:kappa}
+	\kappa&=\left(\frac{2\pi f}{A}\right)^2\cdot\frac{mV}{p},
+\end{align}
+where\par
+\begin{tabular}{ll}
+	$f-$	&	frequency of oscillation \\
+	$m-$	&	cylinder mass (including magnet) \\
+	$A-$	&	cross section \\
+	$V-$	&	gas volume \\
+	$p-$	&	gas pressure (accounting for magnet mass)\\
+\end{tabular}\par
+denote the characteristic properties of the experiment.
