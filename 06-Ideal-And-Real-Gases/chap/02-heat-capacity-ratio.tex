@@ -1,0 +1,60 @@
+\chapter{Heat Capacity Ratio $\kappa$}
+
+Adiabatic processes in ideal gases can be described with the polytropic process equations
+\begin{equation}
+	pV^\kappa = \text{const} \quad \text{and} \quad TV^{\kappa - 1} = \text{const},
+\end{equation}
+where $\kappa = \frac{c_\text{p}}{c_\text{v}}$ is the ratio of the specific heat capacities for constant pressure and volume.
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.8\textwidth]{data/2_img.pdf}
+	\caption{$p(V)$-curve of working gas for determining $\kappa$ (after Clément-Desormes)}
+	\label{fig:pv-clement-method}
+\end{figure}
+
+In this experiment $\kappa$ is determined using the method described by Clément-Desormes:
+\begin{itemize}
+	\item A sealed constainer is pressurized and let cool down to ambient temperature\\
+	\mbox{$\rightarrow (p_0 + dp_1, V_0, T_0)$}
+	\item The container is opened briefly to let the pressure escape\\
+	\mbox{$\rightarrow (p_0, V_0, T_0 - dT)$}
+	\item The gas that was cooled down in the expansion process heats up to room temperature again\\
+	\mbox{$\rightarrow (p_0 + dp_2, V_0, T_0)$}
+\end{itemize}
+The $p(V)$ curve of this process is shown in \autoref{fig:pv-clement-method}.
+
+Assuming $dp_x \ll p_0$, $\kappa$ can be calculated\footnote{Vorbereitungshilfe zum Versuch „Ideales und Reales Gas“} as
+\begin{equation}
+	\kappa = \frac{dp_1}{dp_1 - dp_2}.
+\end{equation}
+In this very much simplified equation, only the read-off error must be considered.
+As the mercury column was levelled with a bubble level and the two arms of the u tube are very close together, any systematic offset of pressures is small enough to be disregarded.
+For the statistical read-off error on $dp_x$ an error of \SI{2}{\milli\meter} is assumed.
+
+The experiment is repeated three times with varying initial pressure $dp_1$.
+The values along with individual results for $\kappa$ and associated uncertainties are listed in \autoref{tab:kappa}.
+
+The mean value is $\bar{\kappa} = \num{1.27(2)}$, which deviates from the literature value\footnote{\url{http://webbook.nist.gov/chemistry/fluid/}} of $\kappa_\text{lit} = \num{1.40}$ ($\text{N}_2$ at \SI{20}{\celsius}) by \SI{10}{\percent}.
+
+This is probably due to the slow venting process, where a lot of pressure that comes from re-heating the gas to ambient temperature is lost.
+This is confirmed by a second experiment where the vent is purposefully left open for longer than neccessary.
+The resulting pressure $dp_2$ is significantly smaller than in the previous tests.
+The low variance between the results implicates a very consistent venting process which, being carried out by hand, was not expected.
+
+\begin{table}
+	\centering
+	\caption{Results of Clément-Desormes method. $dp_1$ before venting, $dp_2$ after venting and temperature equalization}\label{tab:kappa}
+	\begin{tabular}{SSS}
+		\toprule
+		{$dp_1$ (\si{\mmHg})}&
+		{$dp_2$ (\si{\mmHg})}&
+		{$\kappa$}\\
+		\midrule
+		112.5&	23&	1.26(3)\\
+		79.5&	17&	1.27(4)\\
+		91.5&	20.5&	1.28(4)\\
+		\bottomrule
+	\end{tabular}
+	\caption*{$\pm\SI{2}{\mmHg}$ on all pressure measurements}
+\end{table}
