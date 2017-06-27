@@ -62,14 +62,22 @@ Systematic errors on the mass $m$ and the diameter of the piston $d$ are introdu
 Errors on the frequency $f$ and the ambient pressure $p_0$ are negligably small.
 As these two quantities are not correlated, the error in $\kappa$ can be estimated by \texttt{Gaussian} error propagation.
 This gives a systematic error of
-\begin{align}
-	\Delta\kappa&=\pm\num{0.0363}.
-\end{align}
+\begin{align*}
+	\Delta\kappa_\text{air}&=\pm\num{0.065}	\\
+	\Delta\kappa_\text{ar}&=\pm\num{0.0524}.
+\end{align*}
 
-\autoref{tab:f_air_ar} shows the measured vibration frequencies for argon and air as well as their statistical errors $\sigma_f$.
-\todo{Plug stat. error of f in kappa}
+\autoref{tab:f_air_ar} shows the measured vibration frequencies for argon and air as well as their statistical errors $\sigma_f$, which translate into an uncertainty of
+\begin{align*}
+	\sigma_{\kappa,\text{air}}&=\num{0.065}\text{ and}	\\
+	\sigma_{\kappa,\text{ar}}&=\num{0.0136}
+\end{align*}
+
 Using \autoref{eq:kappa}, both adiabatic exponents can be calculated as
-\begin{gather*}
-	\kappa_\text{air}=\num{}\pm\num{}\text{(sys.)}\pm\num{}\text{(stat.)} \\
-	\kappa_\text{ar}=\num{}\pm\num{}\text{(sys.)}\pm\num{}\text{(stat.)}.
-\end{gather*}
+\begin{alignat*}{3}
+	\kappa_\text{air}&=\num{1.52}&&\pm\num{0.0363}\text{(sys.)}&&\pm\num{0.065}\text{(stat.)} \\
+	\kappa_\text{ar}&=\num{2.207}&&\pm\num{0.0524}\text{(sys.)}&&\pm\num{0.0524}\text{(stat.)}.
+\end{alignat*}
+
+\subsection{Discussion: Air}
+The literature value\footnote{\url{en.wikipedia.org/wiki/Heat_capacity_ratio}} of $\kappa_\text{air}$ almost is within the error boundaries, it deviates by \num{1.3}\% from the downmost value.\todo{yada, yada}
