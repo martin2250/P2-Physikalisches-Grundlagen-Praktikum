@@ -20,7 +20,8 @@ The periodic expansion/compression of this gas is approximately adiabatic. It ho
 where $k=\kappa A^2\cdot\sfrac{p}{V}$.
 This results in
 \begin{align}\label{eq:kappa}
-	\kappa&=\left(\frac{2\pi f}{A}\right)^2\cdot\frac{mV}{p},
+	\kappa&=\left(\frac{2\pi f}{A}\right)^2\cdot\frac{mV}{p} \nonumber \\
+	\kappa&=\left(\frac{2\pi f}{A}\right)^2\cdot\frac{mV}{p_0+\frac{mg}{A}}
 \end{align}
 where\par
 \begin{tabular}{ll}
@@ -28,25 +29,46 @@ where\par
 	$m-$	&	cylinder mass (including magnet) \\
 	$A-$	&	cross section \\
 	$V-$	&	gas volume \\
-	$p-$	&	gas pressure (accounting for magnet mass)\\
+	$p_0-$	&	ambient pressure (accounting for magnet mass)\\
 \end{tabular}\par
 denote the characteristic properties of the setup.
 
-\section{Errors}
+\section{Evaluation}
+\begin{table}[b!]
+	\centering
+	\caption{Measured frequencies for air and argon}
+	\label{tab:f_air_ar}
+	\begin{tabular}{SS}
+		\toprule
+		{$f_\text{air}$ in $\si{\hertz}$}	&	{{$f_\text{ar}$ in $\si{\hertz}$}}\\
+		\midrule
+		\num{19.9}	&	\num{24.3}	\\
+		\num{19.6}	&	\num{24.4}	\\
+		\num{20.6}	&	\num{24.5}	\\
+		\num{20.5}	&	\num{24.4}	\\
+		\num{20.7}	&	\num{24.3}	\\
+		\midrule
+		{$\overline{f_\text{air}}$=\SI{20.26}{\hertz}}	&	{$\overline{f_\text{ar}}$=\SI{24.38}{\hertz}}	\\
+		{$\sigma_{f,\text{air}}$=\SI{0.431}{\hertz}}	&	{$\sigma_{f,\text{ar}}$=\SI{74.8e-3}{\hertz}}	\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 Systematic errors on the mass $m$ and the diameter of the piston $d$ are introduced as
 \begin{gather*}
 	m=\SI{109.80(5)}{\gram} \\
-	d=\SI{31.1(1)}{\milli\meter}\rightarrow A=\SI{759.6}{\milli\meter\squared}.
+	d=\SI{31.1(1)}{\milli\meter}\rightarrow A=\SI{759.6(49)}{\milli\meter\squared}.
 \end{gather*}
-The effect of the diameter $d$'s error on the cross section $A$ is calculated as
-\begin{equation*}
-	\Delta A=A\cdot2\frac{\Delta d}{d}=\SI{4.9}{\milli\meter\squared}.
-\end{equation*}
-
-As these errors are not correlated, \texttt{Gauss}' error propagation is used to determine the error on $\kappa$.
-It holds
+As these two quantities are not correlated, the error in $\kappa$ can be estimated by \texttt{Gaussian} error propagation.
+This gives a systematic error of
 \begin{align}
-	\Delta\kappa&=\sqrt{\left(\pdb{\kappa}{m}\cdot\Delta m\right)^2+\left(\pdb{\kappa}{A}\cdot\Delta A\right)^2} \\
-	&=\num{}
+	\Delta\kappa&=\pm\num{0.0363}.
 \end{align}
-Fitting the model in \autoref{eq:kappa} to the data gives a statistical error of
+
+\autoref{tab:f_air_ar} shows the measured vibration frequencies for argon and air as well as their statistical errors $\sigma_f$.
+\todo{Plug stat. error of f in kappa}
+Using \autoref{eq:kappa}, both adiabatic exponents can be calculated as
+\begin{gather*}
+	\kappa_\text{air}=\num{}\pm\num{}\text{(sys.)}\pm\num{}\text{(stat.)} \\
+	\kappa_\text{ar}=\num{}\pm\num{}\text{(sys.)}\pm\num{}\text{(stat.)}.
+\end{gather*}
