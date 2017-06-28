@@ -7,11 +7,12 @@ The piston is excited to vibrations.
 As the frequency of these vibrations tend to be too high to be counted by eye, a combination of a fixed coil, a permanent magnet mounted to the piston and a frequency counter is used to measure the oscillation frequency.
 
 The periodic expansion/compression of this gas is approximately adiabatic. It holds
-\begin{align}
-	&pV^{\kappa} &&= \text{const.}& \nonumber \\
-	\Leftrightarrow\ &\d p &&= -\kappa\cdot p\frac{\d V}{V}&&|\cdot A \nonumber \\
-	\Leftrightarrow\ &\d F &&= -\kappa A^2\cdot\frac{p}{V}\cdot\d x &&\text{(using $A\cdot \d p=\d F$ and $A\cdot\d x=\d V$).} \label{eq:adiabatic_df}
-\end{align}\todo{fix shitty left alignment of align}
+\begin{alignat}{3}
+	pV^{\kappa} &= \text{const.} \nonumber \\
+	\Leftrightarrow\ \d p &= -\kappa\cdot p\frac{\d V}{V}&|\cdot A \nonumber \\
+	\Leftrightarrow\ \d F &= -\kappa A^2\cdot\frac{p}{V}\cdot\d x, \label{eq:adiabatic_df}
+\end{alignat}
+where the relations $A\cdot \d p=\d F$ and $A\cdot\d x=\d V$ were used.
 
 \autoref{eq:adiabatic_df} is a linear relation with a resonant frequency of
 \begin{align*}

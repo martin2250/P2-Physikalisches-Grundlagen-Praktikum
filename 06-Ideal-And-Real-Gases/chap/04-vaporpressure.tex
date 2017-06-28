@@ -1,0 +1,43 @@
+\chapter{Vapor Pressure Curve Of N-Hexane}
+This exerpiment explores the evaporation enthalpy of n-hexane and its associated vapor pressure curve.
+
+\section{Theory}
+\begin{figure}[tbp]
+	\centering
+	%\includegraphics[width=.8\textwidth]{img/}
+	\caption{\textbf{Phase diagram of n-hexane} The vapor pressure curve can be seen between the gaseous and liquid phase}
+	\label{fig:n_hexane_phase_diagram}
+\end{figure}
+
+A container filled with n-hexane is placed inside of a water bath.
+The water bath is heated up and let cool down afterwards.
+During both processes, the vapor pressure $p$ and temperature $T$ are measured in regular intervals.
+
+\autoref{fig:n_hexane_phase_diagram} shows the phase diagram of n-hexane.
+Unlike water, it is a substance which does not show negative thermal expansion.
+The curve between liquid and vapor phase is called the vapor pressure curve.
+Points on it are in phase equilibrium, which means that the same amount of vapor condensates as water evaporates.
+
+Using \texttt{Clausius-Clepeyron}'s equation, the evaporation enthalpy $\Lambda$ can be calculated as
+\begin{align}\label{eq:evap_enth}
+	\Lambda&=T\cdot\left(V_\text{g}-V_\text{l}\right)\cdot\frac{\d p}{\d T} \nonumber \\
+	&=TV_\text{g}\cdot\frac{\d p}{\d T}\quad(V_\text{g}\gg V_\text{l})
+\end{align}
+where $V_\text{g}$ and $V_\text{l}$ denote the gaseous and liquid volume respectively.
+
+Using the ideal gas law, $V_\text{g}$ can be expressed as
+\begin{equation}\label{eq:gas_law}
+	V_\text{g}\at[\bigg]{n=1}=\frac{RT}{p},
+\end{equation}
+where $R=\SI{8.314472}{\joule\per\mole\kelvin}$.
+
+Combining equations \ref{eq:evap_enth} and \ref{eq:gas_law}, we get the differential equation
+\begin{equation}\label{eq:dgl}
+	\Lambda=\frac{RT^2}{p}\cdot\frac{\d p}{\d T}.
+\end{equation}
+Solving \autoref{eq:dgl} yields
+\begin{equation}
+	\frac{\Lambda}{T}=-R\cdot\log{p}+\text{const.}.
+\end{equation}
+
+$\Lambda$ can be determined by fitting this linear model to acquired data $(p,T)$.
