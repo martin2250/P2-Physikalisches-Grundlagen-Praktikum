@@ -1,0 +1,106 @@
+\chapter{Non-Inverting Amplifier}
+\section{Proof Of Concept}
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/schem-noninv.pdf}
+		\caption{Basic Non-Inverting Amplifier with Gain 11}
+		\label{schem:non_inv}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/non-inv-curve.jpg}
+		\caption{Non-Inverting Amplifier:\newline $U_\text{pp,in}=\SI{55.2}{\milli\volt}, U_\text{pp,out}=\SI{600}{\milli\volt}$}
+		\label{subfig:non_inv_curve}
+	\end{subfigure}
+	\caption{Schematic And Voltage Curves Of a Non-Inverting Setup}
+\end{figure}
+\autoref{schem:non_inv} shows the schematic of a non-inverting opamp.
+As both inputs of the opamp virtually are at the same potential, the amplification can be calculated easily by using the voltage divider formula (as seen in \autoref{eq:bias_volt})
+\begin{align*}
+	U_\text{e}&=U_\text{a}\cdot\frac{R_1}{R_1+R_2} \\
+	\Leftrightarrow\ A &=1+\frac{R_2}{R_1}.
+\end{align*}
+To examine the validity of this relation, the circuit is built and the output voltage is measured as a function of the input voltage.
+The resulting curves are shown in \autoref{subfig:non_inv_curve}.
+\begin{table}[tbp]
+	\centering
+	\caption{Input, output voltages $U_\text{pp,in/out}$ and resulting voltage amplification $A$ at $f=\SI{1}{\kilo\hertz}$}
+	\label{tab:non_inv_vals}
+	\begin{tabular}{SSS}
+		\toprule
+		{$U_\text{pp,in}$ in $\si{\milli\volt}$}&	{$U_\text{pp,out}$ in $\si{\volt}$}&	{$A$}\\
+		\midrule
+		\num{55.2}	&	\num{0.608}	&	\num{11.01}\\
+		\num{352}	&	\num{3.96}	&	\num{11.25}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+In both measurements, the gain is $\approx 11$, which confirms the expectations.
+
+\section{Input And Output Impedances}
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/shitty-circuit-1.pdf}
+		\caption{Demonstrating High Input Impedance}
+		\label{schem:shitty_circuit_1}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{./img/shitty-circuit-2.pdf}
+		\caption{Demonstrating Low Output Impedance}
+		\label{schem:shitty_circuit_2}
+	\end{subfigure}
+	\caption{Circuits For Demonstration Of I/O-Impedances}
+	\label{fig:shitty}
+\end{figure}
+An ideal opamp has an infinitely high input and a low output impedance.
+The circuits in \autoref{fig:shitty} shall demonstrate if those ideals are met.
+
+The circuit shown in \autoref{schem:shitty_circuit_1} is used to naively measure the opamp's input impedance.
+The formula provided in the preparation file does not take into account that the oscilloscope used for measuring $U_\text{M}$ has the same input impedance as \comp{R_M}.
+To examine the effect of non-negligable oscilloscope impedances, the small signal behavior of this circuit has to be considered.
+It holds
+\begin{equation*}
+	\frac{U_\text{e}}{U_\text{M}}=\frac{R_\text{in}+R_\text{M}}{R_\text{M}},
+\end{equation*}
+where
+\begin{equation*}
+	R_\text{in}=R_\text{osc.}\| R_\text{in,op}.
+\end{equation*}
+Rearranging these equations and using the measured voltage $U_\text{M}=\SI{1.12}{\volt}$ and known resistances, the input impedance can be calculated as
+\begin{equation*}
+	R_\text{in,op}=\SI{11.2}{\mega\ohm},
+\end{equation*}
+which confirms our expectations of a high input impedance.
+This measurement is very unreliable, as the measured impedance is more than an order of magnitude greater than the impedance of the oscilloscope parallel to the input.
+
+More importantly, the input of the opamp can absolutely not be modelled as a simple resistor.
+Because of the nature of the differential input stage, it acts more like a constant current source/sink.
+This also means that a single resistance is worthless when classifying the input characteristics.	%yes, worthless :D
+For an actual characterization, both the bias current and the differential impedance ($\rightarrow$ impedance of the current source) have to be taken into account.
+
+To (naively) measure the output impedance, the circuit shown in \autoref{schem:shitty_circuit_2} is built.
+The potentiometer is tuned so that the output signal is halved, its value then approximately equals the output impedance of the opamp.
+A value of $R_\text{out}=\SI{90}{\ohm}$ is determined, which confirms our expectations of a low output impedance.
+
+This measurement does also not take into account the behavior of the circuit.
+The reduced output voltage is not a voltage drop across an impedance, it is an effect of a protection mechanism, which limits the output current of the opamp.
+The actual (DC and AC at low frequencies) output impedance is lower by orders of magnitude due to the closed feedback loop.
+
+\section{Frequency Response}
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./data/plots/2_3.pdf}
+	\caption{Amplification $A$ over Frequency $f$}
+	\label{fig:noninvert_amp}
+\end{figure}
+
+\autoref{fig:noninvert_amp} shows the frequency response curve of the non-inverting amplifier.
+As expected, gain decreases with growing frequency, where the cutoff frequency roughly is $f_\text{cutoff}\approx\SI{61}{\kilo\hertz}$ ($\SI{-3}{\decibel}$).
+Small distortions can be observed at high frequencies (no illustrations available).
+Thus the opamp acts as a low-pass filter.
+This is mostly an undesired effect due to parasitic capacitances, inductances and limited slew rate, but it is also needed to prevent overshoot and high frequency oscillations from occuring.

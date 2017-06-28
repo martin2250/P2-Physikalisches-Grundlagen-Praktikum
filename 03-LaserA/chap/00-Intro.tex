@@ -31,7 +31,7 @@ These dipoles can only radiate perpendicular to their axis of vibration.
 
 If the angle between the reflected and the transmitted light is equal to \SI{90}{\degree}, light polarized in the plane of incidence is not reflected, because the dipoles' axis of oscillation is parallel to the direction of transmitted light.
 
-By trivial calculations we can show that
+By trivial calculations it can be shown that
 \begin{equation}\label{eq:brewster}
 	\tan\theta_\text{B}=\frac{n_2}{n_1},
 \end{equation}
@@ -40,8 +40,6 @@ where $\theta_\text{B}$ denotes the Brewster-angle and $n_2, n_1$ denote the ref
 This effect is used inside the He-Ne laser to get a homogenously polarized beam, as s-polarized light is reflected out of the resonance cavity by Brewster windows, whereas light of the other polarization can pass them.
 
 \section{Diffraction phenomena}
-The following explanations are of minimal extent, as underlying processes should be familiar.
-
 \subsection{Single slit}\label{subsec:single_slit}
 
 \begin{figure}[tb]
@@ -60,7 +58,7 @@ The following explanations are of minimal extent, as underlying processes should
 	\caption[Deviation of single-slit formulae]{Deviation of single-slit formulae}
 \end{figure}
 
-Considering \autoref{fig:path_diff_single} we can see that	%I did you ignorant fuck :D (read the '=' sign as 'is equal to' and you'll see)
+Considering \autoref{fig:path_diff_single} it is easy to see that	%I did you ignorant fuck :D (read the '=' sign as 'is equal to' and you'll see)
 \begin{equation}\label{eq:path_diff}
 	\Delta s=b\sin\alpha
 \end{equation}
@@ -77,7 +75,7 @@ It holds
 \begin{equation}\label{eq:path_diff_max}
 	\Delta s = \left(n+\frac{1}{2}\right)\cdot\lambda\ ;\qquad n\in\mathbb{N}.
 \end{equation}
-Like this we can divide the beam into $2n+1$ partial beams, the $2n$ beams canceling each other out again, while the last one remains.
+Like this, the beam can be divided into $2n+1$ partial beams, the $2n$ beams canceling each other out again, while the last one remains.
 This residual beam can be observed as the $n$-th maximum.
 
 Looking at \autoref{fig:angle_distance_single} it holds
@@ -85,7 +83,7 @@ Looking at \autoref{fig:angle_distance_single} it holds
 	y_n = d\tan\alpha_n\ ;\qquad n\in\mathbb{N}.
 \end{equation}
 
-Assuming the observed angles are small, using equations \ref{eq:path_diff_min}, \ref{eq:path_diff_max} and \ref{eq:dist_single}, we can see that
+Assuming the observed angles are small, using equations \ref{eq:path_diff_min}, \ref{eq:path_diff_max} and \ref{eq:dist_single}, it can be deduced that
 \begin{equation}\label{eq:single_slit_minima}
 	b = \frac{n\lambda d}{y_n} ;\qquad n\in\mathbb{N}.
 \end{equation}
@@ -96,18 +94,18 @@ for minima and
 for maxima of the diffraction pattern.
 
 \subsection{Bridge}\label{subsec:bridge}
-To deduce the diffraction pattern of a bridge, we make use of Babinet's theorem which states that two complementary objects have the same diffraction pattern.
+To deduce the diffraction pattern of a bridge, Babinet's theorem can be made use of, which states that two complementary objects have the same diffraction pattern.
 This can be understood considering following thoughts:
-Assuming $O$ is the original diffracting object and $\bar{O}$ is its complement viz. that it is opaque where $O$ is transparent and vice versa.
+Assuming $O$ is the original diffracting object and $\bar{O}$ is its complement meaning that it is opaque where $O$ is transparent and vice versa.
 The sum of the amplitudes by the diffractions caused by $O$ and $\bar{O}$ must equal the amplitude of an unobstructed beam.
 This means that in places where the light would not have reached without diffraction, the phases of patterns caused by $O$ and $\bar{O}$ must be opposite in phase, effectively causing the amplitude to be negative.
 However, for perception of the diffraction patterns not amplitude matters but intensity, which is proportional to the square of the amplitude.
 
-We notice that a bridge of thickness $b$ is the complement of a single-slit of same gap-width, so the diffraction patterns should be the same and we can use the same equations as deviated in \autoref{subsec:single_slit}.
+Obviously, a bridge of thickness $b$ is the complement of a single-slit of same gap-width, so the diffraction patterns should be the same and the same equations as deviated in \autoref{subsec:single_slit} can be used.
 
 \subsection{Circular disk and opening}
 Due to Babinet's principle, the observed diffraction patterns of a disk and a circular opening of same width should be the same.
-We expect rotationally symmetrical patterns.
+Rotationally symmetrical patterns are expected.
 
 \subsection{Hair}
 A hair poses the same object as elaborated in \autoref{subsec:bridge} so according formulae can be applied to calculate its width.
@@ -144,14 +142,14 @@ Using \autoref{eq:dist_single}, this leads to
 where $y_{\text{max,}n}$ and $y_{\text{min,}n}$ denote the position of the $n$-th maximum and minimum respectively.
 
 \subsection{Lattices}\label{subsec:lattices}
-Noting that lattices are just $n$ subsequent slits placed in intervals of $\frac{1}{g}$, we can deduce that
+Noting that lattices are just $n$ subsequent slits placed in intervals of $\frac{1}{g}$, it can be deduced that
 \begin{alignat}{3}
  	\frac{1}{g} &= \frac{n\lambda d}{y_{\text{max,}n}} &\quad n\in\mathbb{N},\label{eq:lattice_max} \\
 	\frac{1}{g} &= \frac{\left(n+\frac{1}{2}\right)\lambda d}{y_{\text{min,}n}} &\quad n\in\mathbb{N}, \label{eq:lattice_min}
 \end{alignat}
 holds for the maxima and minima as in equations \ref{eq:double_max} and \ref{eq:double_min}.
-For all kinds of slits used in this experiment, however, the exact relation viz. $n$ or $\left(n+\frac{1}{2}\right)$ does not matter in a plot order vs. distance between features, since only the slope is of interest to determine distance between slits or gap width respectively.
-Hence, measuring distances between maxima or minima does not matter, since it only causes an offset but does not change the slope.
+For all kinds of slits used in this experiment, however, the exact relation, that is $n$ or $\left(n+\frac{1}{2}\right)$, does not matter in a plot order versus distance between features, since only the slope is of interest to determine distance between slits or gap width respectively.
+Hence, measuring distances between maxima or minima do not matter, since they only cause an offset but do not change the slope.
 
 \section{Holograms}\label{sec:holograms}
 Ordinary photographs are created by projecting an illuminated object with a lens system onto a plane, reducing the dimension of the object by one (3D$\rightarrow$2D).

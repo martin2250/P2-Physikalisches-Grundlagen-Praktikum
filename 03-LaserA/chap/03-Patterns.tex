@@ -6,11 +6,13 @@ A double slit is placed in the beam path.
 The spacing of the two slits is determined by measuring the distance between intensity peaks of the diffraction pattern.
 To also determine the width of the individual slits, only a single slit is illuminated and the distance between troughs is measured.
 Peaks or troughs are used, as they are more narrow using the respective setup, which makes them easier to measure.
-The feature size and error are calculated as shown in \autoref{sec:meas}.
+The feature size and error are calculated as shown in \autoref{sec:meas} and listed in \autoref{tab:double-width} and \autoref{tab:double-spacing}.
+The mean is within error bounds for all values and the feature sizes are very close to 'round' numbers, which is a good indication that the results are accurate.
 
 \begin{table}[b!]
 	\centering
 	\caption{Double Slit Width}
+	\label{tab:double-width}
 	%\begin{tabular}{SSS}
 	\begin{tabular}{
 	S[table-format=-1.2, table-align-exponent = false, table-align-uncertainty = false]
@@ -34,6 +36,7 @@ The feature size and error are calculated as shown in \autoref{sec:meas}.
 \begin{table}[b!]
 	\centering
 	\caption{Double Slit Spacing}
+	\label{tab:double-spacing}
 	\begin{tabular}{
 	S[table-format=-1.2, table-align-exponent = false, table-align-uncertainty = false]
 	S[table-format=-1.3(3)e2, table-align-exponent = false, table-align-uncertainty = false]
@@ -88,17 +91,15 @@ The spacing of the slots in a diffraction grating is analyzed using the same met
 \end{table}
 
 The factory specification of \num{100} slots per \si{\mm} ($W = \SI{0.1}{\mm}$) lies outside of the calculated error.
+As all inidividual values lie above the specification, possible causes must be of systematic nature, making the wavelength of the laser and the scale of the used ruler and the optical bench possible, though not very likely suspects.
+Any human errors while marking and measuring the diffraction pattern are also unlikely, as the diffraction pattern is very sharp and wide.
 
 Different illumination conditions do not change the dimensions of the diffraction pattern, but the peaks become more narrow with a wider incident beam.
 
 \section{Crossed Grating}
 A crossed grating is placed in the beam.
-The diffraction pattern has the shape of a point grid.
-{\color{lightgray} We probably should have taken a picture of the diffration pattern, but we didn't. So here is a duck instead.
-\begin{verbatim}
-                                      __
-                                  ___( o)>
-                                  \ <_. )
-                                   `---'
-\end{verbatim}
-}
+The diffraction pattern has the shape of a point grid and becomes more dim moving away from the center.
+
+The observed intensity distribution appears to be that of an infinitely wide diffraction pattern of a linear grating, multiplied with a \SI{90}{\degree} rotated version of itself.
+
+This observation can be verified with Fraunhofer diffraction: the crossed grating is essentially a convolution of two linear gratings. Being the fourier transform of the crossed grating, the resulting intensity is the product of the individual intensities according to the Convolution theorem.

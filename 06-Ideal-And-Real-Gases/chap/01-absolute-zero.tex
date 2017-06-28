@@ -1,0 +1,56 @@
+\chapter{Absolute Zero}
+
+The temperature of absolute zero is determined by measuring thermal expansion of a gas and extrapolating to the point of zero pressure.
+
+According to the ideal gas law
+\begin{equation}\label{eq:ideal-gas}
+	pV = nRT,
+\end{equation}
+pressure $p$ is proportional to (absolute) temperature $T$.
+To relate absolute temperature to the celsius scale, which differs by a constant temperature offset $T_\text{o}$: $T_\text{C} \, (\si{\celsius}) = T \, (\si{\kelvin}) - T_\text{o}$, a modified version of \autoref{eq:ideal-gas},
+\begin{equation*}
+	p(T) = p_0 \cdot \left(1 + \alpha \, T_\text{C}\right),
+\end{equation*}
+is used.
+The point of zero pressure in the units of $T_\text{c}$ is $T_\text{o} = -\frac{1}{\alpha}$.
+
+As $p(T)$ is purely linear, two points $(p, T)$ are sufficient to calculate $\alpha$.
+In the experiment two easily reproducible temperatures, the melting and boiling point of water, are used.
+
+To correct for the temperature dependent boiling point of water, the ambient pressure is measured:
+\begin{equation*}
+	p_\text{A} = \SI{996}{\milli\bar} \quad \rightarrow \quad T_\mathrm{b, H_2O} = \SI{99.49}{\celsius}\footnote{\url{http://www.wolframalpha.com/input/?i=water+boiling+point+996mBar}}.
+\end{equation*}
+
+To calculate the error on $\alpha$, uncertainties of $\Delta p = \SI{1}{\mmHg}$ on the relative pressure, $\Delta T_\text{b} = \SI{2}{\celsius}$ on the boiling temperature (and $\Delta p_\text{A} = \SI{5}{\milli\bar}$ on the ambient pressure) are assumed.
+All error sources are uncorrelated, so gaussian error propagation is used.
+
+$\alpha_1$ is calculated from the two data points as
+\begin{equation*}
+	\alpha_1 = \frac{p_\text{b} - p_0}{p_0 \cdot T_\text{b}} = \SI{3.716(78)e-3}{\per\celsius},
+\end{equation*}
+with the pressure $p_0$ at \SI{0}{\celsius} and the pressure $p_\text{b}$ and temperature $T_\text{b}$ (in \si{\celsius}) at the boiling point of water.
+
+The effects of thermal expansion of the test vessel are corrected:
+\begin{equation*}	%http://www.wolframalpha.com/input/?i=264mmHg%2F(996mBar*99.45%C2%B0C)+%2B+2.5e-5%2Fcelsius+*+(231mmHg+%2B+996mBar)%2F996mBar
+	\alpha = \alpha_1 + \frac{p_\text{b}}{p_0} \cdot \gamma = \SI{3.750(78)e-3}{\per\celsius},
+\end{equation*}
+which corresponds to a zero point of \SI{-266.6(56)}{\celsius}.
+
+The actual value (by definition) of $T_\text{o} = \SI{-273.15}{\celsius}$ does not lie within the calculated error bounds.
+An additional error source is the air volume outside of the water bath which acts as a buffer for pressure changes, which can't be accounted for without analyzing the thermal conductivity of the apparatus.
+
+\begin{table}
+	\centering
+	\caption{\textbf{relative air pressure} in test vessel with fixed volume at various temperatures, pressure relative to $p_\text{A} = \SI{996}{\milli\bar}$}
+	\begin{tabular}{cS}
+		\toprule
+		condition&
+		{relative pressure (\si{\mmHg})}\\
+		\midrule
+		ambient (\SI{27.6}{\celsius})&	42\\
+		freezing&	-33\\
+		boiling&	231\\
+		\bottomrule
+	\end{tabular}
+\end{table}

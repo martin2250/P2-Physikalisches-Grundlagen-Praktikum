@@ -1,0 +1,88 @@
+\chapter{Adiabatic Exponent Of Air}
+This experiment is used to determine the adiabatic exponent of air, based on \texttt{Rüchardt}'s method.
+
+\section{Theory}
+A glass piston is placed on top of a gas volume \todo{held captive by a terroristic glass bottle}.
+The piston is excited to vibrations.
+As the frequency of these vibrations tend to be too high to be counted by eye, a combination of a fixed coil, a permanent magnet mounted to the piston and a frequency counter is used to measure the oscillation frequency.
+
+The periodic expansion/compression of this gas is approximately adiabatic. It holds
+\begin{align}
+	&pV^{\kappa} &&= \text{const.}& \nonumber \\
+	\Leftrightarrow\ &\d p &&= -\kappa\cdot p\frac{\d V}{V}&&|\cdot A \nonumber \\
+	\Leftrightarrow\ &\d F &&= -\kappa A^2\cdot\frac{p}{V}\cdot\d x &&\text{(using $A\cdot \d p=\d F$ and $A\cdot\d x=\d V$).} \label{eq:adiabatic_df}
+\end{align}\todo{fix shitty left alignment of align}
+
+\autoref{eq:adiabatic_df} is a linear relation with a resonant frequency of
+\begin{align*}
+	f&=\frac{1}{2\pi}\sqrt{\frac{k}{m}},
+\end{align*}
+where $k=\kappa A^2\cdot\sfrac{p}{V}$.
+This results in
+\begin{align}\label{eq:kappa}
+	\kappa&=\left(\frac{2\pi f}{A}\right)^2\cdot\frac{mV}{p} \nonumber \\
+	\kappa&=\left(\frac{2\pi f}{A}\right)^2\cdot\frac{mV}{p_0+\frac{mg}{A}}
+\end{align}
+where\par
+\begin{tabular}{ll}
+	$f-$	&	frequency of oscillation \\
+	$m-$	&	cylinder mass (including magnet) \\
+	$A-$	&	cross section \\
+	$V-$	&	gas volume \\
+	$p_0-$	&	ambient pressure (accounting for magnet mass)\\
+\end{tabular}\par
+denote the characteristic properties of the setup.
+
+\section{Evaluation}
+\begin{table}[b!]
+	\centering
+	\caption{Measured frequencies for air and argon}
+	\label{tab:f_air_ar}
+	\begin{tabular}{SS}
+		\toprule
+		{$f_\text{air}$ in $\si{\hertz}$}	&	{{$f_\text{ar}$ in $\si{\hertz}$}}\\
+		\midrule
+		\num{19.9}	&	\num{24.3}	\\
+		\num{19.6}	&	\num{24.4}	\\
+		\num{20.6}	&	\num{24.5}	\\
+		\num{20.5}	&	\num{24.4}	\\
+		\num{20.7}	&	\num{24.3}	\\
+		\midrule
+		{$\overline{f_\text{air}}$=\SI{20.26}{\hertz}}	&	{$\overline{f_\text{ar}}$=\SI{24.38}{\hertz}}	\\
+		{$\sigma_{f,\text{air}}$=\SI{0.431}{\hertz}}	&	{$\sigma_{f,\text{ar}}$=\SI{74.8e-3}{\hertz}}	\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Systematic errors on the mass $m$ and the diameter of the piston $d$ are introduced as
+\begin{gather*}
+	m=\SI{109.80(5)}{\gram} \\
+	d=\SI{31.1(1)}{\milli\meter}\rightarrow A=\SI{759.6(49)}{\milli\meter\squared}.
+\end{gather*}
+Errors on the frequency $f$ and the ambient pressure $p_0$ are negligably small.
+As these two quantities are not correlated, the error in $\kappa$ can be estimated by \texttt{Gaussian} error propagation.
+This gives a systematic error of
+\begin{align*}
+	\Delta\kappa_\text{air}&=\pm\num{0.065}	\\
+	\Delta\kappa_\text{ar}&=\pm\num{0.0524}.
+\end{align*}
+
+\autoref{tab:f_air_ar} shows the measured vibration frequencies for argon and air as well as their statistical errors $\sigma_f$, which translate into an uncertainty of
+\begin{align*}
+	\sigma_{\kappa,\text{air}}&=\num{0.065}\text{ and}	\\
+	\sigma_{\kappa,\text{ar}}&=\num{0.0136}
+\end{align*}
+
+Using \autoref{eq:kappa}, both adiabatic exponents can be calculated as
+\begin{alignat*}{3}
+	\kappa_\text{air}&=\num{1.52}&&\pm\num{0.0363}\text{(sys.)}&&\pm\num{0.065}\text{(stat.)} \\
+	\kappa_\text{ar}&=\num{2.207}&&\pm\num{0.0524}\text{(sys.)}&&\pm\num{0.0136}\text{(stat.)}.
+\end{alignat*}
+
+\subsection{Discussion: Air}
+The literature value\footnote{\url{en.wikipedia.org/wiki/Heat_capacity_ratio}} of $\kappa_\text{air}$ almost is within the error boundaries, it deviates by \num{1.3}\% from the downmost value, which is an acceptable result.
+
+\subsection{Discussion: Argon}
+The literature value\textsuperscript{1} of $\kappa_\text{ar}$ does not fall within the error boundaries.
+It deviates from the downmost value by \num{28.2}\%.
+This deviation can be explained by the \todo{can't really think of an explanation... low concentration of argon? i remember janek mentioning something like that}
