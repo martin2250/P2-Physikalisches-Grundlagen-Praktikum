@@ -41,4 +41,25 @@ Solving \autoref{eq:dgl} yields
 	\Leftrightarrow\ \log{p}&=-\frac{\Lambda}{R}\cdot \frac{1}{T} + \text{const.}	\label{eq:fit_eq}
 \end{align}
 
-$\Lambda$ can be determined by fitting this linear model to acquired data $(p,T)$.
+$\Lambda$ can be determined by fitting this linear model to acquired data $(\frac{1}{T},p)$.
+
+\section{Evaluation}
+\begin{figure}[tbp]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		%\includegraphics[width=.9\linewidth]{./img/schem-noninv.pdf}
+		\caption{\textbf{Measured vapor pressure curve of n-hexane}}
+		\label{subfig:press_curve_meas}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		%\includegraphics[width=.9\linewidth]{./img/non-inv-curve.jpg}
+		\caption{\textbf{Linear regression for determining $\Lambda$}}
+		\label{subfig:lambda_meas}
+	\end{subfigure}
+\end{figure}
+
+No errors can be estimated as both measurements $T$ and $p$ have negligable uncertainties.
+$T$ is measured with a highly precise, electronic thermometer and the differential height of the manometer's filament $\Delta h$, which is proportional to $p$, is measured with a telescope.
+\autoref{subfig:press_curve_meas} shows the measured vapor pressure curves.
