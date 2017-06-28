@@ -58,4 +58,3 @@ if len(sys.argv) == 1:
 	print("a_heat= (", a_heat, "+/-", stderr_heat, "), b_heat= ", b_heat, ", r_heat= ", r_heat)
 else:
     plt.savefig(sys.argv[1])
- 

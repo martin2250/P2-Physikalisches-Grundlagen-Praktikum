@@ -55,4 +55,3 @@ if len(sys.argv) == 1:
 	
 else:
     plt.savefig(sys.argv[1])
- 
