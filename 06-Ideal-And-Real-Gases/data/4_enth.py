@@ -21,8 +21,8 @@ T_heat = T_heat+273.15
 T_cool = T_cool+273.15
 
 #calculate pressure
-p_cool = h_cool*1.3332e5+996	#hPa
-p_heat = h_heat*1.3332e5+996	#hPa
+p_cool = h_cool*1.3332e5	#hPa
+p_heat = h_heat*1.3332e5	#hPa
 
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
