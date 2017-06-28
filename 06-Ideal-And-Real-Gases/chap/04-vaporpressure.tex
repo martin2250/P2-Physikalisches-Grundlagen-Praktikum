@@ -38,7 +38,8 @@ Combining equations \ref{eq:evap_enth} and \ref{eq:gas_law}, we get the differen
 Solving \autoref{eq:dgl} yields
 \begin{align}
 	\frac{\Lambda}{T}&=-R\cdot\log{p}+\text{const.} \nonumber \\
-	\Leftrightarrow\ \log{p}&=-\frac{\Lambda}{R}\cdot \frac{1}{T} + \text{const.}	\label{eq:fit_eq}
+	\Leftrightarrow\ \log{p}&=-\frac{\Lambda}{R}\cdot \frac{1}{T} + \text{const.}	\label{eq:fit_eq} \\
+	\Leftrightarrow\ y&=a\cdot x + \text{const.} \nonumber
 \end{align}
 
 $\Lambda$ can be determined by fitting this linear model to acquired data $(\frac{1}{T},p)$.
@@ -48,13 +49,13 @@ $\Lambda$ can be determined by fitting this linear model to acquired data $(\fra
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		%\includegraphics[width=.9\linewidth]{./img/schem-noninv.pdf}
+		\includegraphics[width=.9\linewidth]{./data/plots/4_vapor.pdf}
 		\caption{\textbf{Measured vapor pressure curve of n-hexane}}
 		\label{subfig:press_curve_meas}
 	\end{subfigure}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
-		%\includegraphics[width=.9\linewidth]{./img/non-inv-curve.jpg}
+		\includegraphics[width=.9\linewidth]{./data/plots/4_enth.pdf}
 		\caption{\textbf{Linear regression for determining $\Lambda$}}
 		\label{subfig:lambda_meas}
 	\end{subfigure}
@@ -63,3 +64,20 @@ $\Lambda$ can be determined by fitting this linear model to acquired data $(\fra
 No errors can be estimated as both measurements $T$ and $p$ have negligable uncertainties.
 $T$ is measured with a highly precise, electronic thermometer and the differential height of the manometer's filament $\Delta h$, which is proportional to $p$, is measured with a telescope.
 \autoref{subfig:press_curve_meas} shows the measured vapor pressure curves.
+\autoref{subfig:lambda_meas} shows the linear regression for determining $\Lambda$.
+Fitting the model in \autoref{eq:fit_eq} to the data yields the parameters
+\begin{align*}
+	a_\text{cool}=\SI{-1562.7(275)}{\kelvin},\ a_\text{heat}=\SI{-1471.7(238)}{\kelvin},
+\end{align*}
+with $R^2$-values of
+\begin{align*}
+	R^2_\text{cool}=\num{0.99},\ R^2_\text{heat}=\num{0.99},
+\end{align*}
+so the model describes the data in an overly sufficient manner.
+These slopes yield enthalpy of vaporization coefficients of
+\begin{align*}
+	\Lambda_\text{cool}&=\SI{12.99(23)}{\kilo\joule\per\mole},\ \Lambda_\text{heat}=\SI{12.24(20)}{\kilo\joule\per\mole}, \\
+	\Rightarrow\ \overline{\Lambda}&=\SI{12.615(93)}{\kilo\joule\per\mole}.
+\end{align*}
+This value deviates from the literature value\footnote{\url{de.wikipedia.org/wiki/N-Hexan}} of $\Lambda_\text{lit}=\SI{28.85}{\kilo\joule\per\mole}$ by \num{56}\%.
+This deviation can be explained by the literature value being specified at the normal pressure boiling point, which was not attained in this experiment.

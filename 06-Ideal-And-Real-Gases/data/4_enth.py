@@ -16,9 +16,13 @@ h_heat = h_heat - 22.12
 h_cool = h_cool*1e-2
 h_heat = h_heat*1e-2
 
+#SI rocks
+T_heat = T_heat+273.15
+T_cool = T_cool+273.15
+
 #calculate pressure
-p_cool = h_cool*1.3332e5	#hPa
-p_heat = h_heat*1.3332e5	#hPa
+p_cool = h_cool*1.3332e5+996	#hPa
+p_heat = h_heat*1.3332e5+996	#hPa
 
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
@@ -35,18 +39,23 @@ T=np.linspace(np.reciprocal(T_cool)[-1], np.reciprocal(T_cool)[0], 1000)
 plt.plot(T, np.exp(a_cool*T+b_cool), label='Fit for cooling')
 plt.plot(T, np.exp(a_heat*T+b_heat), label='Fit for heating')
 
+mT_cool = np.mean(np.reciprocal(T_cool))
+mT_heat = np.mean(np.reciprocal(T_heat))
+
 #plt.xkcd()
 ax=plt.gca()
 ax.grid()
 #ax.set_xscale('log')
 ax.set_yscale('log')
-plt.xlabel('Inverse temperature in \\si{\\per\\degree\\celsius}')
-plt.ylabel('Pressure in \\si{\\hecto\\pascal}')
+plt.xlabel('Inverse temperature in \\si{\\per\\kelvin}')
+plt.ylabel('Logarithmic pressure in \\si{\\hecto\\pascal}')
 
 plt.legend(loc=1)
 
 if len(sys.argv) == 1:
 	plt.show()
+	print("a_cool= (", a_cool, "+/-", stderr_cool, "), b_cool= ", b_cool, ", r_cool= ", r_cool)
+	print("a_heat= (", a_heat, "+/-", stderr_heat, "), b_heat= ", b_heat, ", r_heat= ", r_heat)
 else:
     plt.savefig(sys.argv[1])
  

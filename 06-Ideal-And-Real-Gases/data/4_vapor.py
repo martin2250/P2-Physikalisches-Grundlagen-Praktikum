@@ -16,9 +16,13 @@ h_heat = h_heat - 22.12
 h_cool = h_cool*1e-2
 h_heat = h_heat*1e-2
 
+#SI rocks
+T_heat = T_heat+273.15
+T_cool = T_cool+273.15
+
 #calculate pressure
-p_cool = h_cool*1.3332e5	#hPa
-p_heat = h_heat*1.3332e5	#hPa
+p_cool = h_cool*1.3332e5+996	#hPa
+p_heat = h_heat*1.3332e5+996	#hPa
 
 matplotlib.rc('text', usetex = True)
 params = {'text.latex.preamble' : ['\\usepackage{amsmath}', '\\usepackage{siunitx}', '\\sisetup{per-mode=fraction}', '\\sisetup{separate-uncertainty=true}']}
@@ -41,13 +45,14 @@ plt.plot(T_heat, p_heat, 'ro', label='Heating')
 #plt.plot(a_cool*T+b_cool, label='Fit for cooling')
 #plt.plot(a_heat*T+b_heat, label='Fit for heating')
 
-plt.xlabel('Temperature in \\si{\\degree\\celsius}')
-plt.ylabel('Pressure in \\si{\\pascal}')
+plt.xlabel('Temperature in \\si{\\per\\kelvin}')
+plt.ylabel('Pressure in \\si{\\hecto\\pascal}')
 
 plt.legend(loc=2)
 
 if len(sys.argv) == 1:
 	plt.show()
+	
 else:
     plt.savefig(sys.argv[1])
  
