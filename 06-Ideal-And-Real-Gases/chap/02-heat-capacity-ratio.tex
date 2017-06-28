@@ -26,11 +26,13 @@ The $p(V)$ curve of this process is shown in \autoref{fig:pv-clement-method}.
 
 Assuming $dp_x \ll p_0$, $\kappa$ can be calculated\footnote{Vorbereitungshilfe zum Versuch „Ideales und Reales Gas“} as
 \begin{equation}
-	\kappa = \frac{dp_1}{dp_1 - dp_2}.
+	\kappa = \frac{dp_1}{dp_1 - dp_2} = \frac{dh_1}{dh_1 - dh_2},
 \end{equation}
+where $dh_x$ denotes the height difference of the fluid levels in the two arms of the manometer, the density of the used liquid cancels out.
+
 In this very much simplified equation, only the read-off error must be considered.
-As the mercury column was levelled with a bubble level and the two arms of the u tube are very close together, any systematic offset of pressures is small enough to be disregarded.
-For the statistical read-off error on $dp_x$ an error of \SI{2}{\milli\meter} is assumed, the errors on $dp_1$ and $dp_2$ are combined with gaussian error propagation.
+As the manometer was levelled with a bubble level and the two arms of the u tube are very close together, any systematic offset of pressures is small enough to be disregarded.
+For the statistical read-off error on $dh_x$ an error of \SI{2}{\milli\meter} is assumed, the errors on $dh_1$ and $dh_2$ are combined with gaussian error propagation.
 
 The experiment is repeated three times with varying initial pressure $dp_1$.
 The values along with individual results for $\kappa$ and associated uncertainties are listed in \autoref{tab:kappa}.
@@ -42,14 +44,13 @@ This is confirmed by a second experiment where the vent is purposefully left ope
 The resulting pressure $dp_2$ is significantly smaller than in the previous tests.
 The low variance between the results implicates a very consistent venting process which, being carried out by hand, was not expected.
 
-\todo{change mmHg to mm of whatever was inside that tube}
 \begin{table}
 	\centering
-	\caption{Results of Clément-Desormes method. $dp_1$ before venting, $dp_2$ after venting and temperature equalization}\label{tab:kappa}
+	\caption[Clément-Desormes Method Values]{Results of Clément-Desormes method. $dh_1$ before venting, $dh_2$ after venting and temperature equalization}\label{tab:kappa}
 	\begin{tabular}{SSS}
 		\toprule
-		{$dp_1$ (\si{\mmHg})}&
-		{$dp_2$ (\si{\mmHg})}&
+		{$dh_1$ (\si{\mm})}&
+		{$dh_2$ (\si{\mm})}&
 		{$\kappa$}\\
 		\midrule
 		112.5&	23&	1.26(3)\\
@@ -57,5 +58,5 @@ The low variance between the results implicates a very consistent venting proces
 		91.5&	20.5&	1.28(4)\\
 		\bottomrule
 	\end{tabular}
-	\caption*{$\pm\SI{2}{\mmHg}$ on all pressure measurements}
+	\caption*{$\pm\SI{2}{\mm}$ on all heights measurements}
 \end{table}
