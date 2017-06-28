@@ -36,8 +36,9 @@ Combining equations \ref{eq:evap_enth} and \ref{eq:gas_law}, we get the differen
 	\Lambda=\frac{RT^2}{p}\cdot\frac{\d p}{\d T}.
 \end{equation}
 Solving \autoref{eq:dgl} yields
-\begin{equation}
-	\frac{\Lambda}{T}=-R\cdot\log{p}+\text{const.}.
-\end{equation}
+\begin{align}
+	\frac{\Lambda}{T}&=-R\cdot\log{p}+\text{const.} \nonumber \\
+	\Leftrightarrow\ \log{p}&=-\frac{\Lambda}{R}\cdot \frac{1}{T} + \text{const.}	\label{eq:fit_eq}
+\end{align}
 
 $\Lambda$ can be determined by fitting this linear model to acquired data $(p,T)$.

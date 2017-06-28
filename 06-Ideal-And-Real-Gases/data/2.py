@@ -4,7 +4,7 @@ import numpy as np
 
 (h1, h2) = np.loadtxt('source/2.dat', unpack=True)
 
-dh = 0.2	#because someone used cm
+dh = 0.2	#because someone used cm, deal with it bitch
 
 k = h1 / (h1 - h2)
 
