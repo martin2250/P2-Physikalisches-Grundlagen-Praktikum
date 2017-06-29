@@ -17,7 +17,7 @@ Adversely, the constant voltage at the base introduces a stronger dependency on 
 
 Temperature drift can be calculated as
 \begin{equation}
-	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot\SI{-2}{\milli\volt\per\kelvin},
+	\frac{\d U_\text{a}}{\d T}=\frac{\d U_\text{a}}{\d U_\text{e}}\frac{\d U_\text{e}}{\d T}\approx A\cdot \left( \SI{-2}{\milli\volt\per\kelvin} \right),
 \end{equation}
 
 where $U_\text{a}$ denotes the output voltage, $U_\text{e}$ the input voltage and $T$ the temperature.
@@ -56,7 +56,7 @@ where $r_\text{CE}\gg R_\text{C},R_\text{E}$, $\beta\gg 1$ and $\beta$ denotes i
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.5\textwidth]{./img/com-emitter-in-out.jpg}
-	\caption{Input versus output voltage}
+	\caption[Emitter Amplifier Waveforms]{Input versus output voltage}
 	\label{fig:com_emitter_in_out}
 \end{figure}
 \begin{table}[b!]
@@ -84,7 +84,7 @@ Assuming that the base current is negligable, the collector current is $I_\text{
 Using $I_\text{c}$, the transconductance can be calculated to be $S=\frac{I_\text{c}}{U_\text{T}}=\SI{604}{\milli\siemens}$.
 The transconductance can then be utilized to finally calculate the theoretical voltage amplification without capacitor $\comp{C_E}$ by using the formula derived in \autoref{eq:amp_neg_fb}.
 \begin{align*}
-	A &= -\frac{SR_\text{C}}{1+R_E} \\
+	A &= -\frac{SR_\text{C}}{1+S R_E} \\
 	&=\num{-4.63}.
 \end{align*}
 With \comp{C_E}, however, the amplification is expected to rise further up to $A=-S\cdot R_\text{C}=\num{283.88}$, which corresponds to the AC-amplification value of a common emitter circuit without negative feedback.
