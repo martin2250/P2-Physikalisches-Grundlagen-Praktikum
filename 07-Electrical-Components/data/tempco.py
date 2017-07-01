@@ -20,8 +20,15 @@ def pt100_fit(T, R0=100.0, alpha=4e-3):
 def ntc_fit(T, R0=0.03, alpha=3.6e3):
     return R0 * np.exp(alpha/(T + 273.15))
 
+# temperror = 5.
+# reserror = 0.05
+
 datan = kafe.Dataset(data=(Tn, Rn))
+# datan.add_error_source('x', 'simple', temperror)
+# datan.add_error_source('y', 'simple', reserror, relative=True)
 datap = kafe.Dataset(data=(Tp, Rp))
+# datap.add_error_source('x', 'simple', temperror)
+# datap.add_error_source('y', 'simple', reserror, relative=True)
 
 fitp = kafe.Fit(datap, pt100_fit)
 fitp.do_fit(quiet=True)
@@ -49,12 +56,12 @@ plt.ylabel(u'Resistance $R$ (in \u03A9)')
 
 if len(sys.argv) == 1:
 	print('PT100:')
-	print(u'R\u2080:', R0p, u'\u00B1', R0ep)
-	print(u'\u03B1: %e \u00B1 %e'%(alphap, alphaep))
+	print(u'R\u2080:', R0p, u'\n    \u00B1', R0ep)
+	print(u'\u03B1: %e\n \u00B1 %e'%(alphap, alphaep))
 	print('')
 	print('NTC:')
-	print(u'R\u2080:', R0n, u'\u00B1', R0en)
-	print(u'\u03B1:', alphan, u'\u00B1', alphaen)
+	print(u'R\u2080:', R0n, u'\n  \u00B1', R0en)
+	print(u'\u03B1:', alphan, u'\n    \u00B1', alphaen)
 	plt.show()
 else:
 	plt.savefig(sys.argv[1])
