@@ -44,6 +44,11 @@ for num in range(int(len(args)/2)):
 		lbl = lbl[2:]
 		diode = True
 
+	zener = None
+	if lbl[:2] == '&z':
+		lbl = lbl[2:]
+		zener = True
+
 	plt.plot(U, I, label=lbl, color=color)
 
 	#get diode voltage
@@ -51,7 +56,7 @@ for num in range(int(len(args)/2)):
 		Ihigh = I[-1]
 		Uhigh = U[-1]
 
-		Ilow = Ihigh * 0.3
+		Ilow = Ihigh * 0.5
 		dI = (I - Ilow)**2
 		index_low = np.argsort(dI)[0]
 		Ulow = U[index_low]
@@ -66,6 +71,27 @@ for num in range(int(len(args)/2)):
 
 		if outputfile == None:
 			print(lbl, "Uf:", Uf)
+
+	#get zener voltage
+	if zener:
+		Ihigh = I[0]
+		Uhigh = U[0]
+
+		Ilow = Ihigh * 0.5
+		dI = (I - Ilow)**2
+		index_low = np.argsort(dI)[0]
+		Ulow = U[index_low]
+
+		m = (Ihigh - Ilow)/(Uhigh - Ulow)
+		Uf = Ulow - Ilow/m
+
+		X = np.array([Uf, Uhigh])
+		Y = m * (X - Uf)
+
+		plt.plot(X, Y, '--', color='C%d'%num, alpha=0.6)
+
+		if outputfile == None:
+			print(lbl, "Uz:", Uf)
 
 
 plt.grid()

@@ -56,8 +56,8 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="7.1752969"
-     inkscape:cx="73.410267"
-     inkscape:cy="23.015592"
+     inkscape:cx="64.839703"
+     inkscape:cy="29.662929"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -95,17 +95,6 @@
          style="fill:none;stroke:#000000;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path66"
          inkscape:connector-curvature="0" /></g><g
-       id="g68"
-       transform="matrix(0.06,0,0,-0.06,320.49133,432.31809)"
-       style="fill:#000000;stroke:#000000;stroke-opacity:1"><g
-         id="g70"
-         style="fill:#000000;stroke:#000000;stroke-opacity:1"><g
-           id="text72"
-           style="font-variant:normal;font-weight:normal;font-size:118px;font-family:'TeX Gyre Heros';-inkscape-font-specification:TeXGyreHeros-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-opacity:1"><path
-             inkscape:connector-curvature="0"
-             id="path4983"
-             d="m 73.514,-24.544 c 0,-10.384 -4.72,-16.638 -15.694,-20.886 7.788,-3.658 11.918,-10.03 11.918,-18.762 0,-12.508 -9.204,-21.83 -25.488,-21.83 l -34.928,0 0,86.022 38.822,0 c 15.458,0 25.37,-10.384 25.37,-24.544 z m -14.75,-38.114 c 0,8.732 -5.074,13.688 -17.228,13.688 l -21.24,0 0,-27.376 21.24,0 c 12.154,0 17.228,4.956 17.228,13.688 z m 3.776,38.232 c 0,8.26 -5.074,14.75 -15.458,14.75 l -26.786,0 0,-29.618 26.786,0 c 10.384,0 15.458,6.49 15.458,14.868 z"
-             style="fill:#000000;stroke:#000000;stroke-opacity:1" /></g></g></g><g
        id="g76"
        transform="matrix(0.06,0,0,-0.06,0,842)"
        style="stroke:#000000;stroke-opacity:1"><path
@@ -128,18 +117,7 @@
          d="m 4487,6714 0,144"
          style="fill:none;stroke:#000000;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
          id="path86"
-         inkscape:connector-curvature="0" /></g><g
-       id="g88"
-       transform="matrix(0.06,0,0,-0.06,262.25635,432.33074)"
-       style="fill:#000000;stroke:#000000;stroke-opacity:1"><g
-         id="g90"
-         style="fill:#000000;stroke:#000000;stroke-opacity:1"><g
-           id="text92"
-           style="font-variant:normal;font-weight:normal;font-size:118px;font-family:'TeX Gyre Heros';-inkscape-font-specification:TeXGyreHeros-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-opacity:1"><path
-             inkscape:connector-curvature="0"
-             id="path4986"
-             d="m 77.054,0 -30.208,-86.022 -14.16,0 L 2.006,0 l 11.682,0 9.086,-25.842 33.158,0 L 64.782,0 77.054,0 Z m -24.19,-35.046 -27.376,0 14.16,-39.176 13.216,39.176 z"
-             style="fill:#000000;stroke:#000000;stroke-opacity:1" /></g></g></g><path
+         inkscape:connector-curvature="0" /></g><path
        inkscape:connector-curvature="0"
        id="path98"
        style="fill:none;stroke:#000000;stroke-width:0.72000003;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -271,4 +249,28 @@
          id="tspan4234"
          x="310.22083"
          y="-412.39255">DUT</tspan></text>
+<text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.13302088px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="319.93832"
+       y="-432.29874"
+       id="text4236"
+       sodipodi:linespacing="125%"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan4238"
+         x="319.93832"
+         y="-432.29874">X</tspan></text>
+<text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.13302088px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="263.15836"
+       y="-432.3114"
+       id="text4236-6"
+       sodipodi:linespacing="125%"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan4238-7"
+         x="263.15836"
+         y="-432.3114">Y</tspan></text>
 </g></svg>
