@@ -1,8 +1,9 @@
 .PHONY: data low-freq-stuff
 
 PLT := ./curve-plotter.py
+PLT_PHOTO := ./phototranny.py
 
-data: low-freq-stuff plots/tempco.pdf
+data: low-freq-stuff plots/tempco.pdf plots/phototranny.pdf plots/phototranny_curve.pdf
 
 plots:
 	mkdir plots
@@ -31,5 +32,10 @@ plots/z-diode-low-freq.pdf: $(PLT) plots
 plots/leds-low-freq.pdf: $(PLT) plots
 	$(PLT) $@ scope-src/20Hz/led-red.npz "<r>LED red" scope-src/20Hz/led-yellow.npz "<#e8e81b>LED yellow" scope-src/20Hz/led-orange.npz "<#ff9933>LED orange" scope-src/20Hz/led-green.npz "<g>LED green"
 
+plots/phototranny.pdf: $(PLT_PHOTO) plots
+	$(PLT_PHOTO) $@ scope-src/phototransistor/0v.npz 0 scope-src/phototransistor/5v.npz 200 scope-src/phototransistor/6v.npz 600  scope-src/phototransistor/7.5v.npz 1550  scope-src/phototransistor/8.5v.npz 2550 scope-src/phototransistor/9.5v.npz 3950 scope-src/phototransistor/10.5v.npz 5800 scope-src/phototransistor/11v.npz 6850 scope-src/phototransistor/11.5v.npz 7850 scope-src/phototransistor/12v.npz 9100
+
+plots/phototranny_curve.pdf: ./phototranny_curve.py plots
+	./phototranny_curve.py $@
 clean:
 	git clean -Xf
