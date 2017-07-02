@@ -23,7 +23,7 @@ For diodes, the forward voltage is approximated by drawing a tangent to the curv
 
 \section{Evaluation}
 
-\textbf{Silicon and Germanium Diodes (\autoref{plot:iv:si-ge-diode}):}\\
+\textbf{Silicon and Germanium Diodes} (\autoref{plot:iv:si-ge-diode})\\
 Both show a characteristic diode curve, with no measurable reverse current.
 The forward voltages are
 \begin{equation*}
@@ -31,7 +31,7 @@ The forward voltages are
 \end{equation*}
 The germanium diode has a lower forward voltage at low currents, but for currents higher than \SI{4}{\mA} the silicon diode's steeper slope makes it superior as a rectifier.
 
-\textbf{Zener Diode}\\
+\textbf{Zener Diode} (\autoref{plot:iv:z-diode})\\
 The zener diode behaves similarly to the silicon diode in the active region.
 Unlike the other diodes, it also allows current to flow when it is reverse biased.
 The reverse breakdown voltage is determined similarly to the forward voltage:
@@ -40,11 +40,17 @@ The reverse breakdown voltage is determined similarly to the forward voltage:
 \end{equation*}
 The reverse voltage is lower than the specified zener voltage of \SI{5.1}{\volt}, as the zener voltage is often specified at higher currents (\SI{\sim10}{\mA}).
 
-\textbf{LEDs}\\
+\textbf{LEDs} (\autoref{plot:iv:leds})\\
 LEDs show similar characteristics to regular diodes, though they generally have a higher forward voltage (and they glow, I mean how fucking cool is that? \todo{remove humor}):
 \begin{equation*}
 	U_\text{f, red} = \SI{1.67}{\volt}, \quad U_\text{f, orange} = \SI{1.71}{\volt}, \quad U_\text{f, yellow} = \SI{1.80}{\volt}, \quad U_\text{f, green} = \SI{1.80}{\volt}
 \end{equation*}
+
+\textbf{Photodiode} (\autoref{plot:iv:photodiode})\\
+The characteristic curve of a photodiode is similar to that of a normal diode in parallel with a light-dependent current source.
+This means that the current is lowered (using the usual sign convention \todo{sounds stupid}) by a constant offset which is proportional to the light intensity.
+Remarkably there is a region where current flows in the reverse direction, despite the positive bias voltage, thus energy can be extracted, photodiodes can be used as solar cells.
+In most applications, photodiodes are used in the reverse bias region.
 
 \def\ivsubfigwidth{0.45\textwidth}
 \def\ivgraphicswidth{1.1\textwidth}
