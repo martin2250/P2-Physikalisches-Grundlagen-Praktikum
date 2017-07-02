@@ -1,1 +1,32 @@
 %!TEX root = ../07-Electrical-Components.tex
+\chapter{Phototranny}
+This experiment explores the phototransistor and its behavior in dependence on \todo{well... light}.
+
+\section{Description}
+A phototransistor works like a common transistor, with the difference that its base current is controlled by incident light.
+Phototransistors are much more sensitive than photodiodes because they also act as amplifiers, which makes a higher resolution possible.
+Typical applications are photodetectors, light barriers and optical couplers.
+Despite their sensitivity, phototransistors are slow in comparison with photodiodes.
+
+\section{Evaluation}
+\autoref{subfig:meas_phototranny} shows the phototransistor measurements for varying lamp luminosities.
+The reverse current can easily be determined by the current at the pleateau regions.
+Plotting these reverse currents versus their corresponding luminosities yields \autoref{subfig:phototranny_curve}.
+It is easy to see that the current saturates with rising luminosity, which confirms our expectations.
+For high luminosities, all available electrons on the base-collector path are excited and thus an increase of luminosity does not affect the reverse current anymore.
+\begin{figure}[btp]
+	\centering
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=1.05\textwidth]{./data/plots/phototranny.pdf}
+		\caption[Measured phototransistor characteristics for variable lamp luminosity]{\textbf{Measured phototransistor characteristics for variable lamp luminosity} Reverse current can be determined by the plateau current}
+		\label{subfig:meas_phototranny}
+	\end{subfigure}\quad
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		\includegraphics[width=1.05\textwidth]{./data/plots/phototranny_curve.pdf}
+		\caption[Reverse current over luminosity]{\textbf{Reverse current over luminosity} A saturation is visible for high luminosities}
+		\label{subfig:phototranny_curve}
+	\end{subfigure}
+	\caption{Phototransistor behavior in dependence of incident luminosity}
+\end{figure}
