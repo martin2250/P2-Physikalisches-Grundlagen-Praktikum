@@ -38,9 +38,35 @@ for num in range(int(len(args)/2)):
 		s = lbl.rsplit('>', 1)
 		color = s[0]
 		lbl = s[1]
-		print(color, lbl)
+
+	diode = None
+	if lbl[:2] == '&d':
+		lbl = lbl[2:]
+		diode = True
 
 	plt.plot(U, I, label=lbl, color=color)
+
+	#get diode voltage
+	if diode:
+		Ihigh = I[-1]
+		Uhigh = U[-1]
+
+		Ilow = Ihigh * 0.3
+		dI = (I - Ilow)**2
+		index_low = np.argsort(dI)[0]
+		Ulow = U[index_low]
+
+		m = (Ihigh - Ilow)/(Uhigh - Ulow)
+		Uf = Ulow - Ilow/m
+
+		X = np.array([Uf, Uhigh])
+		Y = m * (X - Uf)
+
+		plt.plot(X, Y, '--', color='C%d'%num, alpha=0.6)
+
+		if outputfile == None:
+			print(lbl, "Uf:", Uf)
+
 
 plt.grid()
 plt.legend()
