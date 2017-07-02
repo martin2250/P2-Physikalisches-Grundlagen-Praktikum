@@ -39,3 +39,6 @@ bibliography.ag.tex:
 
 clean:
 	git clean -Xf
+
+setup:
+	../common/setup.sh "$(FILE).tex"
