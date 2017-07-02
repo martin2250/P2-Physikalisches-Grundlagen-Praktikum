@@ -1,16 +1,16 @@
 %!TEX root = ../07-Electrical-Components.tex
 \chapter{Temperature Dependence of Electrical Resistance}
 
-\begin{figure}
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.6\textwidth]{img/sch-wheatstone.pdf}
+	\includegraphics[width=.4\textwidth]{img/sch-wheatstone.pdf}
 	\caption{Wheatstone Bridge Schematic}
 	\label{sch:wheatstone}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.8\textwidth]{data/plots/tempco.pdf}
+	\includegraphics[width=.6\textwidth]{data/plots/tempco.pdf}
 	\caption{Temperature Dependence of NTC and PT100}
 	\label{plot:tempco}
 \end{figure}
@@ -25,6 +25,7 @@ A digital thermometer is used to monitor the current temperature.
 The resistance of the device under test is measured with a Wheatstone bridge (\autoref{sch:wheatstone}).
 The voltage differential of the two legs is measured with a digital multimeter.
 A multiturn potentiometer fitted with a turn-counting dial is used as one of the legs.
+\todo{Begründen Sie, warum die Messung mit Hilfe der Wheatstoneschen Brückenschaltung in diesem Falle sinnvoll ist.}
 
 The resistance $R_\text{x}$ of the DUT is calculated as
 \begin{equation}
@@ -55,3 +56,5 @@ The theoretical resistance function for each component is fitted to the data (un
 As NTCs have very loose tolerances, there is no data to compare this to.
 The fit parameters for the PT100 are close to the nominal values of $R_{0,\text{lit}} = \SI{100}{\ohm}$ and $\alpha_\text{lit} = \SI{3.85e-3}{\kelvin^{-1}}$.
 Considering the high tolerances of the reference resistors and the potentiometer (\SI{3}{\percent}) were not taken into account, these values are fucking goddamn excellent mothafucka. \todo{maybe rephrase that}
+
+\todo{Überlegen Sie sich, wie man NTC-Widerstände zur Temperaturmessung, zur Füllstandsanzeige und zur Strombegrenzung verwenden kann.}
