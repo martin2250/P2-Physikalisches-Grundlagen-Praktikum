@@ -29,9 +29,21 @@ The forward voltages are
 \begin{equation*}
 	U_\text{f, Si} = \SI{0.60}{\volt} \quad \text{and} \quad U_\text{f, Ge} = \SI{0.37}{\volt}.
 \end{equation*}
-\textbf{Zener Diode}
+The germanium diode has a lower forward voltage at low currents, but for currents higher than \SI{4}{\mA} the silicon diode's steeper slope makes it superior as a rectifier.
+
+\textbf{Zener Diode}\\
+The zener diode behaves similarly to the silicon diode in the active region.
+Unlike the other diodes, it also allows current to flow when it is reverse biased.
+The reverse breakdown voltage is determined similarly to the forward voltage:
 \begin{equation*}
-	U_\text{f, Z} = \SI{0.68}{\volt} \quad \text{and} \quad U_\text{z, Z} = \SI{-4.1}{\volt}.
+	U_\text{f} = \SI{0.68}{\volt} \quad \text{and} \quad U_\text{r} = \SI{-4.1}{\volt}.
+\end{equation*}
+The reverse voltage is lower than the specified zener voltage of \SI{5.1}{\volt}, as the zener voltage is often specified at higher currents (\SI{\sim10}{\mA}).
+
+\textbf{LEDs}\\
+LEDs show similar characteristics to regular diodes, though they generally have a higher forward voltage (and they glow, I mean how fucking cool is that? \todo{remove humor}):
+\begin{equation*}
+	U_\text{f, red} = \SI{1.67}{\volt}, \quad U_\text{f, orange} = \SI{1.71}{\volt}, \quad U_\text{f, yellow} = \SI{1.80}{\volt}, \quad U_\text{f, green} = \SI{1.80}{\volt}
 \end{equation*}
 
 \def\ivsubfigwidth{0.45\textwidth}

@@ -67,7 +67,7 @@ for num in range(int(len(args)/2)):
 		X = np.array([Uf, Uhigh])
 		Y = m * (X - Uf)
 
-		plt.plot(X, Y, '--', color='C%d'%num, alpha=0.6)
+		plt.plot(X, Y, '--', color='C%d'%num if color is None else color, alpha=0.6)
 
 		if outputfile == None:
 			print(lbl, "Uf:", Uf)

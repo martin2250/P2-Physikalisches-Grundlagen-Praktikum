@@ -10,7 +10,7 @@ all: $(FILE).pdf show
 build: $(FILE).pdf
 
 data:
-	make -C data
+	make -C data -j 6
 
 $(FILE).pdf: data $(FILE).tex ../common/emails.tex bibliography.ag.tex titlepage.ag.tex $(svgimtargets) preamble.fmt
 	$(BUILD) $(FILE).tex
