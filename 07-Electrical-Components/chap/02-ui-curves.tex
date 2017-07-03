@@ -67,6 +67,27 @@ For diodes, the forward voltage is approximated by drawing a tangent to the curv
 	\label{plot:iv:diodes}
 \end{figure}
 
+\begin{figure}[tbp]
+	\centering
+
+	\begin{subfigure}{\ivsubfigwidth}
+		\centering
+		\includegraphics[width=\ivgraphicswidth]{data/plots/ldr-low-freq.pdf}
+		\caption{LDR}
+		\label{plot:iv:ldr}
+	\end{subfigure}
+	\begin{subfigure}{\ivsubfigwidth}
+		\centering
+		\includegraphics[width=\ivgraphicswidth]{data/plots/varistor-low-freq.pdf}
+		\caption{Varistor}
+		\label{plot:iv:varistor}
+	\end{subfigure}
+
+	\caption{$I$-$V$ Curves of Resistors}	%sounds exciting, doesn't it?
+	\label{plot:iv:boring}
+\end{figure}
+
+
 \textbf{Silicon and Germanium Diodes} (\autoref{plot:iv:si-ge-diode})\\
 Both show a characteristic diode curve, with no measurable reverse current.
 The forward voltages are
@@ -98,26 +119,6 @@ The characteristic curve of a photodiode is similar to that of a normal diode in
 This means that the current is lowered (using the usual sign convention \todo{sounds stupid}) by a constant offset which is proportional to the light intensity.
 Remarkably there is a region where current flows in the reverse direction, despite the positive bias voltage, thus energy can be extracted, photodiodes can be used as solar cells.
 In most applications, photodiodes are used in the reverse bias region.
-
-\begin{figure}[tbp]
-	\centering
-
-	\begin{subfigure}{\ivsubfigwidth}
-		\centering
-		\includegraphics[width=\ivgraphicswidth]{data/plots/ldr-low-freq.pdf}
-		\caption{LDR}
-		\label{plot:iv:ldr}
-	\end{subfigure}
-	\begin{subfigure}{\ivsubfigwidth}
-		\centering
-		\includegraphics[width=\ivgraphicswidth]{data/plots/varistor-low-freq.pdf}
-		\caption{Varistor}
-		\label{plot:iv:varistor}
-	\end{subfigure}
-
-	\caption{$I$-$V$ Curves of Resistors}	%sounds exciting, doesn't it?
-	\label{plot:iv:boring}
-\end{figure}
 
 \textbf{LDR} (\autoref{plot:iv:ldr})\\
 The characteristic curve of the LDR, like regular resistors, is a straight line through the origin.

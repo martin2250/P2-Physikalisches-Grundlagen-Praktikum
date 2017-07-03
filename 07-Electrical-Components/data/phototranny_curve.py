@@ -15,6 +15,7 @@ plt.rcParams.update(params)
 
 plt.plot(L, I, 'ro')
 
+plt.grid()
 plt.xlabel('Luminosity in \\si{\\lux}')
 plt.ylabel('Reverse current in \\si{\\milli\\ampere}')
 
@@ -22,4 +23,3 @@ if len(sys.argv) == 1:
 	plt.show()
 else:
     plt.savefig(sys.argv[1])
- 
