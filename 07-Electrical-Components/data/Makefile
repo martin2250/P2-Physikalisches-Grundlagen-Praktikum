@@ -2,7 +2,7 @@
 
 PLT := ./curve-plotter.py
 
-data: low-freq-stuff hi-freq-stuff phototransistor-stuff plots/tempco.pdf
+data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff plots/tempco.pdf
 
 plots:
 	mkdir plots
@@ -63,6 +63,17 @@ plots/phototranny.pdf: ./phototranny.py plots
 plots/phototranny_curve.pdf: ./phototranny_curve.py plots
 	./$< $@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+piezo-stuff: plots/piezo-finger-press.pdf plots/piezo-finger-snap.pdf plots/piezo-2kHz.pdf
+
+plots/piezo-finger-press.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
+	./$< $@ scope-src/piezo/finger-press.npz
+
+plots/piezo-finger-snap.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
+	./$< $@ scope-src/piezo/finger-snap.npz
+
+plots/piezo-2kHz.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
+	./$< $@ scope-src/piezo/2kHz.npz
 
 clean:
 	git clean -Xf
