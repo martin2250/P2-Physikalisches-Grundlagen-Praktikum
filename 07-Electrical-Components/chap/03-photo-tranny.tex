@@ -6,14 +6,16 @@ This experiment explores the phototransistor and its behavior in dependence on \
 A phototransistor works like a common transistor, with the difference that its base current is controlled by incident light.
 Phototransistors are much more sensitive than photodiodes because they also act as amplifiers, which makes a higher resolution possible.
 Typical applications are photodetectors, light barriers and optoisolators.
-Despite their sensitivity, phototransistors are slow in comparison to photodiodes.
+Despite their sensitivity, phototransistors are slow in comparison to photodiodes because of the \texttt{Miller} effect and are not able to detect low light any better.
 
 \section{Evaluation}
 \autoref{subfig:meas_phototranny} shows the phototransistor's characteristic curve for varying light intensity.
 The reverse current can easily be determined by the current at the pleateau regions.
 Plotting these reverse currents versus their corresponding illuminances yields \autoref{subfig:phototranny_curve}.
-It is easy to see that the current saturates with rising illuminance, which confirms our expectations.\todo{because it's supposed to be, it's just P2 (will add)}
-For high illuminances, all available electrons on the base-collector path are excited and thus an increase of illuminance does not affect the reverse current anymore.
+A saturation of the slope is to be expected, as, for high illuminances, all available electrons on the base-collector path are excited and thus an increase of illuminance would not affect the reverse current anymore.
+However, this saturation is not to be seen in \autoref{subfig:phototranny_curve}, it rather becomes linear.
+Measuring for higher illuminances would increase the significance of the data, as the behavior of the slope could be examined further.
+
 \begin{figure}[btp]
 	\centering
 	\begin{subfigure}{0.4\textwidth}
