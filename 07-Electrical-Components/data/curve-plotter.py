@@ -28,8 +28,8 @@ if len(args) % 2:
 for num in range(int(len(args)/2)):
 	U, I = load(args[2*num])
 	i = np.argsort(U)
-	U = U[i]
-	I = I[i]
+	Us = U[i]
+	Is = I[i]
 
 	lbl = args[2*num + 1]
 	color = None
@@ -53,8 +53,8 @@ for num in range(int(len(args)/2)):
 
 	#get diode voltage
 	if diode:
-		Ihigh = I[-1]
-		Uhigh = U[-1]
+		Ihigh = Is[-1]
+		Uhigh = Us[-1]
 
 		Ilow = Ihigh * 0.5
 		dI = (I - Ilow)**2
@@ -74,8 +74,8 @@ for num in range(int(len(args)/2)):
 
 	#get zener voltage
 	if zener:
-		Ihigh = I[0]
-		Uhigh = U[0]
+		Ihigh = Is[0]
+		Uhigh = Us[0]
 
 		Ilow = Ihigh * 0.5
 		dI = (I - Ilow)**2
