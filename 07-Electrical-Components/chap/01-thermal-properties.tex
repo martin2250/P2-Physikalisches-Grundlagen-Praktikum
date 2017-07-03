@@ -23,9 +23,9 @@ Temperature is controlled with an oven and is ramped from ambient temperature to
 A digital thermometer is used to monitor the current temperature.
 
 The resistance of the device under test is measured with a Wheatstone bridge (\autoref{sch:wheatstone}).
+A Wheatstone bridge allows two resistances to be compared precisely, the overall accuracy is only limited by the tolerances of the used resistors.
 The voltage differential of the two legs is measured with a digital multimeter.
 A multiturn potentiometer fitted with a turn-counting dial is used as one of the legs.
-\todo{Begründen Sie, warum die Messung mit Hilfe der Wheatstoneschen Brückenschaltung in diesem Falle sinnvoll ist.}
 
 The resistance $R_\text{x}$ of the DUT is calculated as
 \begin{equation}
@@ -57,4 +57,12 @@ As NTCs have very loose tolerances, there is no data to compare this to.
 The fit parameters for the PT100 are close to the nominal values of $R_{0,\text{lit}} = \SI{100}{\ohm}$ and $\alpha_\text{lit} = \SI{3.85e-3}{\kelvin^{-1}}$.
 Considering the high tolerances of the reference resistors and the potentiometer (\SI{3}{\percent}) were not taken into account, these values are fucking goddamn excellent mothafucka. \todo{maybe rephrase that}
 
-\todo{Überlegen Sie sich, wie man NTC-Widerstände zur Temperaturmessung, zur Füllstandsanzeige und zur Strombegrenzung verwenden kann.}
+The NTCs unusual property of conducting better at higher temperature makes it suitable as a passive inrush current limiter.
+When used as an inrush current limiter, it's resistance is high initially, then drops off as it heats up from the current passing through it.
+This is highly important when connecting capacitive loads to low-impedance power supplies such as mains voltage.\\
+NTCs can also be used as fluid level meters.
+In this application a current is passed through it, making it both a heating element and a temperature sensor.
+When it is submerged in fluid it can't heat up, so it's restistance is high.
+If the fluid level drops below the NTC, it will heat up, lowering it's resistance.
+This has the effect of increasing the total heating power (as long as the NTCs resistance is smaller than the power supply's impedance), generating positive feedback.\\
+NTCs are also used as plain temperature sensors, though the low initial accuracy must be compensated by calibrating devices individually.
