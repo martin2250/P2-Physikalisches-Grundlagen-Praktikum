@@ -15,7 +15,7 @@ Linear piezoelectricity is a combination of
 Although $\vec{S}$ and $\vec{T}$ appear to have ''vector'' form, principally they are rank-2 symmetrical tensors.
 However, they can be written as vectors, relabelling their components in the fashion $11 \rightarrow 1 \;;  22 \rightarrow 2 \;;  33 \rightarrow 3 \;;  23 \rightarrow 4 \;;  13 \rightarrow 5 \; ;  12 \rightarrow 6 \;$.
 
-Combining above equations yields the coupled equations in matrix form
+Combining above equations yields the coupled equations in matrix form\footnote{ANSI/IEEE, IEEE standard on piezoelectricity. IEEE Standard 176-1987 (1987) (Section 2.4)}
 \begin{align*}
 	\{S\} &= \left [s^E \right ]\{T\}+[d^\mathrm{t}]\{E\} \\
 	\{D\} &= [d]\{T\}+\left [ \varepsilon^T \right ] \{E\} \,,
@@ -46,3 +46,13 @@ The direct piezoelectric effect can be shown by measuring the voltage of the mat
 \autoref{fig:piezo_finger} shows voltage curves for a finger press (\autoref{subfig:finger_press}) and a finger snap (\autoref{subfig:finger_snap}).
 \autoref{subfig:finger_press} shows that the voltage peaks significantly higher in response to great stress exerted through the press, whereas its slope is relatively shallow.
 In \autoref{subfig:finger_snap}, however it is easy to see that although the peak of the voltage is lower due to less maximal stress, its slope rises much steeper because of the fast stress change.
+
+To apply stress in a more controlled manner, a speaker is placed on top of the piezo element, playing back a sinusoidal signal with a frequency of $f=\SI{2}{\kilo\hertz}$, which happens to be the resonant frequency of the examined element.
+\autoref{fig:piezo_2kHz} shows the resulting voltage curve with this excitation.
+As expected, the frequency of the voltage curve is \SI{2}{\kilo\hertz}.
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.7\textwidth]{./data/plots/piezo-2kHz.pdf}
+	\caption[Sinusoidal excitation of the piezo element]{\textbf{Sinusoidal excitation of the piezo element} $f_\text{res}=\SI{2}{\kilo\hertz}$}
+	\label{fig:piezo_2kHz}
+\end{figure}
