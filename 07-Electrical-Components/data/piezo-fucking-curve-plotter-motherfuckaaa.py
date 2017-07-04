@@ -7,7 +7,12 @@ import matplotlib.pyplot as plt
 import matplotlib
 import scipy.stats
 
-data  = np.load(sys.argv[2])['arr_0']
+if len(sys.argv) < 3:
+	print('motherfucker')
+	print('./piezo-shitty-file-name.py [input file] [y-axis unit] <output file>')
+	exit(1)
+
+data  = np.load(sys.argv[1])['arr_0']
 data = data.T
 
 matplotlib.rc('text', usetex = True)
@@ -18,9 +23,9 @@ plt.plot(data[0], data[1], color='red')
 plt.grid()
 
 plt.xlabel("time in \\si{\\milli\\second}")
-plt.ylabel("voltage in \\si{\\volt}")
+plt.ylabel("voltage in \\si{\\%s}"%sys.argv[2])
 
-if len(sys.argv) == 1:
+if len(sys.argv) == 3:
 	plt.show()
 else:
-    plt.savefig(sys.argv[1])
+    plt.savefig(sys.argv[3])

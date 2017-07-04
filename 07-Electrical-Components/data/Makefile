@@ -68,13 +68,13 @@ plots/phototranny_curve.pdf: ./phototranny_curve.py plots
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 plots/piezo-finger-press.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
-	./$< $@ scope-src/piezo/finger-press.npz
+	./$< scope-src/piezo/finger-press.npz volt $@
 
 plots/piezo-finger-snap.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
-	./$< $@ scope-src/piezo/finger-snap.npz
+	./$< scope-src/piezo/finger-snap.npz volt $@
 
 plots/piezo-2kHz.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
-	./$< $@ scope-src/piezo/2kHz.npz
+	./$< scope-src/piezo/2kHz.npz mV $@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 plots/superconductor.pdf: ./superconductor.py plots
