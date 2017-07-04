@@ -28,9 +28,9 @@ if len(args) % 2:
 
 for num in range(int(len(args)/2)):
 	U, I = load(args[2*num])
-	i = np.argsort(U)
-	U = U[i]
-	I = I[i]
+	#i = np.argsort(U)
+	#U = U[i]
+	#I = I[i]
 
 	lbl = args[2*num + 1]
 	color = None
