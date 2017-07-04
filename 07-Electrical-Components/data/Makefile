@@ -1,14 +1,16 @@
-.PHONY: data low-freq-stuff phototransistor-stuff
+.PHONY: data low-freq-stuff hi-freq-stuff phototransistor-stuff tempco-stuff
 
 PLT := ./curve-plotter.py
 
-data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff plots/tempco.pdf
+data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff tempco-stuff
 
 plots:
 	mkdir plots
 
-plots/tempco.pdf: tempco.py plots
-	./$< $@
+tempco-stuff: plots/tempco-ntc.pdf plots/tempco-pt100.pdf
+
+plots/tempco-%.pdf: tempco.py plots
+	./$< $* $@
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 low-freq-stuff: plots/diodes-low-freq.pdf plots/photodiode-low-freq.pdf plots/varistor-low-freq.pdf plots/ldr-low-freq.pdf plots/z-diode-low-freq.pdf plots/leds-low-freq.pdf

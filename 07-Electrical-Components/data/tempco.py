@@ -5,6 +5,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
+outputfile = None
+plotlist = [True, True]
+
+if len(sys.argv) == 1:
+	print('usage: ./tempco.py [pt100/ntc/both] <output file>')
+
+if len(sys.argv) >= 2:
+	if sys.argv[1] == 'pt100':
+		plotlist[1] = False
+	elif sys.argv[1] == 'ntc':
+		plotlist[0] = False
+
 #T: temperature, Rp: potentiometer resistance, Rr: reference resistance
 (Tn, Rpn, Rrn) = np.loadtxt('source/ntc.dat', unpack=True)
 (Tp, Rpp, Rrp) = np.loadtxt('source/pt100.dat', unpack=True)
@@ -43,18 +55,28 @@ fitn.do_fit(quiet=True)
 Xp = np.linspace(60, 210, 70)
 Xn = np.linspace(75, 210, 70)
 
-plt.plot(Xn, ntc_fit(Xn, R0n, alphan), color='#78D6F5')
-plt.plot(Xp, pt100_fit(Xp, R0p, alphap), color='#E3D72D')
+#two if statements to keep draw order intact
 
-plt.plot(Tn, Rn, 'ob', label='NTC')
-plt.plot(Tp, Rp, 'or', label='PT100')
+if plotlist[1]:
+	plt.plot(Xn, ntc_fit(Xn, R0n, alphan), color='#78D6F5')
+if plotlist[0]:
+	plt.plot(Xp, pt100_fit(Xp, R0p, alphap), color='#E3D72D')
+
+if plotlist[1]:
+	plt.plot(Tn, Rn, 'ob', label='NTC')
+	plt.vlines(176, 25, 250, linestyles='--')
+	plt.text(176, 258, '$1.2\\,\\mathrm{k}\\Omega$  $\\leftarrow R_\\mathrm{ref} \\rightarrow$  $270\\,\\Omega$', ha='center', backgroundcolor='white')
+if plotlist[0]:
+	plt.plot(Tp, Rp, 'or', label='PT100')
+	plt.vlines(157, 135, 180, linestyles='--')
+	plt.text(157, 130, '$100\\,\\Omega$  $\\leftarrow R_\\mathrm{ref} \\rightarrow$  $270\\,\\Omega$', ha='center', backgroundcolor='white')
 
 plt.legend()
 plt.grid()
 plt.xlabel(u'Temperature $T$ (in \u00B0C)')
 plt.ylabel(u'Resistance $R$ (in \u03A9)')
 
-if len(sys.argv) == 1:
+if len(sys.argv) == 2:
 	print('PT100:')
 	print(u'R\u2080:', R0p, u'\n    \u00B1', R0ep)
 	print(u'\u03B1: %e\n \u00B1 %e'%(alphap, alphaep))
@@ -64,4 +86,4 @@ if len(sys.argv) == 1:
 	print(u'\u03B1:', alphan, u'\n    \u00B1', alphaen)
 	plt.show()
 else:
-	plt.savefig(sys.argv[1])
+	plt.savefig(sys.argv[2])

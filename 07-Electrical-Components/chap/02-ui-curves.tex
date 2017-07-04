@@ -8,7 +8,7 @@
 	\label{sch:curve}
 \end{figure}
 
-Current-Voltage Characteristics are recorded first in a quasi-static setup, later at higher frequencies.
+Current-Voltage Characteristics of a variety of electrical components are recorded first at a low frequency, later at higher frequencies.
 
 \section{Setup}
 
@@ -19,7 +19,7 @@ As the oscilloscope and function generator are both referenced to earth ground, 
 A sine wave with a frequency of \SI{20}{\hertz} is fed into the circuit.
 The oscilloscope is set up in XY-mode with a record length of \SI{50}{\ms}, with the voltage across the DUT as X input and the current (calculated from the voltage across $\mathrm{R_{shunt}}$) as Y input.
 
-For diodes, the forward voltage is approximated by drawing a tangent to the curve at the forward biased region and determining its intersection with the x axis.
+For diodes, the forward voltage is approximated by drawing a tangent to the curve at it's peak voltage and current (arbitrary, limited by the function generators output swing) and determining its intersection with the x axis.
 
 \section{Evaluation (quasi static)}
 
@@ -94,11 +94,14 @@ The forward voltages are
 \begin{equation*}
 	U_\text{f, Si} = \SI{0.60}{\volt} \quad \text{and} \quad U_\text{f, Ge} = \SI{0.37}{\volt}.
 \end{equation*}
+The silicon diode's forward voltage is lower than the common rule of thumb of \SI{0.7}{\volt}, as they are are usually tested at higher currents.
+The general specification for the forward voltage of a germanium diode is \SI{0.3}{\volt}, which is
 The germanium diode has a lower forward voltage at low currents, but for currents higher than \SI{4}{\mA} the silicon diode's steeper slope makes it superior as a rectifier.
 
 \textbf{Zener Diode} (\autoref{plot:iv:z-diode})\\
 The zener diode behaves similarly to the silicon diode in the active region.
 Unlike the other diodes, it also allows current to flow when it is reverse biased.
+Unlike normal diodes, the reverse breakdown voltage is low enough to allow a significant current to flow without overheating the junction.
 The reverse breakdown voltage is determined similarly to the forward voltage:
 \begin{equation*}
 	U_\text{f} = \SI{0.68}{\volt} \quad \text{and} \quad U_\text{r} = \SI{-4.1}{\volt}.
@@ -113,11 +116,22 @@ LEDs show similar characteristics to regular diodes, though they generally have 
 \begin{equation*}
 	U_\text{f, red} = \SI{1.67}{\volt}, \quad U_\text{f, orange} = \SI{1.71}{\volt}, \quad U_\text{f, yellow} = \SI{1.80}{\volt}, \quad U_\text{f, green} = \SI{1.80}{\volt}
 \end{equation*}
+Comparing this to typical photon energies at the respective wavelengths
+\begin{equation*}
+	E_{\lambda = \SI{700}{\nm}} = \SI{1.8}{\eV},
+	E_{\lambda = \SI{625}{\nm}} = \SI{2.0}{\eV},
+	E_{\lambda = \SI{600}{\nm}} = \SI{2.1}{\eV},
+	E_{\lambda = \SI{550}{\nm}} = \SI{2.3}{\eV},
+\end{equation*}
+a correlation beween photon energy and forward voltage is observed.
+The measured forward voltages are all lower than the corresponding photon energy as the forward current is very low.
+Although the applied voltage (and therefore the theoretical maximum energy of a single elctron) is lower than the energy of a photon, current still can flow  and light is generated as some electrons randomly have sufficient energy due to thermal motion.
+This is also the reason for the temperature dependence of a diode's forward current (not examined here).
 
 \textbf{Photodiode} (\autoref{plot:iv:photodiode})\\
 The characteristic curve of a photodiode is similar to that of a normal diode in parallel with a light-dependent current source.
-This means that the current is lowered (using the usual sign convention \todo{sounds stupid}) by a constant offset which is proportional to the light intensity.
-Remarkably there is a region where current flows in the reverse direction, despite the positive bias voltage, thus energy can be extracted, photodiodes can be used as solar cells.
+This means that the current is lowered by a constant offset which is proportional to the light intensity.
+Remarkably there is a region where a negative effective current flows, despite a positive bias voltage, thus energy can be extracted, photodiodes can be used as solar cells.
 In most applications, photodiodes are used in the reverse bias region.
 
 \textbf{LDR} (\autoref{plot:iv:ldr})\\
@@ -126,7 +140,7 @@ Its slope is dependent on the light intensity, higher intensities resulting in a
 The recorded diagram has a slope of \SI{1}{\mA\per\volt}, which corresponds to a resistance of \SI{1}{\kilo\ohm}.
 
 \textbf{Varistor} (\autoref{plot:iv:varistor})\\
-The characteristic curve of a varisor has a roughly symmetric diode-like bend.
+The characteristic curve of a varistor has a roughly symmetric diode-like bend.
 The voltage drop is approximately \SI{\pm 5.5}{\volt} which is higher than the rating of \SI{3.3}{\volt} as it's designed to allow no current to flow at it's rated voltage.
 
 It can be used to clamp the voltage across a sensitive component or an inductance by connecting it in parallel to the component/inductance.
@@ -136,7 +150,7 @@ It can be used to clamp the voltage across a sensitive component or an inductanc
 The same test circuit is used with a sine wave of \SI{10}{\kHz}.
 The recorded characteristic curves are shown in \autoref{plots:iv-hi}.
 
-All tested components except for the LDR show hysterisis, due to stray capacitances, inductances and diode recovery times.
+All tested components except for the LDR show hysteresis, due to stray capacitances, inductances and diode recovery times, which makes them less useful as power rectifiers (diodes) or optical communication (LEDs).
 
 \begin{figure}[tbp]
 	\centering

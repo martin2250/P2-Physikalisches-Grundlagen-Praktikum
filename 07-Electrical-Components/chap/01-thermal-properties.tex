@@ -8,24 +8,38 @@
 	\label{sch:wheatstone}
 \end{figure}
 
+\def\tcsubfigwidth{0.6\textwidth}
+\def\tcgraphicswidth{1.1\textwidth}
+
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=.6\textwidth]{data/plots/tempco.pdf}
-	\caption{Temperature Dependence of NTC and PT100}
+	\begin{subfigure}{\tcsubfigwidth}
+		\centering
+		\includegraphics[width=\tcgraphicswidth]{data/plots/tempco-ntc.pdf}
+		\caption{NTC}
+		\label{plot:tempco:ntc}
+	\end{subfigure}
+	\begin{subfigure}{\tcsubfigwidth}
+		\centering
+		\includegraphics[width=\tcgraphicswidth]{data/plots/tempco-pt100.pdf}
+		\caption{PT100}
+		\label{plot:tempco:pt100}
+	\end{subfigure}
+	\caption{Temperature Dependence of NTC and PT100 resistance}
 	\label{plot:tempco}
 \end{figure}
 
-The temperature dependence of an NTC and a PT100 thermal sensor are measured.
+The temperature dependence of the resistances of an NTC and a PT100 thermal sensor are examined.
 
 \section{Setup}
 
 Temperature is controlled with an oven and is ramped from ambient temperature to \SI{200}{\celsius}.
-A digital thermometer is used to monitor the current temperature.
+A K-type thermocouple is used to monitor the current temperature.
 
 The resistance of the device under test is measured with a Wheatstone bridge (\autoref{sch:wheatstone}).
-A Wheatstone bridge allows two resistances to be compared precisely, the overall accuracy is only limited by the tolerances of the used resistors.
-The voltage differential of the two legs is measured with a digital multimeter.
-A multiturn potentiometer fitted with a turn-counting dial is used as one of the legs.
+A Wheatstone bridge allows two resistances to be compared precisely, the overall accuracy is unaffected by the load and characteristics of the current- or voltmeter, thus is only limited by the tolerances of the used resistors.
+The voltage differential across the middle of the bridge is measured with a digital multimeter.
+A multiturn potentiometer fitted with a turn-counting dial is used to set and read the resistance ratio on the left side of the bridge.
 
 The resistance $R_\text{x}$ of the DUT is calculated as
 \begin{equation}
@@ -53,9 +67,9 @@ The theoretical resistance function for each component is fitted to the data (un
 	R_0 = \SI{104.1(8)}{\ohm}	\qquad	\alpha = \SI{3.64(8)e-3}{\kelvin^{-1}}
 \end{gather*}
 
-As NTCs have very loose tolerances, there is no data to compare this to.
+The statistic uncertainty of the NTC fit parameters is very low, though comparing them to results of different groups, they each differ by more than \SI{30}{\percent}.\\
 The fit parameters for the PT100 are close to the nominal values of $R_{0,\text{lit}} = \SI{100}{\ohm}$ and $\alpha_\text{lit} = \SI{3.85e-3}{\kelvin^{-1}}$.
-Considering the high tolerances of the reference resistors and the potentiometer (\SI{3}{\percent}) were not taken into account, these values are fucking goddamn excellent mothafucka. \todo{maybe rephrase that}
+The nominal values are not within range of the estimated statistical tolerances, however they are covered by the lineariy (\SI{1.5}{\percent}) and absolute accuracy (\SI{3}{\percent}) of the potentiometer.
 
 The NTCs unusual property of conducting better at higher temperature makes it suitable as a passive inrush current limiter.
 When used as an inrush current limiter, it's resistance is high initially, then drops off as it heats up from the current passing through it.
@@ -65,4 +79,4 @@ In this application a current is passed through it, making it both a heating ele
 When it is submerged in fluid it can't heat up, so it's restistance is high.
 If the fluid level drops below the NTC, it will heat up, lowering it's resistance.
 This has the effect of increasing the total heating power (as long as the NTCs resistance is smaller than the power supply's impedance), generating positive feedback.\\
-NTCs are also used as plain temperature sensors, though the low initial accuracy must be compensated by calibrating devices individually.
+NTCs are also used as plain temperature sensors, though the low initial accuracy must be compensated by calibrating devices individually unlike PT100 elements, which are manufactured to specific tolerances.
