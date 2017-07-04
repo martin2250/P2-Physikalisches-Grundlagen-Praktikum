@@ -1,20 +1,23 @@
-.PHONY: data low-freq-stuff hi-freq-stuff phototransistor-stuff tempco-stuff
+.PHONY: data
 
 PLT := ./curve-plotter.py
 
-data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff tempco-stuff plots/superconductor.pdf
+tempco-stuff := plots/tempco-ntc.pdf plots/tempco-pt100.pdf
+low-freq-stuff := plots/diodes-low-freq.pdf plots/photodiode-low-freq.pdf plots/varistor-low-freq.pdf plots/ldr-low-freq.pdf plots/z-diode-low-freq.pdf plots/leds-low-freq.pdf
+phototransistor-stuff := plots/phototranny.pdf plots/phototranny_curve.pdf
+hi-freq-stuff := plots/diodes-hi-freq.pdf plots/photodiode-hi-freq.pdf plots/varistor-hi-freq.pdf plots/ldr-hi-freq.pdf plots/z-diode-hi-freq.pdf plots/led-hi-freq.pdf
+piezo-stuff := plots/piezo-finger-press.pdf plots/piezo-finger-snap.pdf plots/piezo-2kHz.pdf
+
+data: $(low-freq-stuff) $(hi-freq-stuff) $(phototransistor-stuff) $(piezo-stuff) $(tempco-stuff) plots/superconductor.pdf
 
 plots:
 	mkdir plots
 
-tempco-stuff: plots/tempco-ntc.pdf plots/tempco-pt100.pdf
 
 plots/tempco-%.pdf: tempco.py plots
 	./$< $* $@
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-low-freq-stuff: plots/diodes-low-freq.pdf plots/photodiode-low-freq.pdf plots/varistor-low-freq.pdf plots/ldr-low-freq.pdf plots/z-diode-low-freq.pdf plots/leds-low-freq.pdf
-
 plots/diodes-low-freq.pdf: $(PLT) plots
 	./$< $@ scope-src/20Hz/si-diode.npz "&dSilicon Diode" scope-src/20Hz/ge-diode.npz "&dGermanium Diode"
 
@@ -35,7 +38,6 @@ plots/leds-low-freq.pdf: $(PLT) plots
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-hi-freq-stuff: plots/diodes-hi-freq.pdf plots/photodiode-hi-freq.pdf plots/varistor-hi-freq.pdf plots/ldr-hi-freq.pdf plots/z-diode-hi-freq.pdf plots/led-hi-freq.pdf
 
 plots/diodes-hi-freq.pdf: $(PLT) plots
 	./$< $@ scope-src/10kHz/si-diode.npz "Silicon Diode" scope-src/10kHz/ge-diode.npz "Germanium Diode"
@@ -57,8 +59,6 @@ plots/led-hi-freq.pdf: $(PLT) plots
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-phototransistor-stuff: plots/phototranny.pdf plots/phototranny_curve.pdf
-
 plots/phototranny.pdf: ./phototranny.py plots
 	./$< $@ scope-src/phototransistor/0v.npz 0 scope-src/phototransistor/5v.npz 200 scope-src/phototransistor/6v.npz 600  scope-src/phototransistor/7.5v.npz 1550  scope-src/phototransistor/8.5v.npz 2550 scope-src/phototransistor/9.5v.npz 3950 scope-src/phototransistor/10.5v.npz 5800 scope-src/phototransistor/11v.npz 6850 scope-src/phototransistor/11.5v.npz 7850 scope-src/phototransistor/12v.npz 9100
 
@@ -66,8 +66,7 @@ plots/phototranny_curve.pdf: ./phototranny_curve.py plots
 	./$< $@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-piezo-stuff: plots/piezo-finger-press.pdf plots/piezo-finger-snap.pdf plots/piezo-2kHz.pdf
-
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 plots/piezo-finger-press.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
 	./$< $@ scope-src/piezo/finger-press.npz
 
@@ -76,7 +75,6 @@ plots/piezo-finger-snap.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plot
 
 plots/piezo-2kHz.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
 	./$< $@ scope-src/piezo/2kHz.npz
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 plots/superconductor.pdf: ./superconductor.py plots
