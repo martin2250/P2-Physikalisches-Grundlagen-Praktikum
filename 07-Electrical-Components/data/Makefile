@@ -2,11 +2,7 @@
 
 PLT := ./curve-plotter.py
 
-<<<<<<< Updated upstream
-data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff tempco-stuff
-=======
-data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff plots/tempco.pdf plots/superconductor.pdf
->>>>>>> Stashed changes
+data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff tempco-stuff plots/superconductor.pdf
 
 plots:
 	mkdir plots
