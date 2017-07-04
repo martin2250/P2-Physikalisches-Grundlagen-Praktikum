@@ -2,7 +2,11 @@
 
 PLT := ./curve-plotter.py
 
+<<<<<<< Updated upstream
 data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff tempco-stuff
+=======
+data: low-freq-stuff hi-freq-stuff phototransistor-stuff piezo-stuff plots/tempco.pdf plots/superconductor.pdf
+>>>>>>> Stashed changes
 
 plots:
 	mkdir plots
@@ -76,6 +80,11 @@ plots/piezo-finger-snap.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plot
 
 plots/piezo-2kHz.pdf: ./piezo-fucking-curve-plotter-motherfuckaaa.py plots
 	./$< $@ scope-src/piezo/2kHz.npz
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+plots/superconductor.pdf: ./superconductor.py plots
+	./$< $@
 
 clean:
 	git clean -Xf
