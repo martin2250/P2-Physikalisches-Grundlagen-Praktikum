@@ -36,7 +36,7 @@ See \url{ses.library.usyd.edu.au/bitstream/2123/709/17/adt-NU20060210.15574803ch
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=\textwidth]{./data/plots/piezo-finger-snap.pdf}
-		\caption[Piezoelectric effect: finger snap]{\textbf{Piezoelectric effect: finger press} Note the much steeper slope in response to greater stress over time, however lower peak for less maximal stress.}
+		\caption[Piezoelectric effect: finger snap]{\textbf{Piezoelectric effect: finger snap} Note the much steeper slope in response to greater stress over time, however lower peak for less maximal stress.}
 		\label{subfig:finger_snap}
 	\end{subfigure}
 	\caption{Direct piezoelectric effect for varying stress exhibition}
@@ -50,6 +50,7 @@ In \autoref{subfig:finger_snap}, however it is easy to see that although the pea
 To apply stress in a more controlled manner, a speaker is placed on top of the piezo element, playing back a sinusoidal signal with a frequency of $f=\SI{2}{\kilo\hertz}$, which happens to be the resonant frequency of the examined element.
 \autoref{fig:piezo_2kHz} shows the resulting voltage curve with this excitation.
 As expected, the frequency of the voltage curve is \SI{2}{\kilo\hertz}.
+However, the audible signal was superimposed by the \SI{50}{\hertz} mains hum, which causes an envelope oscillation also visible in the diagram.
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.7\textwidth]{./data/plots/piezo-2kHz.pdf}

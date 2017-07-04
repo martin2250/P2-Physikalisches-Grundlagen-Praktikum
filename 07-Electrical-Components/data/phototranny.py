@@ -54,8 +54,8 @@ ax = plt.gca()
 ax.spines['left'].set_position('zero')
 ax.spines['bottom'].set_position('zero')
 
-ax.annotate('Voltage $U$ (V)', xy=(0.5, -.05), ha='center', va='top', xycoords='axes fraction', fontsize=12)
-ax.annotate('Current $I$ (mA)', xy=(0, 0.5), ha='right', va='center', rotation='vertical', xycoords='axes fraction', fontsize=12)
+ax.annotate('voltage in \\si{\\volt}', xy=(0.5, -.05), ha='center', va='top', xycoords='axes fraction', fontsize=12)
+ax.annotate('current in \\si{\\mA}', xy=(0, 0.5), ha='right', va='center', rotation='vertical', xycoords='axes fraction', fontsize=12)
 
 if outputfile != None:
 	plt.savefig(outputfile)
