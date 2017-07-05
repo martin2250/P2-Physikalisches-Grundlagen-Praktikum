@@ -42,10 +42,10 @@ The voltage differential across the middle of the bridge is measured with a digi
 A multiturn potentiometer fitted with a turn-counting dial is used to set and read the resistance ratio on the left side of the bridge.
 
 The resistance $R_\text{x}$ of the DUT is calculated as
-\begin{equation}
+\begin{equation*}
 	\frac{R_\text{set}}{R_\text{pot}} = \frac{R_\text{x}}{R_\text{x} + R_\text{ref}}
 	\quad \implies \quad R_\text{x} = R_\text{ref} \; \frac{R_\text{set}}{R_\text{pot} - R_\text{set}},
-\end{equation}
+\end{equation*}
 with the resistance of the potentiometer $R_\text{pot}$, it's lower arm $R_\text{set}$ and the reference resistor $R_\text{ref}$.
 
 The measured value is most accurate when $R_\text{x}$ and $R_\text{ref}$ are roughly equal, so the reference resistor is changed multiple times throughout the measurement series.
