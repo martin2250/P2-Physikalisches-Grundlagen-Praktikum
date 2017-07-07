@@ -1,5 +1,7 @@
 #exercise 1.2
 #yellow LED
+#wavelength [nm]
+590	0	0
 #order	rho1[mm]	rho2[mm]
 1	14.2	13.5
 2	13.4	14.4

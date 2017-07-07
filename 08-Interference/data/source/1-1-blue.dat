@@ -1,5 +1,7 @@
 #exercise 1.1
 #blue LED
+#wavelength [nm]
+465	0	0
 #order	rho1[mm]	rho2[mm]
 1	12.9	12.2
 2	12	13.1
