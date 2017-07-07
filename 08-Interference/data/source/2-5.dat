@@ -1,0 +1,6 @@
+#exercise 2.2
+#b=600mm^(-1)
+#0 ^= 180
+#order	vb_l[degree]	+vb_l arcs[']	b_l[degree]	+b_l arcs[']	bg_l[degree]	+bg_l arcs[']	r_l[degree]	+r_l arcs[']	vb_r[degree]	+vb_r arcs[']	b_r[degree]	+b_r arcs[']	bg_r[degree]	+bg_r arcs[']	r_r[degree]	+r_r arcs[']
+1	196	32	196	43	197	2	202	47	163	28	163	19	163	0	157	14
+2	145	14	144	51	144	6	129	2	214	39	215	1	215	46	230	30
