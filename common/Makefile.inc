@@ -1,7 +1,12 @@
-BUILD = latexmk -pdf -interaction=batchmode -synctex=1
-FILE = $(shell basename "$(CURDIR)")
+BUILD := latexmk -pdf -interaction=batchmode -synctex=1
+BUILDV := latexmk -pdf -interaction=nonstopmode -synctex=1
+FILE := $(shell basename "$(CURDIR)")
 svgimgs := $(wildcard img/*.svg)
 svgimtargets := $(patsubst %.svg,%.pdf,$(svgimgs))
+
+ifeq ($(VERBOSE), 1)
+	BUILD := $(BUILDV)
+endif
 
 .PHONY: all show upload share clean data build
 
