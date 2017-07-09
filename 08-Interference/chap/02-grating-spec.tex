@@ -1,0 +1,54 @@
+%!TEX root = ../08-Interference.tex
+\chapter{Grating Spectroscopy}
+This experiment uses interference at diffraction gratings to optically spectroscopy elements natrium and zinc.
+
+\section{Adjustment}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{./img/grating-spec.pdf}
+	\caption[\texttt{LEYBOLD} grating spectrometer]{\texttt{LEYBOLD} grating spectrometer. \textbf{a}-telescope, \textbf{c}-grating fixture, \textbf{e}-collimator with adjustable slit}
+	\label{fig:spec}
+\end{figure}
+To guarantee highest precision of subsequent measurements, the \texttt{LEYBOLD} grating spectrometer (\autoref{fig:spec}) has to be adjusted properly.
+
+\subsection{Fixture}
+As the horizontal inclination of the grating fixture is limited, it should be placed as horizontal as possible to grant most flexibility in both directions.
+The same process has to be applied to the collimator and telescope while making sure the telescope's hair cross and the slit are in the focal plane of their respective objective.
+
+\subsection{Adjusting the Telescope to Infinity}
+To guarantee the incident light rays to enter the telescope approximately parallelly, it has to be adjusted to infinity (telescopic beam path).
+This is accomplished by focusing an object at a distance of $>\SI{500}{\meter}$.
+
+\section{Determination of the Grating Constant}
+\subsection{Theory}
+Noting that gratings are just $n$ subsequent slits placed in intervals of $\frac{1}{g}$, it can be deduced that
+\begin{align}
+	\frac{1}{g}=\frac{\sin\phi}{n\cdot\lambda},\quad(n\in\mathbb{N}) \label{eq:grating-const}
+\end{align}
+holds for the maxima of the diffraction pattern.
+This relation can be used to compute the grating constant of a non specified lattice.
+\subsection{Setup}
+The setup consists of a natrium vapor lamp whose light is pointed into the slit of the grating spectrometer.
+The mean wavelength of both natrium D-lines is specified to be \SI{589.3}{\nm}.
+Interference maxima of up to second order are measured, as higher orders do not exist.
+
+\subsection{Evaluation}
+\begin{table}[b!]
+	\centering
+	\caption[Maxima of the diffraction pattern and resulting grating constant]{Maxima of the diffraction pattern and resulting grating constant, $\lambda=\SI{589.3}{\nm}$}
+	\label{tab:grating-const}
+	\begin{tabular}{S|SSS|S}
+		\toprule
+		{order $n$}	&	{angle left $\phi_\text{L}$}	&	{angle right $\phi_\text{R}$}	&	{$\overline{\Delta\phi}$}	&	{grating constant $\frac{1}{g}$}\\
+		\midrule
+		1	&	\SI{201}{\degree}\SI{57}{\arcminute}	&	\SI{158}{\degree}\SI{55}{\arcminute}	&	\SI{21}{\degree}\SI{31}{\arcminute}	&	\SI{622.5}{\per\mm}	\\
+		2	&	\SI{225}{\degree}\SI{20}{\arcminute}	&	\SI{133}{\degree}\SI{38}{\arcminute}	&	\SI{45}{\degree}\SI{51}{\arcminute}	&	\SI{608.8}{\per\mm}	\\
+		\midrule
+		{mean grating constant}	&	\SI{615.7(97)}{\per\mm}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\autoref{tab:grating-const} shows the measured angles of features.
+Using \autoref{eq:grating-const}, the mean grating constant is determined as \SI{615.7(97)}{\per\mm}, where the uncertainty is purely statistical.
+As specified in the lab description, the grating's constant is supposed to be roughly \SI{600}{\per\mm}, so the measured value is satisfactory.
