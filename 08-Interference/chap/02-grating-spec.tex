@@ -1,6 +1,6 @@
 %!TEX root = ../08-Interference.tex
 \chapter{Grating Spectroscopy}
-This experiment uses interference at diffraction gratings to optically spectroscopy elements natrium and zinc.
+This experiment uses interference at diffraction gratings to obtain optical spectra of elements natrium and zinc.
 
 \section{Adjustment}
 \begin{figure}
@@ -12,14 +12,14 @@ This experiment uses interference at diffraction gratings to optically spectrosc
 To guarantee highest precision of subsequent measurements, the \texttt{LEYBOLD} grating spectrometer (\autoref{fig:spec}) has to be adjusted properly.
 
 \subsection{Fixture}
-As the horizontal inclination of the grating fixture is limited, it should be placed as horizontal as possible to grant most flexibility in both directions.
+As the horizontal inclination of the grating fixture is limited, it should be placed as horizontally as possible to leave a margin in both directions.
 The same process has to be applied to the collimator and telescope while making sure the telescope's hair cross and the slit are in the focal plane of their respective objective.
 
 \subsection{Adjusting the Telescope to Infinity}
 To guarantee the incident light rays to enter the telescope approximately parallelly, it has to be adjusted to infinity (telescopic beam path).
 This is accomplished by focusing an object at a distance of $>\SI{500}{\meter}$.
 
-\section{Determination of the Grating Constant}
+\section{Determination of the Grating Constant}\label{sec:grating}
 \subsection{Theory}
 Noting that gratings are just $n$ subsequent slits placed in intervals of $\frac{1}{g}$, it can be deduced that
 \begin{align}
@@ -41,14 +41,36 @@ Interference maxima of up to second order are measured, as higher orders do not 
 		\toprule
 		{order $n$}	&	{angle left $\phi_\text{L}$}	&	{angle right $\phi_\text{R}$}	&	{$\overline{\Delta\phi}$}	&	{grating constant $\frac{1}{g}$}\\
 		\midrule
-		1	&	\SI{201}{\degree}\SI{57}{\arcminute}	&	\SI{158}{\degree}\SI{55}{\arcminute}	&	\SI{21}{\degree}\SI{31}{\arcminute}	&	\SI{622.5}{\per\mm}	\\
-		2	&	\SI{225}{\degree}\SI{20}{\arcminute}	&	\SI{133}{\degree}\SI{38}{\arcminute}	&	\SI{45}{\degree}\SI{51}{\arcminute}	&	\SI{608.8}{\per\mm}	\\
+			1	&	\SI{201}{\degree}\SI{57}{\arcminute}	&	\SI{158}{\degree}\SI{55}{\arcminute}	&	\SI{21}{\degree}\SI{31}{\arcminute}	&	\SI{622.5}{\per\mm}	\\
+			2	&	\SI{225}{\degree}\SI{20}{\arcminute}	&	\SI{133}{\degree}\SI{38}{\arcminute}	&	\SI{45}{\degree}\SI{57}{\arcminute}	&	\SI{609.8}{\per\mm}	\\
 		\midrule
-		{mean grating constant}	&	\SI{615.7(97)}{\per\mm}\\
+		{mean grating constant}	&	\SI{616.2(64)}{\per\mm}\\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 \autoref{tab:grating-const} shows the measured angles of features.
-Using \autoref{eq:grating-const}, the mean grating constant is determined as \SI{615.7(97)}{\per\mm}, where the uncertainty is purely statistical.
+Using \autoref{eq:grating-const}, the mean grating constant is determined as \SI{616.2(89)}{\per\mm}, where the uncertainty is purely statistical.
 As specified in the lab description, the grating's constant is supposed to be roughly \SI{600}{\per\mm}, so the measured value is satisfactory.
+
+\section{Wavelength Gap Between Natrium D-lines}
+\begin{table}[b!]
+	\centering
+	\caption[Wavelength gap between natrium D-lines]{Wavelength gap between natrium D-lines, using the experimentally determined grating constant of \SI{615.7}{\per\mm}}
+	\label{tab:wavelength-gap}
+	\begin{tabular}{SSSS|SS}
+		\toprule
+		{angle 1 left $\phi_\text{L}$}	&	{angle 2 left $\phi_\text{R}$}	&	{angle 1 right $\phi_\text{L}$}	&	{angle 2 right $\phi_\text{R}$}	&	{$\Delta\phi$}	&	{$\Delta\lambda$}\\
+		\midrule
+			\SI{225}{\degree}\SI{19}{\arcminute}	&	\SI{225}{\degree}\SI{21}{\arcminute}	&	\SI{2}{\arcminute}	&	\SI{307}{\pm}	\\
+			\SI{134}{\degree}\SI{28}{\arcminute}	&	\SI{134}{\degree}\SI{32}{\arcminute}	&	\SI{4}{\arcminute}	&	\SI{596}{\pm}	\\
+		\midrule
+		{mean wavelength gap}	&	\SI{452(144)}{\pm}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+To determine the wavelength gap between the $D_1$ and $D_2$ lines of natrium, the same setup as in \autoref{sec:grating} is used.
+Both lines are aimed at with the hair cross and their respective angles are measured.
+\autoref{tab:wavelength-gap} shows the acquired data.
+Again, using \autoref{eq:grating-const}, the mean wavelength gap is calculated as $\Delta\lambda=\SI{452(144)}{\pm}$, however the statistical significance of this value is questionable, as the standard deviation almost makes up roughly 32\% of the mean value.
+Nevertheless, the mean value deviates from the literature value of $\Delta\lambda^{\*}=\SI{402.6}{\pm}$ by \num{12.3}\%, which is an acceptable deviation.
