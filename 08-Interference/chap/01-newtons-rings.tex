@@ -82,3 +82,25 @@ The distance between lens and mirror does not affect the results.
 The focal length of the lens used is determined to be $f = \SI{290}{\mm}$.
 
 \section{Index of Refraction of the Lens}
+The geometry of a plano-convex lens (\autoref{fig:lens}) and Snell's law give
+\begin{gather*}
+	\sin(\alpha) = \frac{h}{R}, \quad\;
+	\tan(\gamma) = \frac{h}{f}, \quad\;
+	\beta = \alpha + \gamma \quad \text{and} \quad
+	n \sin(\alpha) = n_\text{L} \sin(\beta),
+\end{gather*}
+which can be simplified for small angles and combined to form $R = \left(n - 1\right)f$ or, for biconvex lenses
+\begin{equation*}
+	R = 2 \left(n - 1\right)f.
+\end{equation*}
+
+Using the previously measured values for $R$ and $f$, this gives an index of refraction of $n = \num{1.53}$.
+Most glass blends have an index of refraction around \num{1.5} which is very close to the result.
+The exact type of glass used is unknown, so a quantitative comparison is not possible.
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/lens.pdf}
+	\caption{Lens Focal Length}
+	\label{fig:lens}
+\end{figure}
