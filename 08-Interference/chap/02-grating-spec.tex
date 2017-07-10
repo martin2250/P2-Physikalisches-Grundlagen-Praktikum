@@ -1,6 +1,6 @@
 %!TEX root = ../08-Interference.tex
 \chapter{Grating Spectroscopy}
-This experiment uses interference at diffraction gratings to obtain optical spectra of elements natrium and zinc.
+This experiment uses interference at diffraction gratings to obtain optical spectra of elements sodium and zinc.
 
 \section{Adjustment}
 \begin{figure}
@@ -28,8 +28,8 @@ Noting that gratings are just $n$ subsequent slits placed in intervals of $\frac
 holds for the maxima of the diffraction pattern.
 This relation can be used to compute the grating constant of a non specified lattice.
 \subsection{Setup}
-The setup consists of a natrium vapor lamp whose light is pointed into the slit of the grating spectrometer.
-The mean wavelength of both natrium D-lines is specified to be \SI{589.3}{\nm}.
+The setup consists of a sodium vapor lamp whose light is pointed into the slit of the grating spectrometer.
+The mean wavelength of both sodium D-lines is specified to be \SI{589.3}{\nm}.
 Interference maxima of up to second order are measured, as higher orders do not exist.
 
 \subsection{Evaluation}
@@ -39,7 +39,7 @@ Interference maxima of up to second order are measured, as higher orders do not 
 	\label{tab:grating-const}
 	\begin{tabular}{S|SSS|S}
 		\toprule
-		{order $n$}	&	{angle left $\phi_\text{L}$}	&	{angle right $\phi_\text{R}$}	&	{$\overline{\Delta\phi}$}	&	{grating constant $\frac{1}{g}$}\\
+		{order $n$}	&	{angle left $\phi_\text{L}$}	&	{angle right $\phi_\text{R}$}	&	{$\overline{\phi}$}	&	{grating constant $\frac{1}{g}$}\\
 		\midrule
 			1	&	\SI{201}{\degree}\SI{57}{\arcminute}	&	\SI{158}{\degree}\SI{55}{\arcminute}	&	\SI{21}{\degree}\SI{31}{\arcminute}	&	\SI{622.5}{\per\mm}	\\
 			2	&	\SI{225}{\degree}\SI{20}{\arcminute}	&	\SI{133}{\degree}\SI{38}{\arcminute}	&	\SI{45}{\degree}\SI{57}{\arcminute}	&	\SI{609.8}{\per\mm}	\\
@@ -53,14 +53,14 @@ Interference maxima of up to second order are measured, as higher orders do not 
 Using \autoref{eq:grating-const}, the mean grating constant is determined as \SI{616.2(89)}{\per\mm}, where the uncertainty is purely statistical.
 As specified in the lab description, the grating's constant is supposed to be roughly \SI{600}{\per\mm}, so the measured value is satisfactory.
 
-\section{Wavelength Gap Between Natrium D-lines}
+\section{Wavelength Gap Between Sodium D-lines}
 \begin{table}[b!]
 	\centering
-	\caption[Wavelength gap between natrium D-lines]{Wavelength gap between natrium D-lines, using the experimentally determined grating constant of \SI{615.7}{\per\mm}}
+	\caption[Wavelength gap between sodium D-lines]{Wavelength gap between sodium D-lines, using the experimentally determined grating constant of \SI{615.7}{\per\mm}}
 	\label{tab:wavelength-gap}
-	\begin{tabular}{SSSS|SS}
+	\begin{tabular}{SS|SS}
 		\toprule
-		{angle 1 left $\phi_\text{L}$}	&	{angle 2 left $\phi_\text{R}$}	&	{angle 1 right $\phi_\text{L}$}	&	{angle 2 right $\phi_\text{R}$}	&	{$\Delta\phi$}	&	{$\Delta\lambda$}\\
+		{angle 1 $\phi_1$}	&	{angle 2 $\phi_2$}	&	{$\Delta\phi$}	&	{$\Delta\lambda$}\\
 		\midrule
 			\SI{225}{\degree}\SI{19}{\arcminute}	&	\SI{225}{\degree}\SI{21}{\arcminute}	&	\SI{2}{\arcminute}	&	\SI{307}{\pm}	\\
 			\SI{134}{\degree}\SI{28}{\arcminute}	&	\SI{134}{\degree}\SI{32}{\arcminute}	&	\SI{4}{\arcminute}	&	\SI{596}{\pm}	\\
@@ -69,8 +69,35 @@ As specified in the lab description, the grating's constant is supposed to be ro
 		\bottomrule
 	\end{tabular}
 \end{table}
-To determine the wavelength gap between the $D_1$ and $D_2$ lines of natrium, the same setup as in \autoref{sec:grating} is used.
+To determine the wavelength gap between the $D_1$ and $D_2$ lines of sodium, the same setup as in \autoref{sec:grating} is used.
 Both lines are aimed at with the hair cross and their respective angles are measured.
 \autoref{tab:wavelength-gap} shows the acquired data.
 Again, using \autoref{eq:grating-const}, the mean wavelength gap is calculated as $\Delta\lambda=\SI{452(144)}{\pm}$, however the statistical significance of this value is questionable, as the standard deviation almost makes up roughly 32\% of the mean value.
 Nevertheless, the mean value deviates from the literature value\footnote{\url{de.wikipedia.org/wiki/Natrium-D-Linie}} of $\Delta\lambda_\text{lit}=\SI{597.4}{\pm}$ by \num{24.3}\%, which is an acceptable deviation.
+
+\section{Determination of the Second Grating Constant}
+The same deliberations as in \autoref{sec:grating} can be applied to determine the grating constant of a second lattice, only this time, higher orders are visible as the grating constant is supposed to be roughly \SI{140}{\per\mm}.
+As \autoref{tab:grating-const-2} shows, orders of up to six can be measured, because higher orders have vanishing intensity.
+However, six orders are enough to determine a statistically significant value of \SI{163.66(13)}{\per\mm} out of this experimental data.
+This confirms the expectations for the grating constant of the second lattice.
+The spectrometer's resolution would make it possible to resolve the sodium D-lines from the first maximum if the whole grating would be illuminated evenly.
+However, this is not the case, so the lines can be resolved only from the fifth maximum.
+\begin{table}[b!]
+	\centering
+	\caption[Maxima of the diffraction pattern and resulting second grating constant]{Maxima of the diffraction pattern and resulting second grating constant, $\lambda=\SI{589.3}{\nm}$}
+	\label{tab:grating-const-2}
+	\begin{tabular}{S|SSS|S}
+		\toprule
+		{order $n$}	&	{angle left $\phi_\text{L}$}	&	{angle right $\phi_\text{R}$}	&	{$\overline{\phi}$}	&	{grating constant $\frac{1}{g}$}\\
+		\midrule
+		1	&	\SI{185}{\degree}\SI{33}{\arcminute}	&	\SI{174}{\degree}\SI{30}{\arcminute}	&	\SI{5}{\degree}\SI{32}{\arcminute}	&	\SI{163.4}{\per\mm}	\\
+		2	&	\SI{191}{\degree}\SI{8}{\arcminute}	&	\SI{168}{\degree}\SI{53}{\arcminute}	&	\SI{11}{\degree}\SI{1}{\arcminute}	&	\SI{163.7}{\per\mm}	\\
+		3	&	\SI{196}{\degree}\SI{48}{\arcminute}	&	\SI{163}{\degree}\SI{9}{\arcminute}	&	\SI{16}{\degree}\SI{50}{\arcminute}	&	\SI{163.7}{\per\mm}	\\
+		4	& \SI{202}{\degree}\SI{38}{\arcminute}	&	\SI{157}{\degree}\SI{15}{\arcminute}	&	\SI{22}{\degree}\SI{42}{\arcminute}	&	\SI{163.7}{\per\mm}	\\
+		5	&	\SI{208}{\degree}\SI{44}{\arcminute}	&	\SI{151}{\degree}\SI{2}{\arcminute}	&	\SI{28}{\degree}\SI{51}{\arcminute}	&	\SI{163.8}{\per\mm}	\\
+		6	&	\SI{215}{\degree}\SI{12}{\arcminute}	&	\SI{144}{\degree}\SI{27}{\arcminute}	&	\SI{35}{\degree}\SI{23}{\arcminute}	&	\SI{163.7}{\per\mm}	\\
+		\midrule
+		{mean grating constant}	&	\SI{163.66(13)}{\per\mm}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
