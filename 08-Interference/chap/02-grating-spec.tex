@@ -35,7 +35,7 @@ Interference maxima of up to second order are measured, as higher orders do not 
 \subsection{Evaluation}
 \begin{table}[b!]
 	\centering
-	\caption[Maxima of the diffraction pattern and resulting grating constant]{Maxima of the diffraction pattern and resulting grating constant, $\lambda=\SI{589.3}{\nm}$}
+	\caption[Maxima of the diffraction pattern and resulting grating constant]{Maxima of the diffraction pattern and resulting grating constant, $\lambda=\SI{589.3}{\nm}$, zeroth order at \SI{180}{\degree}}
 	\label{tab:grating-const}
 	\begin{tabular}{S|SSS|S}
 		\toprule
@@ -49,7 +49,7 @@ Interference maxima of up to second order are measured, as higher orders do not 
 	\end{tabular}
 \end{table}
 
-\autoref{tab:grating-const} shows the measured angles of features.
+\autoref{tab:grating-const} shows the measured angles of features, with a zero-point of \SI{180}{\degree}.
 Using \autoref{eq:grating-const}, the mean grating constant is determined as \SI{616.2(89)}{\per\mm}, where the uncertainty is purely statistical.
 As specified in the lab description, the grating's constant is supposed to be roughly \SI{600}{\per\mm}, so the measured value is satisfactory.
 \todo{something something center at 180 deg, also maybe reference the tables}
@@ -78,14 +78,14 @@ Nevertheless, the mean value deviates from the literature value\footnote{\url{de
 
 \section{Determination of the Second Grating Constant}
 The same deliberations as in \autoref{sec:grating} can be applied to determine the grating constant of a second lattice, only this time, higher orders are visible as the grating constant is supposed to be roughly \SI{140}{\per\mm}.
-As shown in \autoref{tab:grating-const-2}, orders of up to six can be measured, as higher orders become increasingly dim.
+As shown in \autoref{tab:grating-const-2} (again with a zero-point of \SI{180}{\degree}), orders of up to six can be measured, as higher orders become increasingly dim.
 However, six orders are enough to determine a statistically significant value of \SI{163.66(13)}{\per\mm} out of this experimental data.
 This confirms the expectations for the grating constant of the second lattice.
 The spectrometer's resolution would make it possible to resolve the sodium D-lines from the first maximum if the whole grating would be illuminated evenly.
 However, this is not the case, so the lines can be resolved only from the fifth maximum.
 \begin{table}[b!]
 	\centering
-	\caption[Maxima of the diffraction pattern and resulting second grating constant]{Maxima of the diffraction pattern and resulting second grating constant, $\lambda=\SI{589.3}{\nm}$}
+	\caption[Maxima of the diffraction pattern and resulting second grating constant]{Maxima of the diffraction pattern and resulting second grating constant, $\lambda=\SI{589.3}{\nm}$, zeroth order at \SI{180}{\degree}}
 	\label{tab:grating-const-2}
 	\begin{tabular}{S|SSS|S}
 		\toprule
@@ -106,7 +106,7 @@ However, this is not the case, so the lines can be resolved only from the fifth 
 \section{Spectrum of zinc}
 \begin{table}[b!]
 	\centering
-	\caption[Measurement of zinc spectrum]{Measurement of zinc spectrum, with grating constant $\frac{1}{g}=\SI{616.2}{\per\mm}$}
+	\caption[Measurement of zinc spectrum]{Measurement of zinc spectrum, with grating constant $\frac{1}{g}=\SI{616.2}{\per\mm}$, zeroth order at \SI{180}{\degree}}
 	\label{tab:zn-wavelength}
 	\begin{tabular}{SS|SS|SS}
 		\toprule
@@ -124,3 +124,11 @@ However, this is not the case, so the lines can be resolved only from the fifth 
 		\bottomrule
 	\end{tabular}
 \end{table}
+To measure the spectrum of a zinc vapor lamp's emitted light, it is pointed into the slit of the grating spectrometer and the lattice with grating constant \SI{616.2}{\per\mm} is used, to resolve the characteristic lines better.
+\autoref{tab:zn-wavelength} shows the experimental data.
+Using this data, the characteristic wavelengths of the lines are calculated as
+\begin{align*}
+	\anglemean{\lambda_\text{vb}}=\SI{461.9(1)}{\nm}\quad\anglemean{\lambda_\text{b}}=\SI{466.4(2)}{\nm}\quad\anglemean{\lambda_\text{cy}}=\SI{474.9(5)}{\nm}\quad\anglemean{\lambda_\text{r}}=\SI{628.2(7)}{\nm}.
+\end{align*}
+Due to lack of information, a comparison with literature values\footnote{\url{physics.nist.gov/PhysRefData/Handbook/Tables/zinctable2.htm}} is not possible.
+However, the measured values resemble wavelengths out of the Zn-I and Zn-II spectra.
