@@ -4,7 +4,7 @@ This experiment explores piezo elements and their properties.
 
 \section{Theory}
 Piezoelectricity is an effect in certain solids, such as crystals or some ceramics, in response to mechanical stress.
-Exposed to such stress, the material exhibits the piezoelectric effect: internal generation of electric charge and thus a voltage.
+Exposed to such stress, the material exhibits the piezoelectric effect: internal release of electric charge and thus a voltage.
 It is a reversible process in that materials that exhibit the direct piezoelectric effect, show the reversed effect (straining resulting from applying an electrical field) as well.
 
 Linear piezoelectricity is a combination of
@@ -22,7 +22,7 @@ Combining above equations yields the coupled equations in matrix form\cite{IEEEP
 \end{align*}
 which can be used to compute the strain-charge for various materials with known properties and given stress.
 High or anisotropic stresses or non-uniform electric fields lead to nonlinear relations, these cases, however, are not discussed here.
-See \url{ses.library.usyd.edu.au/bitstream/2123/709/17/adt-NU20060210.15574803chapter2.pdf} for a more detailed explanation.
+See \cite{piezo} for a more detailed explanation.
 \clearpage
 \section{Evaluation}
 \begin{figure}[tbp]
@@ -47,7 +47,7 @@ The direct piezoelectric effect can be shown by measuring the voltage of the mat
 \autoref{subfig:finger_press} shows that the voltage peaks significantly higher in response to great stress exerted through the press, whereas its slope is relatively shallow.
 In \autoref{subfig:finger_snap}, however it is easy to see that although the peak of the voltage is lower due to less maximal stress, its slope rises much steeper because of the fast stress change.
 
-To apply stress in a more controlled manner, a speaker is placed on top of the piezo element, playing back a sinusoidal signal with a frequency of $f=\SI{2}{\kilo\hertz}$, which happens to be the resonant frequency of the examined element.
+To apply stress in a more controlled manner, a speaker is placed on top of the piezo element, playing back a sinusoidal signal with a frequency of $f=\SI{2}{\kilo\hertz}$, which happens to very roughly be the resonant frequency of the examined element (\SI{2.8}{\kilo\hertz}).
 \autoref{fig:piezo_2kHz} shows the resulting voltage curve with this excitation.
 As expected, the frequency of the voltage curve is \SI{2}{\kilo\hertz}.
 However, the audible signal was superimposed by the \SI{50}{\hertz} mains hum, which causes an offset voltage also visible in the diagram.
