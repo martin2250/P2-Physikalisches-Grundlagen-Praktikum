@@ -12,7 +12,8 @@ Light is reflected on the top and bottom of the lens and substrate.
 Inteference occurs between the light that is reflected on the bottom of the lens and the top of the substrate as shown in \autoref{fig:newton}.
 The reflections that occur at the top of the lens and the bottom of the substrate do not produce interference patterns, as the path differences are much larger than the coherence length of tyical LEDs.
 
-The two beams have a path difference of $2 d$. Additionally, a phase inversion occurs at the substrate, as the light enters a more optically dense medium.
+The two beams have a path difference of $2 d$.
+Additionally, a phase inversion occurs at the substrate, as the light enters a more optically dense medium.
 
 The geometry of the spherical lens gives $d = \frac{r^2}{R}$, where $R$ is the curvature radius of the lens and $r$ is the horizontal radius from the contact point of the lens and substrate.
 
@@ -58,6 +59,13 @@ To shorten the calculations, the refractive index of air is assumed to be exactl
 	\label{fig:newton-air}
 \end{figure}
 
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/lens.pdf}
+	\caption{Lens Focal Length}
+	\label{fig:lens}
+\end{figure}
+
 Radii for rings of all discernible orders are measured with yellow and blue light.
 The measured values for $r_k^2$ are plotted in \autoref{fig:newton-air}.
 Solving \autoref{eq:newton} for $R$ and substituting the wavelengths and slopes of the lienar fits, this yields $R_\text{blue} = \SI{0.33}{\meter}$ and $R_\text{yellow} = \SI{0.29}{\meter}$.
@@ -82,8 +90,9 @@ A light source, a transparent screen with an opaque pattern, the lens used in th
 When the distance between the screen and lens matches its focal length, all light rays coming from a single point on the screen will leave the lens parallel.
 The parallel beams are reflected back through the lens by the mirror and are focused to a single point on the screen.
 The distance between lens and mirror does not affect the results.
-However, it has to be made sure that for small distances between lens and screen, the lens might reflect the pattern onto the screen again, which could trick someone into thinking, they've found the focal point, without this actually being the case.
-This can be checked for by holding a hand into the beam between lense and mirror and making sure, the image of the pattern disappears.
+
+The light can also be reflected by the lens itself, which may be mistaken for the focused image.
+The correct light path is verified by blocking the beam between the lens and the mirror.
 
 The focal length of the lens used is determined to be $f = \SI{290}{\mm}$.
 
@@ -104,10 +113,3 @@ Binconvex lenses have twice the refractive power, which translates to
 Using the previously measured values for $R$ and $f$, this gives an index of refraction of $n = \num{1.53}$.
 Most glass blends have an index of refraction of \num{\sim 1.5} which is very close to the result.
 The exact type of glass used is unknown, so a quantitative comparison is not possible.
-
-\begin{figure}[tbp]
-	\centering
-	\includegraphics[width=.6\textwidth]{img/lens.pdf}
-	\caption{Lens Focal Length}
-	\label{fig:lens}
-\end{figure}
