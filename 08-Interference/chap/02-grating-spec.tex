@@ -1,4 +1,6 @@
 %!TEX root = ../08-Interference.tex
+\newcommand{\darc}[2]{\SI{#1}{\degree}\SI{#2}{\arcminute}}
+
 \chapter{Grating Spectroscopy}
 This experiment uses interference at diffraction gratings to obtain optical spectra of elements sodium and zinc.
 
@@ -52,7 +54,6 @@ Interference maxima of up to second order are measured, as higher orders do not 
 \autoref{tab:grating-const} shows the measured angles of features, with a zero-point of \SI{180}{\degree}.
 Using \autoref{eq:grating-const}, the mean grating constant is determined as \SI{616.2(89)}{\per\mm}, where the uncertainty is purely statistical.
 As specified in the lab description, the grating's constant is supposed to be roughly \SI{600}{\per\mm}, so the measured value is satisfactory.
-\todo{something something center at 180 deg, also maybe reference the tables}
 
 \section{Wavelength Gap Between Sodium D-lines}
 \begin{table}[b!]
@@ -110,26 +111,27 @@ However, this is not the case, so the lines can be resolved only from the fifth 
 	\label{tab:zn-wavelength}
 	\begin{tabular}{SS|SS|SS}
 		\toprule
-		{order $n$}	&	{color}	&	\multicolumn{2}{c|}{angle $\phi$ in \si{\degree}.\ \si{\arcminute} (left/right)}	&	{mean diff. angle} &	{wavelength $\lambda$ in \si{\nm}}	\\
-		&&&&	{$\Delta\phi$ in \si{\degree}.\ \si{\arcminute}}	&\\
+		{order $n$}	&	{color}	&	\multicolumn{2}{c|}{angle $\phi$ (left/right)}	&	{mean diff. angle} &	{wavelength $\lambda$}	\\
+		&&&&	{$\Delta\phi$}	&\\
 		\midrule
-		{1}	&	{violet-blue}	&	\num{196.32}	&	\num{163.28}	&	\num{16.32}	&	\num{461.8}	\\
-		{}	&	{blue}	&	\num{196.43}	&	\num{163.19}	&	\num{16.42}	&	\num{466.3}	\\
-		{}	&	{cyan}	&	\num{197.20}	&	\num{163.0}	&	\num{17.1}	&	\num{474.9}	\\
-		{}	&	{red}	&	\num{202.47}	&	\num{157.14}	&	\num{22.47}	&	\num{628.2}	\\
+		{1}	&	{violet-blue}	&	\darc{196}{32}	&	\darc{163}{28}	&	\darc{16}{32}	&	\SI{461.8}{\nm}	\\
+		{}	&	{blue}	&	\darc{196}{43}	&	\darc{163}{19}	&	\darc{16}{42}	&	\SI{466.3}{\nm}	\\
+		{}	&	{cyan}	&	\darc{197}{20}	&	\darc{163}{0}	&	\darc{17}{1}	&	\SI{474.9}{\nm}	\\
+		{}	&	{red}	&	\darc{202}{47}	&	\darc{157}{14}	&	\darc{22}{47}	&	\SI{628.2}{\nm}	\\
 		\midrule
-		{2}	&	{violet-blue}	&	\num{214.39}	&	\num{145.14}	&	\num{34.43}	&	\num{462}	\\
-		{}	&	{blue}	&	\num{215.1}	&	\num{144.51}	&	\num{35.5}	&	\num{466.4}	\\
-		{}	&	{cyan}	&	\num{215.46}	&	\num{144.6}	&	\num{35.50}	&	\num{475}	\\
-		{}	&	{red}	&	\num{230.30}	&	\num{129.2}	&	\num{50.44}	&	\num{628.2}	\\
+		{2}	&	{violet-blue}	&	\darc{214}{39}	&	\darc{145}{14}	&	\darc{34}{43}	&	\SI{462}{\nm}	\\
+		{}	&	{blue}	&	\darc{215}{1}	&	\darc{144}{51}	&	\darc{35}{5}	&	\SI{466.4}{\nm}	\\
+		{}	&	{cyan}	&	\darc{215}{46}	&	\darc{144}{6}	&	\darc{35}{50}	&	\SI{475}{\nm}	\\
+		{}	&	{red}	&	\darc{230}{30}	&	\darc{129}{2}	&	\darc{50}{44}	&	\SI{628.2}{\nm}	\\
 		\bottomrule
 	\end{tabular}
 \end{table}
 To measure the spectrum of a zinc vapor lamp's emitted light, it is pointed into the slit of the grating spectrometer and the lattice with grating constant \SI{616.2}{\per\mm} is used, to resolve the characteristic lines better.
 \autoref{tab:zn-wavelength} shows the experimental data.
 Using this data, the characteristic wavelengths of the lines are calculated as
-\begin{align*}
-	\anglemean{\lambda_\text{vb}}=\SI{461.9(1)}{\nm}\quad\anglemean{\lambda_\text{b}}=\SI{466.4(2)}{\nm}\quad\anglemean{\lambda_\text{cy}}=\SI{474.9(5)}{\nm}\quad\anglemean{\lambda_\text{r}}=\SI{628.2(7)}{\nm}.
-\end{align*}
+\begin{alignat*}{3}
+	\anglemean{\lambda_\text{vb}}&=\SI{461.9(1)}{\nm}\quad\anglemean{\lambda_\text{b}}&&=\SI{466.4(2)}{\nm} \\
+	\anglemean{\lambda_\text{cy}}&=\SI{474.9(5)}{\nm}\quad\anglemean{\lambda_\text{r}}&&=\SI{628.2(7)}{\nm}.
+\end{alignat*}
 Due to lack of information, a comparison with literature values\footnote{\url{physics.nist.gov/PhysRefData/Handbook/Tables/zinctable2.htm}} is not possible.
 However, the measured values resemble wavelengths out of the Zn-I and Zn-II spectra.
