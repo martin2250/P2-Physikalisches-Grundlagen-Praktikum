@@ -1,0 +1,6 @@
+#internal resistance of amplifier
+#resistance [ohms]	measured voltage [volt]
+0	5
+100e6	4.999
+1e9	4.988
+10e9	4.9
