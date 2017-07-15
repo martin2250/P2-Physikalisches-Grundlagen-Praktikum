@@ -4,7 +4,12 @@ import scipy.optimize
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
+import sys
 
+interactive = len(sys.argv) == 1
+
+
+##########################################	data
 (Us, Unf, Uf) = np.loadtxt('source/33.dat', unpack=True)
 
 Rshunt = 100e6
@@ -13,15 +18,6 @@ Inf = Unf/Rshunt * 1e9
 If = Uf/Rshunt *1e9
 Usnf = Us - Unf
 Usf = Us - Uf
-
-
-def sig(x, x0, A, B):
-	#x = A*(x - x0)
-	#e = (1 + x/np.sqrt(1 + x**2))
-	#return C*(np.exp(e) - 1)
-	#return x0 + A*x + B*x**2 + C*x**3 + D*x**4
-	return A/(1+np.exp(B*(x-x0)))
-
 
 ##########################################	main plot
 plt.plot(Usnf, Inf, '+')
@@ -37,18 +33,22 @@ ax.add_patch(Rectangle((-1.65, -0.5), 1.6, 3.8, transform=ax.transData, alpha=1,
 
 ##########################################	fit function
 
-def makefit(X, Y):
-	fit, garbage = scipy.optimize.curve_fit(sig, X, Y, [2, 25, -2])
+def fitfunc(x, x0, A, B):
+	return A/(1+np.exp(B*(x-x0)))
 
-	x = np.linspace(X[0], X[-1], 100)
-	y = sig(x, *fit)
+def makefit(X, Y):
+	fit, garbage = scipy.optimize.curve_fit(fitfunc, X, Y, [2, 25, -2])
+
+	x = np.linspace(X[0], X[-1], 60)
+	y = fitfunc(x, *fit)
 	plt.plot(x, y, zorder=-10, alpha=0.6)
 
-	print('Plateau Current:', fit[1], 'nA')
+	if interactive:
+		print('Plateau Current:', fit[1], 'nA')
 
 makefit(Usnf, Inf)
 makefit(Usf, If)
-
+import sys
 ##########################################	subplot
 
 ax.add_patch(Rectangle((-1.8, 25), 4, 32, transform=ax.transData, alpha=1, facecolor='w', zorder=10))
@@ -62,4 +62,7 @@ plt.plot(Usf[:maxn], If[:maxn], '+')
 
 ##########################################
 
-plt.show()
+if interactive:
+	plt.show()
+else:
+	plt.savefig(sys.argv[1])
