@@ -25,6 +25,22 @@ Incoming photons knock out electrons out of the cathode's surface according to t
 The cell's current thus is dependent on the frequency and intensity of the incoming photons, whereas its ensitivity is dependent on the cathode's material, since different materials have different activation energies.
 
 \section{Determination of the Input Impedance}
+\begin{table}[b!]
+	\centering
+	\caption[Series resistance over amplifier voltage]{Series resistance over amplifier voltage, $U_0=\SI{5}{\volt}$ at $\nu=1$}
+	\label{tab:impedance}
+	\begin{tabular}{SS}
+		\toprule
+		{resistance in \si{\ohm}}	&	{amplifier voltage in \si{\volt}}	\\
+		\midrule
+			100e6	&	4.999	\\
+			1e9	&	4.988	\\
+			10e9	&	4.9	\\
+		\midrule
+		{mean input impedance}	&	\SI{4.69(38)e11}{\ohm}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 To measure the input impedance of an electrometer, consisting of a high-impedance buffer amplifier, the circuit in \autoref{fig:elec_in_im} is built.
 A fixed voltage of \SI{5}{\volt} is applied, varying the series resistor and measuring the voltage drop across the amplifier's terminals.
 
@@ -39,3 +55,6 @@ Rearranging equations \ref{eq:kirch_1} and \ref{eq:kirch_2} yields
 	R_\text{i}=R_\text{s}\cdot\frac{U_1}{U_0-U_1},
 \end{equation}
 which can be used to compute the input impedance.
+
+\autoref{tab:impedance} shows the measured values for the specified setup,
+The amplifier's input impedance is calculated as a mean value of \SI{4.69(38)e11}{\ohm}, which matches the manufacturer's specification of $R_\text{i}\leq\SI{e13}{\ohm}$.
