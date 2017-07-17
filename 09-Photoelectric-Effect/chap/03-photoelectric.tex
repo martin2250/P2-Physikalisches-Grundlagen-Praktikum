@@ -2,9 +2,35 @@
 \chapter{Photoelectric Effect}
 
 
-\section{Open Circuit Voltage}%3.1
+\section{Terminal Voltage}%3.1
 
+\textbf{Setup}\\
+\begin{figure}[tbp]
+	\centering
+	%\includegraphics[width=.4\textwidth]{img/3-1-setup.pdf}
+	\caption[Setup for measuring terminal voltage]{\textbf{Setup for measuring terminal voltage} The usage of a Hg-vapor lamp is necessary for sufficiently high photovoltages and -currents, as photons from the Hg-vapor lamp have higher energies than ambient photons.}
+	\label{fig:term_volt}
+\end{figure}
+The setup in \autoref{fig:term_volt} is used to measure the terminal voltage of the photoelectric cell for different wavelengths.
+Wavelengths are toggled through by placing different color filters in the beam path.
+The used buffer amplifier is zeroed to allow for high precision measurements.
+Varying $\lambda$, the voltage $U$ across the photoelectric cell is measured.
 
+Conservation of energy yields
+\begin{align}
+	eU &= h\nu+E_\text{A} \nonumber \\
+	\Leftrightarrow U &= \frac{hc}{e}\cdot\lambda^{-1}+\frac{E_\text{A}}{e}, \label{eq:energy_balance}
+\end{align}
+where $E_\text{A}$ denotes the activation energy of the photocathode material.
+This equation can be used to compute the $\frac{h}{e}$-ratio.
+
+\textbf{Evaluation}\\
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{./data/plots/3-1.pdf}
+	\caption[Linear regression of terminal voltage over inverse wavelength]{\textbf{Linear regression of terminal voltage over inverse wavelength} Three series of data points are averaged and a linear fit is applied. $a=\SI{922.7}{\volt\meter}$, $b=\SI{-985.3}{\milli\eV}$, $R^2=99.5\%$}
+	\label{fig:}
+\end{figure}
 \section{Stopping Voltage}%3.2 and 3.5
 
 
