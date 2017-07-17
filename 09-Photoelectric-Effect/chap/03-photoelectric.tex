@@ -28,9 +28,22 @@ This equation can be used to compute the $\frac{h}{e}$-ratio.
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.6\textwidth]{./data/plots/3-1.pdf}
-	\caption[Linear regression of terminal voltage over inverse wavelength]{\textbf{Linear regression of terminal voltage over inverse wavelength} Three series of data points are averaged and a linear fit is applied. $a=\SI{922.7}{\volt\meter}$, $b=\SI{-985.3}{\milli\eV}$, $R^2=99.5\%$}
-	\label{fig:}
+	\caption[Linear regression of terminal voltage over inverse wavelength]{\textbf{Linear regression of terminal voltage over inverse wavelength} Three series of data points are averaged and a linear fit is applied. $a=\SI{922.7}{\volt\nm}$, $b=\SI{-985.3}{\milli\V}$, $R^2=99.5\%$}
+	\label{fig:linreg_term_volt}
 \end{figure}
+
+A linear fit for the measured data can be seen in \autoref{fig:linreg_term_volt}.
+Using \autoref{eq:energy_balance}, the parameters $a$ and $b$ can be identified with $\frac{hc}{e}$ and $\frac{E_\text{A}}{e}$ respectively, yielding
+\begin{align*}
+	\frac{h}{e} &= \frac{a}{c} \\
+	&=\SI{3.08e-15}{\volt\second}
+\end{align*}
+and
+\begin{align*}
+	E_\text{A} &= b\cdot e \\
+	&=\SI{-985.3}{\milli\eV}.
+\end{align*}
+
 \section{Stopping Voltage}%3.2 and 3.5
 
 

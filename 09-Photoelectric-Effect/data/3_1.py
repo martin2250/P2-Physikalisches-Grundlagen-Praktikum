@@ -22,7 +22,7 @@ lamb_space = np.linspace(lamb[0], lamb[-1], 500)
 
 #plot
 plt.plot(lamb, U, 'ro', label='data')
-plt.plot(lamb_space, a*lamb_space+b, label='fit: $U(\lambda)=a\cdot\lambda^{-1}+b$\n$a = %.3f$ Vm\n$b = %.3f$ eV' %(a,b))
+plt.plot(lamb_space, a*lamb_space+b, label='fit: $U(\lambda)=a\cdot\lambda^{-1}+b$\n$a = %.3f$ Vnm\n$b = %.3f$ V' %(a,b))
 
 plt.xlabel('Inverse wavelength in $\\frac{1}{\mu m}$')
 plt.ylabel('Terminal voltage in V')
