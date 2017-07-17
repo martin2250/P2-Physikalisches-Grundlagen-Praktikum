@@ -15,19 +15,21 @@ Therefore, it has to have a vanishing resistance.
 
 \section{Am- and Voltmeters}
 An ideal amperemeter is a device used for measuring an electric current of a circuit.
-Classical ammeters are connected in series with the circuit carrying the current, so their shunts have to have a very low impedance to cause no additional voltage drop, which could alter the measurement's results.
+\todo{what is a shunt?}
+Classical ammeters are connected in series with the circuit carrying the current, so their shunts need to have a very low impedance to cause little additional voltage drop, which could affect the circuit.
 A voltmeter is an instrument used for measuring a potential difference, a voltage, between two points in an electric circuit.
-Usually, it is connected in parallel with the part of the circuit whose voltage has to be measured, so its impedance should be infinitely high to not draw any excess current that could falsify the results.
+Usually, it is connected in parallel with the part of the circuit whose voltage has to be measured, so its impedance should be infinitely high to not present an additional load to the circuit.
 
 \section{Photoelectric Cells}
 A photoelectric cell is a gas-filled or vacuum tube containing a so called photocathode and -anode.
-Incoming photons knock out electrons out of the cathode's surface according to the photoelectric effect, which are attracted to the anode.
-The cell's current thus is dependent on the frequency and intensity of the incoming photons, whereas its sensitivity is dependent on the cathode's material, since different materials have different activation energies.
+Incoming photons knock out electrons out of the cathode's surface by the photoelectric effect, some of which are collected by the anode.%not neccessarily attracted
+The cell's current thus is dependent on the frequency and intensity of the incoming photons, whereas its spectral response is dependent on the cathode's material, since different materials have different activation energies.
 
 \section{Determination of the Input Impedance}
 \begin{table}[b!]
 	\centering
 	\caption[Series resistance over amplifier voltage]{Series resistance over amplifier voltage, $U_0=\SI{5}{\volt}$ at $\nu=1$}
+	\caption*{TODO: what is $\nu$? I don't see it referenced anywhere else}
 	\label{tab:impedance}
 	\begin{tabular}{SS}
 		\toprule
