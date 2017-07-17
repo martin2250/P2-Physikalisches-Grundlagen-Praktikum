@@ -20,13 +20,14 @@ Usnf = Us - Unf
 Usf = Us - Uf
 
 ##########################################	main plot
-plt.plot(Usnf, Inf, '+')
-plt.plot(Usf, If, '+')
+plt.plot(Usnf, Inf, '+', label='#nofilter (todo)')
+plt.plot(Usf, If, '+', label='with filter')
 
 plt.axis([-2, 5.7, -2.5, 60])
-plt.xlabel('Stopping Potential (V)')
-plt.ylabel('Photocurrent (nA)')
+plt.xlabel('Stopping Potential $U_\\mathrm{S}$ (V)')
+plt.ylabel('Photocurrent $I_\\mathrm{ph}$ (nA)')
 plt.grid()
+plt.legend()
 
 ax = plt.gca()
 ax.add_patch(Rectangle((-1.65, -0.5), 1.6, 3.8, transform=ax.transData, alpha=1, fill=None))
@@ -44,7 +45,7 @@ def makefit(X, Y):
 	plt.plot(x, y, zorder=-10, alpha=0.6)
 
 	if interactive:
-		print('Plateau Current:', fit[1], 'nA')
+		print('Isat:', fit[1], 'nA\tU0:', fit[0], 'V\tb:', fit[2], 'per volt')
 
 makefit(Usnf, Inf)
 makefit(Usf, If)
