@@ -10,8 +10,9 @@ import matplotlib.ticker as ticker
 
 lamb, u1, u2, u3 = np.loadtxt('source/31.dat', unpack=True)
 
-#conclude into one voltage array
-U = np.mean(np.array([u1, u2, u3]), axis=0)
+#append arrays to fit over all data sets
+U = np.append(np.append(u1, u2), u3)
+lamb = np.append(np.append(lamb, lamb), lamb)
 
 #inverse wavelength for fit
 lamb = 1/lamb
@@ -21,7 +22,7 @@ a, b, r, p, std = linregress(lamb, U)
 lamb_space = np.linspace(lamb[0], lamb[-1], 500)
 
 #plot
-plt.plot(lamb, U, 'ro', label='data')
+plt.plot(lamb, U, '+')
 plt.plot(lamb_space, a*lamb_space+b, label='fit: $U(\lambda)=a\cdot\lambda^{-1}+b$\n$a = %.3f$ Vnm\n$b = %.3f$ V' %(a,b))
 
 plt.xlabel('Inverse wavelength in $\\frac{1}{\mu m}$')

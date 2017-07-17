@@ -12,8 +12,8 @@
 	\label{fig:term_volt}
 \end{figure}
 The setup in \autoref{fig:term_volt} is used to measure the terminal voltage of the photoelectric cell for different wavelengths.
-The wavelength is selected by placing different interference filters in the beam path.	%sorry fot the
-The buffer amplifier is zeroed to allow for high precision measurements.
+Wavelengths are selected by placing different color filters in the beam path.
+The used buffer amplifier is zeroed to allow for high precision measurements.
 Varying $\lambda$, the voltage $U$ across the photoelectric cell is measured.
 
 Conservation of energy yields
@@ -28,7 +28,7 @@ This equation can be used to compute the ratio $\frac{h}{e}$.
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.6\textwidth]{./data/plots/3-1.pdf}
-	\caption[Linear regression of terminal voltage over inverse wavelength]{\textbf{Linear regression of terminal voltage over inverse wavelength} Three series of data points are averaged and a linear fit is applied. $a=\SI{922.7}{\volt\nm}$, $b=\SI{-985.3}{\milli\V}$, $R^2=99.5\%$}
+	\caption[Linear regression of terminal voltage over inverse wavelength]{\textbf{Linear regression of terminal voltage over inverse wavelength} Three series of data points are measured and a linear fit for all data sets is applied. $a=\SI{922.7}{\volt\nm}$, $b=\SI{-985.3}{\milli\V}$, $R^2=99.5\%$}
 	\label{fig:linreg_term_volt}
 \end{figure}
 
@@ -43,8 +43,10 @@ and
 	E_\text{A} &= b\cdot e \\
 	&=\SI{-985.3}{\milli\eV}.
 \end{align*}
-The experimentally determined $\frac{h}{e}$-ratio deviates by \num{25.5}\% from the literature value\footnote{\url{www.wolframalpha.com/input/?i=planck+constant+per+elementary+charge}}.
-
+The experimentally determined ratio $\frac{h}{e}$ deviates by \num{25.5}\% from the literature value\footnote{\url{www.wolframalpha.com/input/?i=planck+constant+per+elementary+charge}}.
+As specified in the lab description, the used photocathode's suface is made of potassium, which has a workfunction\footnote{\url{www.wolframalpha.com/input/?i=workfunction+of+potassium}} of \SI{2.29}{\eV}.
+Considering this literature value, the experimentally determined workfunction deviates by \num{56}\%.
+\todo{Explain fuck-up.}
 \section{Stopping Voltage}%3.2 and 3.5
 
 
