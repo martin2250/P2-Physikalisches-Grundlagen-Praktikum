@@ -64,10 +64,13 @@ The actual stopping potential is $U_\text{s} = U_\text{g} - U_\text{out}$, the p
 
 \textbf{Evaluation}\\
 The measured values for the series with and without filter are plotted in \autoref{plt:photocurrent}.
+All experiments are done with the \SI{400}{\nm} filter.
 There is no measurable reverse current, so measurements for $U_\text{g} < \SI{-1.6}{\volt}$ are omitted.
 
 Both curves start around \SI{-1.5}{\volt} looking similar to the characteristic diode curve.
+This voltage represents the maximum kinetic energy of the freed electrons which is equal to $E_\text{k, max} = hf - E_\text{A}$, it is not dependent on light intensity.
 For higher stopping potentials, the current approaches the saturation current.
+In this region, the electric field attracts all freed electrons to the anode, the quantum efficiency (number of electrons over number of photons) approaches the material dependent maximum.
 
 To approximate the saturation current, a logistic curve is fitted to the data as it is the most accurate model tested:
 \begin{equation*}
@@ -83,6 +86,8 @@ The saturation current is proportional to the filter's transmittance, so the tra
 \begin{equation*}
 	T = \frac{I_\text{sat, filter}}{I_\text{sat, \#nofilter (todo)}} = \num{0.62}.
 \end{equation*}
+
+
 
 \begin{figure}[tbp]
 	\centering
