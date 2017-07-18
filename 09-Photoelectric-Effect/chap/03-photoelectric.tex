@@ -2,7 +2,7 @@
 \chapter{Photoelectric Effect}
 
 
-\section{Terminal Voltage}%3.1
+\section{Terminal Voltage}\label{sec:term_volt}%3.1
 
 \textbf{Setup}\\
 \begin{figure}[tbp]
@@ -28,7 +28,7 @@ This equation can be used to compute the ratio $\frac{h}{e}$.
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.6\textwidth]{./data/plots/3-1.pdf}
-	\caption[Linear regression of terminal voltage over inverse wavelength]{\textbf{Linear regression of terminal voltage over inverse wavelength} Three series of data points are measured and a linear fit for all data sets is applied. $a=\SI{922.7}{\volt\nm}$, $b=\SI{-985.3}{\milli\V}$, $R^2=99.5\%$}
+	\caption[Linear regression of terminal voltage over wavelength]{\textbf{Linear regression of terminal voltage over wavelength} Three series of data points are measured and a linear fit for all data sets is applied, as the data was sufficiently reproducible. $a=\SI{922.7}{\volt\nm}$, $b=\SI{-985.3}{\milli\V}$, $R^2=99.5\%$}
 	\label{fig:linreg_term_volt}
 \end{figure}
 
@@ -46,11 +46,36 @@ and
 The experimentally determined ratio $\frac{h}{e}$ deviates by \num{25.5}\% from the literature value\footnote{\url{www.wolframalpha.com/input/?i=planck+constant+per+elementary+charge}}.
 As specified in the lab description, the used photocathode's suface is made of potassium, which has a workfunction\footnote{\url{www.wolframalpha.com/input/?i=workfunction+of+potassium}} of \SI{2.29}{\eV}.
 Considering this literature value, the experimentally determined workfunction deviates by \num{56}\%.
-\todo{Explain fuck-up.}
-\section{Stopping Voltage}%3.2 and 3.5
+It is worth to note that this reproduces data found by other experimenters\footnote{\url{www-ekp.physik.uni-karlsruhe.de/~simonis/praktikum/musterprotokolle/P2/Photoeffekt/Photoeffekt-2013-MatthiasLinster+DominicScheider.pdf}}, which increases the significance of results found in this experiment.
+Probable causes of systematic errors influencing the value of the workfunction are
+\begin{itemize}
+	\item \textbf{Color filters:} The color filters' wavelength specifications as well as their transmission characteristics may vary.
+	\item \textbf{Optical system:} The lens system used in this experiment may alter results by optical aberrations.
+\end{itemize}
 
+\section{Stopping Voltage - Voltage Compensation}%3.2
+\begin{figure}[tbp]
+	\centering
+	%\includegraphics[width=.4\textwidth]{img/3-2-setup.pdf}
+	\caption[Setup for measuring compensation voltage]{\textbf{Setup for measuring compensation voltage} $U_\text{bat}$ is tuned to compensate for the photovoltage.}
+	\label{fig:comp_volt}
+\end{figure}
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{./data/plots/3-2.pdf}
+	\caption[Linear regression of compensation voltage over wavelength]{\textbf{Linear regression of compensation voltage over wavelength} A linear fit is applied. $a=\SI{903.1}{\volt\nm}$, $b=\SI{-954.2}{\milli\V}$, $R^2=99.5\%$}
+	\label{fig:linreg_comp_volt}
+\end{figure}
+Using the setup shown in \autoref{fig:comp_volt}, the voltage necessary for compensating the photovoltage is measured in dependence of the light's wavelength.
+\autoref{fig:linreg_comp_volt} shows a linear fit for the measured data.
+\autoref{eq:energy_balance} can be used to compute the ratio $\frac{h}{e}$ and workfunction $E_\text{A}$ as
+\begin{gather*}
+	\frac{h}{e}=\SI{3.012e-15}{\volt\second}, E_\text{A}=\SI{-954.2}{\milli\eV}.
+\end{gather*}
+Using the same literature values as in \autoref{sec:term_volt}, the experimental ratio $\frac{h}{e}$ deviates by \num{27.6}\%, whereas the workfunction deviates by \num{57.8}\%, roughly reproducing the results found in \autoref{sec:term_volt}.
+Probable systematic error sources are those mentioned in \autoref{sec:term_volt} and the accuracy of the battery voltage.
 
-\section{Photocurrent}%3.3 and 3.4
+\section{Photocurrent}\label{sec:photo_current}%3.3 and 3.4
 
 The current flowing through the photoelectric cell is measured while the voltage across its terminals is held at constant levels ranging from \SIrange{-3}{6}{\volt}.
 The experiment is repeated with a neutral density filter in front of the mercury lamp.
@@ -87,8 +112,6 @@ The saturation current is proportional to the filter's transmittance, so the tra
 	T = \frac{I_\text{sat, filter}}{I_\text{sat, \#nofilter (todo)}} = \num{0.62}.
 \end{equation*}
 
-
-
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=.4\textwidth]{img/photocurrent.pdf}
@@ -102,3 +125,20 @@ The saturation current is proportional to the filter's transmittance, so the tra
 	\caption[Photocurrent versus Stopping Potential]{\textbf{Photocurrent versus Stopping Potential}, constant wavelength $\lambda = \SI{400}{\nm}$}
 	\label{plt:photocurrent}
 \end{figure}
+
+\section{Stopping Voltage - Current Compensation}%3.5
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=.6\textwidth]{./data/plots/3-5.pdf}
+	\caption[Linear regression of compensation voltage over wavelength]{\textbf{Linear regression of compensation voltage over wavelength} A linear fit is applied. $a=\SI{1142.8}{\volt\nm}$, $b=\SI{-1.51}{\V}$, $R^2=98.3\%$}
+	\label{fig:linreg_comp_curr}
+\end{figure}
+The same setup as in \autoref{sec:photo_current} is used, this time compensating for the photocurrent by tuning the battery voltage.
+One data set for varying wavelengths is recorded and a linear fit as in \autoref{sec:term_volt} is applied.
+\autoref{fig:linreg_comp_curr} shows the fit of this linear model, yielding
+\begin{gather*}
+	\frac{h}{e}=\SI{3.81e-15}{\volt\second}, E_\text{A}=\SI{-1.51}{\eV}.
+\end{gather*}
+Using the same literature values as in \autoref{sec:term_volt}, the experimental ratio $\frac{h}{e}$ deviates by \num{8.5}\%, whereas the workfunction deviates by \num{33.2}\%.
+These results are much closer to the literature values than those found in \autoref{sec:term_volt}.
+\todo{Explain better results.}
