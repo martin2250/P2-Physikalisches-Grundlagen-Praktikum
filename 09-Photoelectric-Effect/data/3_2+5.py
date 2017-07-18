@@ -8,11 +8,10 @@ import scipy
 import sys
 import matplotlib.ticker as ticker
 
-lamb, u1, u2, u3 = np.loadtxt('source/31.dat', unpack=True)
+if len(sys.argv) == 1:
+	print('usage: ./3_2+5.py input.dat <output.pdf>')
 
-#append arrays to fit over all data sets
-U = np.append(np.append(u1, u2), u3)
-lamb = np.append(np.append(lamb, lamb), lamb)
+lamb, U= np.loadtxt(sys.argv[1], unpack=True)
 
 #inverse wavelength for fit
 lamb = 1/lamb
@@ -33,8 +32,8 @@ ax.xaxis.set_major_formatter(ticks_x)
 plt.grid()
 plt.legend()
 
-if len(sys.argv) == 1:
+if len(sys.argv) == 2:
 	print('a=', a, 'b=', b, 'r_squared=', r)
 	plt.show()
 else:
-	plt.savefig(sys.argv[1])
+	plt.savefig(sys.argv[2])
