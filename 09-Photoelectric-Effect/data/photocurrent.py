@@ -20,7 +20,7 @@ Usnf = Us - Unf
 Usf = Us - Uf
 
 ##########################################	main plot
-plt.plot(Usnf, Inf, '+', label='#nofilter (todo)')
+plt.plot(Usnf, Inf, '+', label='no filter')
 plt.plot(Usf, If, '+', label='with filter')
 
 plt.axis([-2, 5.7, -2.5, 60])

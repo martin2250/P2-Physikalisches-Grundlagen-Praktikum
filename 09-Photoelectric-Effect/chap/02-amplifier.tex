@@ -14,8 +14,9 @@ An ideal voltage source, on the other hand, maintains a constant voltage across 
 Therefore, it has to have a vanishing resistance.
 
 \section{Am- and Voltmeters}
-An ideal amperemeter is a device used for measuring an electric current of a circuit.
-\todo{what is a shunt?}
+An ideal ammeter is a device used for measuring an electric current of a circuit.
+Most modern ammeters use the voltage drop over a precision resistor, called a shunt, with known resistance.
+The flowing current can be calculated by using \texttt{Ohm}'s law.
 Classical ammeters are connected in series with the circuit carrying the current, so their shunts need to have a very low impedance to cause little additional voltage drop, which could affect the circuit.
 A voltmeter is an instrument used for measuring a potential difference, a voltage, between two points in an electric circuit.
 Usually, it is connected in parallel with the part of the circuit whose voltage has to be measured, so its impedance should be infinitely high to not present an additional load to the circuit.
@@ -29,7 +30,6 @@ The cell's current thus is dependent on the frequency and intensity of the incom
 \begin{table}[b!]
 	\centering
 	\caption[Series resistance over amplifier voltage]{Series resistance over amplifier voltage, $U_0=\SI{5}{\volt}$ at $\nu=1$}
-	\caption*{TODO: what is $\nu$? I don't see it referenced anywhere else}
 	\label{tab:impedance}
 	\begin{tabular}{cS}
 		\toprule
@@ -49,8 +49,9 @@ A fixed voltage of \SI{5}{\volt} is applied, varying the series resistor and mea
 Using \texttt{Kirchhoff}'s first and second rule, it holds that
 \begin{align}
 	U_1	&= 	R_\text{i}\cdot I \label{eq:kirch_1}\qquad(\nu = 1)\\
-	I 					&=	\frac{U_0}{R_\text{s}+R_\text{i}}.	\label{eq:kirch_2}
+	I 					&=	\frac{U_0}{R_\text{s}+R_\text{i}},	\label{eq:kirch_2}
 \end{align}
+where $\nu$ denotes amplification.
 
 Rearranging equations \ref{eq:kirch_1} and \ref{eq:kirch_2} yields
 \begin{equation}
