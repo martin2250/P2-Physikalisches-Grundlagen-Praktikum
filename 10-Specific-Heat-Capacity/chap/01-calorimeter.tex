@@ -1,2 +1,21 @@
 %!TEX root = ../10-Specific-Heat-Capacity.tex
 \chapter{Theory}
+
+\begin{table}
+	\centering
+	\caption[Calorimeter Results]{\textbf{Calorimeter Results}, water and the examined material (masses $m_\text{c}$ and $m_\text{h}$, temperatures $T_\text{c}$ and $T_\text{h}$) are added to calorimeter, resulting in equilibrium temperature $T_\text{mix}$. $c_\text{spec}$ with relative deviation from literature value is the calculated specific heat capacity, corrected for calorimeter's own heat capacity.}
+	\begin{tabular}{lSSSSSSS[retain-explicit-plus]}
+	\toprule
+	{material}&
+	{$m_\text{c}$ (\si{\gram})}&
+	{$m_\text{h}$ (\si{\gram})}&
+	{$T_\text{c}$ (\si{\celsius})}&
+	{$T_\text{h}$ (\si{\celsius})}&
+	{$T_\text{mix}$ (\si{\celsius})}&
+	{$c_\text{spec}$ (\si{\joule\per\gram\per\kelvin})}&
+	{rel. deviation (\si{\percent})}\\
+	\midrule
+		\input{data/plots/calorimeter.agtex}
+	\bottomrule
+	\end{tabular}
+\end{table}
