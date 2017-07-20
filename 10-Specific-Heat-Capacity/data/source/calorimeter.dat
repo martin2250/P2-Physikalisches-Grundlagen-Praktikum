@@ -1,0 +1,6 @@
+#mass empty: 240.15g
+#material	mass (water only)	mass (with object) temperatures [water	object	mix]
+'aluminium'	273.16	302.32	29.5	94	37.9
+'aluminium'	278.93	334.75	28.13	93.5	41.1
+'copper'	264.08	297.47	27.53	88.4	34.06
+'copper'	271.61	456.3	27.64	89.8	47.3
