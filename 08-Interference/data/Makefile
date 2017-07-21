@@ -1,6 +1,6 @@
 .PHONY: data
 
-data: plots/1-1-blue.pdf plots/1-1-yellow.pdf
+data: plots/1-1-blue.pdf plots/1-1-yellow.pdf plots/1-2-yellow-water.pdf
 
 plots:
 	mkdir plots
