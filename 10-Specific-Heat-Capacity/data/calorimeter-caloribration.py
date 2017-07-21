@@ -21,4 +21,6 @@ cw = 4.187		#	water heat capacity, J/(g*K)
 
 C = cw * (m2 * (T1 - Tmix) / (Tmix - T0) - m1)
 
+print('m-cold', m1)
+print('m-hot', m2)
 print('calorimeter total heat capacity:', C, 'J/K')

@@ -38,8 +38,10 @@ for i in range(len(mc)):
 	print('\t%0.3f'%c[i], end=' &')
 
 	if dev[i] >= 10:
-		print('\t%+0.0f'%dev[i], end=' \\\\')
+		#print('\t%+0.0f'%dev[i], end=' \\\\')
+		print('\t\\SI[retain-explicit-plus]{%+0.0f}{\\percent}'%dev[i], end=' \\\\')
 	else:
-		print('\t%+0.1f'%dev[i], end=' \\\\')
+		#print('\t%+0.1f'%dev[i], end=' \\\\')
+		print('\t\\SI[retain-explicit-plus]{%+0.1f}{\\percent}'%dev[i], end=' \\\\')
 
 	print()
