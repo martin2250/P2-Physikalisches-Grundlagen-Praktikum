@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import scipy.stats
 import sys
 
+import matplotlib
+matplotlib.rcParams.update({'font.size': 18, 'figure.autolayout': True})
+
 if len(sys.argv) == 1:
 	print('usage: ./newton.py input.dat <output.pdf>')
 
