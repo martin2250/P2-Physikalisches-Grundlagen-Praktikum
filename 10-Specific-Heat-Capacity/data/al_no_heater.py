@@ -36,7 +36,7 @@ def warmUpFunc(t, a, b, c):
 p0 = np.array([20, calcTemp(-5.785), 0.0001])
 popt, pconv = scipy.optimize.curve_fit(warmUpFunc, t, T, p0=p0)
 t_lin=np.linspace(t[0], t[-1], 1000)
-plt.plot(t_lin, warmUpFunc(t_lin, popt[0], popt[1], popt[2]), label='fit\n$T(t)=a-(a-b)e^{-ct}$\n$a = %.2f$, b = %.2f, c = %f' %(popt[0], popt[1], popt[2]), zorder=2)
+plt.plot(t_lin, warmUpFunc(t_lin, popt[0], popt[1], popt[2]), label='fit\n$T(t)=a-(a-b)e^{-ct}$\n$a = %.2f°C, b = %.2f°C, c = %.2f\cdot 10^{-6}\ s^{-1}$' %(popt[0], popt[1], popt[2]*1e6), zorder=2)
 
 #data points
 plt.plot(t, T, '+', zorder=1, label='data')

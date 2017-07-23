@@ -71,11 +71,11 @@ These relations can be used to compute the quantaties $\dot{T}_\text{tot}$ and $
 
 Considering the fit parameters shown in their respective figures, the functions become
 \begin{equation*}
-	\dot{T}_\text{tot} = 0.7102\cdot\left(\frac{T+197}{1.06}\right)^{\frac{0.67-1}{0.67}}
+	\dot{T}_\text{tot} = \SI{0.71}{\celsius}\cdot\left(\frac{T+\SI{197}{\celsius}}{\SI{1.06}{\celsius}}\right)^{\frac{0.67-1}{0.67}}
 \end{equation*}
 and
 \begin{equation*}
-	\dot{T}_\text{env} = 0.00005\cdot(22.25-T).
+	\dot{T}_\text{env} = \SI{50e-6}{\per\second}\cdot(\SI{22.25}{\celsius}-T).
 \end{equation*}
 
 \begin{figure}[tbp]
@@ -86,6 +86,4 @@ and
 \end{figure}
 Inserting these functions into \autoref{eq:cap_temp} and plotting the heat capacity against the temperature yields \autoref{fig:cap}.
 A heating power of $P_\text{el}=\SI{11.1}{\volt}\cdot\SI{2.01}{\ampere} = \SI{22.31}{\watt}$ and a sample mass of $m=\SI{338}{\gram}$ is used.
-The experimentally determined specific heat capacity at \SI{20}{\celsius} is equal to \SI{1.28}{\joule\per\gram\per\kelvin} which relatively deviates by \num{43}\% from the literature value \footnote{\url{en.wikipedia.org/wiki/Heat_capacity}} of \SI{0.895}{\joule\per\gram\per\kelvin}.
-This relatively large deviation can be explained by the ice bath method for referencing the temperature.
-Assuming that the ice bath has a constant temperature is not valid, especially on a warm day, which was the case on the day the experiment was conducted ($T\approx\SI{30}{\celsius}$).
+The experimentally determined specific heat capacity at \SI{20}{\celsius} is equal to \SI{1.28}{\joule\per\gram\per\kelvin} which relatively deviates by \num{43}\% from the literature value \footnote{\url{https://en.wikipedia.org/wiki/Heat_capacity}} of \SI{0.895}{\joule\per\gram\per\kelvin}.

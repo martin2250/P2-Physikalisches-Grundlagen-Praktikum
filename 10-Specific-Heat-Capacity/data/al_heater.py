@@ -38,7 +38,7 @@ def warmUpFunc(t, a, b, c):
 
 popt, pconv = scipy.optimize.curve_fit(warmUpFunc, t, T)
 t_lin=np.linspace(t[0], t[-1], 1000)
-plt.plot(t_lin, warmUpFunc(t_lin, popt[0], popt[1], popt[2]), label='fit\n$T(t)=a\cdot t^b + c$\n$a = %.2f$, b = %.2f, c = %.2f' %(popt[0], popt[1], popt[2]), zorder=2)
+plt.plot(t_lin, warmUpFunc(t_lin, popt[0], popt[1], popt[2]), label='fit\n$T(t)=a\cdot t^b + c$\n$a = %.2f°C\ s^{-1}, b = %.2f, c = %.2f°C$' %(popt[0], popt[1], popt[2]), zorder=2)
 
 #data points
 plt.plot(t, T, '+', zorder=1, label='data')
