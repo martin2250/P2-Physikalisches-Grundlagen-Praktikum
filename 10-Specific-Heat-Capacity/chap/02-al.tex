@@ -1,13 +1,13 @@
 %!TEX root = ../10-Specific-Heat-Capacity.tex
 \chapter{Temperature-dependent, Specific Heat Capacity of Aluminium}
 \section{Setup}
-A solid aluminium block is cooled down to a temperature of roughly \SI{-196}{\celsius} using liquid nitrogen.
-The heating process then takes place in two different ways:
+A solid aluminium block \todo{which oddly looks like a hollow cylinder} is cooled down to a temperature of roughly \SI{-196}{\celsius} using liquid nitrogen.
+The heating process then takes place in two different ways:	\todo{doesn't just take place by itself (well sorta), better is carried out}
 \begin{itemize}
-	\item \textbf{Without heater} This measurement extends over a long period of time ($\approx$ one day).
-	\item \textbf{With heater} Employing a heat input $P_\text{el}$.
+	\item \textbf{Without heater} This measurement extends over a long period of time ($\approx$ one day). \todo{maybe mention imperfect insulation -> ambient heat}
+	\item \textbf{With heater} Employing a heat input $P_\text{el}$.	\todo{didn't see a single mention about what kind of heater is used}
 \end{itemize}
-The probe's temperature is measured over time using a thermocouple.
+The sample's temperature is measured over time using a thermocouple.
 
 \section{Theory}
 Using \autoref{eq:adiabatic}, the heating process with heating power $P_\text{el}$ can be described as
@@ -16,7 +16,7 @@ Using \autoref{eq:adiabatic}, the heating process with heating power $P_\text{el
 	\Leftrightarrow\ 	&P\d t																			&&= m\cdot c(T)\cdot\d T \nonumber \\
 	\Leftrightarrow\ 	&\left(\frac{\d T}{\d t}\right)_\text{tot}	&&= \frac{P_\text{env}+P_\text{el}}{mc}, \label{eq:diff_temp}
 \end{alignat}
-where $P_\text{env}$ denotes the heating power applied by the environment.
+where $P_\text{env}$ denotes the heating power applied by the environment.	\todo{why split this sentence up?}
 
 Rearranging \autoref{eq:diff_temp} yields
 \begin{alignat}{3}
@@ -44,11 +44,13 @@ where $\dot{T}_\text{tot}$ and $\dot{T}_\text{env}$ denote the heating curves' g
 	\caption[Heating curves for aluminium]{Fits for the function $T(t)=a\cdot t^b + c$ are applied. Fit parameters are shown in their respecive legends.}
 \end{figure}
 
-To calculate the temperature using the thermocouple's output voltage, a table with conversion values\footnote{\url{/www-ekp.physik.uni-karlsruhe.de/~simonis/praktikum/p2/p2-versuchsanleitungen/Waermekapazitaet.pdf}} is used.
-Using a python script, a polynomial fit is applied to this conversion table to define a function which outputs a temperature value for any desired voltage.
-Plotting the thus obtained temperatures over time yields figures \ref{fig:heater} and \ref{fig:no_heater}.
+A standard type-K thermocouple is used, the sample's temperature is recovered from it's output voltage through an interpolated conversion table.
+\todo{mention shitty as f*** method of using an ice bath as reference junction}
+% To calculate the temperature using the thermocouple's output voltage, a table with conversion		% this is all standard stuff, nobody cares values\footnote{\url{/www-ekp.physik.uni-karlsruhe.de/~simonis/praktikum/p2/p2-versuchsanleitungen/Waermekapazitaet.pdf}} is used.
+% Using a python script, a polynomial fit is applied to this conversion table to define a function which outputs a temperature value for any desired voltage.
+Plotting the thus obtained temperatures over time yields figures \ref{fig:heater} and \ref{fig:no_heater}.	\todo{did you even read julia's email? plotting is colloquial}
 
-The fit function $T(t)=a\cdot t^b + c$ is applied for both curves.
+The fit function $T(t)=a\cdot t^b + c$ is applied to both curves.	%guessing that sentence is going to change anyways
 Inverting this function yields
 \begin{equation}\label{eq:inv}
 	t(T) = \left(\frac{T-c}{a}\right)^\frac{1}{b}.
@@ -69,8 +71,9 @@ Considering the fit parameters shown in their respective figures, the functions
 \end{equation*}
 and
 \begin{equation*}
-	\dot{T}_\text{env} = 27.84\cdot\left(\frac{T+299.28}{27.62}\right)^{\frac{0.22-1}{0.22}}.
+	\dot{T}_\text{env} = 27.84\cdot\left(\frac{T+299.28}{27.62}\right)^{\frac{0.22-1}{0.22}}
 \end{equation*}
+\todo{verb much?}.
 
 \begin{figure}[tbp]
 	\centering
@@ -78,8 +81,8 @@ and
 	\caption[Temperature dependency of aluminium's specific heat capacity]{\textbf{Temperature dependency of aluminium's specific heat capacity} $c(\SI{20}{\celsius})=\SI{1.3}{\joule\per\gram\kelvin}$ at $P_\text{el}=\SI{22.31}{\watt}$ and $m=\SI{338}{\gram}$}
 	\label{fig:cap}
 \end{figure}
-Inserting these functions into \autoref{eq:cap_temp} and plotting the heat capacity against the temperature yields \autoref{fig:cap}.
-A heating power of $P_\text{el}=\SI{22.31}{\watt}$ and a mass of $m=\SI{338}{\gram}$ is used.
+Inserting these functions into \autoref{eq:cap_temp} and plotting \todo{colloquial} the heat capacity against the temperature yields \autoref{fig:cap}.
+A heating power \todo{how known?} of $P_\text{el}=\SI{22.31}{\watt}$ and a sample mass of $m=\SI{338}{\gram}$ is used.
 It is easy to see that the heat capacity curve is approximately linear for temperatures above \SI{-100}{\celsius}.
 The experimentally determined specific heat capacity at \SI{20}{\celsius} is equal to \SI{1.3}{\joule\per\gram\kelvin} which relatively deviates by \num{45.2}\% from the literature value \footnote{\url{en.wikipedia.org/wiki/Heat_capacity}} of \SI{0.895}{\joule\per\gram\kelvin}.
-This relatively large deviation could be reduced by finding an invertible function that fits the curve seen in \autoref{fig:no_heater} better. 
+This relatively large deviation could be reduced by finding an invertible function that fits the curve seen in \autoref{fig:no_heater} better \todo{well, go ahead}.
