@@ -6,7 +6,6 @@ from matplotlib import pyplot as plt
 from scipy.stats import linregress
 import scipy
 import sys
-import matplotlib.ticker as ticker
 
 #--------------- CONVERSION OF TEMP <--> VOLTAGE ------------------
 temp, U = np.loadtxt('source/type-K-ref.dat', unpack=True)
@@ -16,11 +15,11 @@ degree = 15	#might be overkill
 p = np.polyfit(U, temp, degree)
 
 def calcTemp(u):
-	
+
 	poly = 0
 	for i in range(0, degree):
 		poly = poly + p[i]*(u**(degree-i))
-	
+
 	return poly
 #--------------- CONVERSION OF TEMP <--> VOLTAGE END---------------
 
