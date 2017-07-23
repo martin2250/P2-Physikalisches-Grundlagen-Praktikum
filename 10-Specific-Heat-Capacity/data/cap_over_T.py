@@ -5,11 +5,14 @@ import matplotlib
 from matplotlib import pyplot as plt
 import sys
 
-def T_func(T, a, b, c):
+def T_func_heater(T, a, b, c):
 	return a*b * ((T-c) / a)**((b-1) / b)
 
+def T_func_no_heater(T, a, c):
+	return c*(a-T)
+
 def cap(T, P, m):
-	return P / (m * (T_func(T, 1.06, 0.67, -197)-T_func(T, 27.62, 0.22, -299.28)))
+	return P / (m * (T_func_heater(T, 1.06, 0.67, -197)-T_func_no_heater(T, 22.25, 0.00005)))
 
 T = np.linspace(-150, 50, 1000)
 
