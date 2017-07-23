@@ -2,7 +2,7 @@
 \chapter{Temperature-dependent, Specific Heat Capacity of Aluminium}
 \section{Setup}
 A hollow aluminium cylinder is cooled down to a temperature of roughly \SI{-196}{\celsius} using liquid nitrogen.
-The heating process then is carried out in two different ways:	\todo{doesn't just take place by itself (well sorta), better is carried out}
+The heating process then is carried out in two different ways:
 \begin{itemize}
 	\item \textbf{Without heater} As the container used to hold the cylinder is not perfectly insulated, ambient heat leaks into it. The heat curve's measurement extends over a long period of time ($\approx$ one day).
 	\item \textbf{With heater} Employing a heat input $P_\text{el}$ inserting a heating wire with connected power source.
@@ -48,7 +48,7 @@ A standard type-K thermocouple is used, the sample's temperature is recovered fr
 An ice bath serves as a \SI{0}{\celsius} reference point for the thermocouple.
 Plotting the thus obtained temperatures over time yields figures \ref{fig:heater} and \ref{fig:no_heater}.
 
-The fit function $T(t)=a\cdot t^b + c$ is applied to the heat curve with connected heater.	%guessing that sentence is going to change anyways
+The fit function $T(t)=a\cdot t^b + c$ is applied to the heat curve with connected heater.
 Inverting this function yields
 \begin{equation}\label{eq:inv}
 	t(T) = \left(\frac{T-c}{a}\right)^\frac{1}{b}.
