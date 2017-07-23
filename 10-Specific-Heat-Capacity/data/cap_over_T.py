@@ -17,7 +17,7 @@ plt.plot(T, cap(T, 2.01*11.1, 338))
 
 plt.grid()
 plt.xlabel("temperature in °C")
-plt.ylabel("specific heat capacity in $\\frac{J}{gK}$")
+plt.ylabel("specific heat capacity in $\\mathrm{\\frac{J}{gK}}$")
 
 if len(sys.argv) == 2:
 	plt.savefig(sys.argv[1])
